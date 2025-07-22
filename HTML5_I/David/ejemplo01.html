@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./CSS/ejemplo01.css">
+  <style>
+    /* (*:caracter comodin, significa todas las etiquetas) todas las etiquetas va a estar afectadas por la propiedad entre llaves */
+    /*
+    *{
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    */
+
+    /* Etiqueta p y td, texto contenido este justificado */
+
+    /*
+    p,td{
+      text-align: justify;
+    }
+    */
+    /* Todas las etiquetas img, tienen las propiedades entre llaves */
+    /*
+    img{
+      width: 150px;
+      height: 150px;
+      border-style: solid;
+      border-width: 2px;
+      border-color: black;
+      border-radius: 25px;
+    }
+    */
+    /*
+    th, td{
+      border-color: black;
+      border-width: 1px;
+      border-style: solid;
+    }
+    */
+  </style>
+</head>
+<body>
+  <!--
+    CSS: Hojas de Estilo Cascada
+    1) Atributo stle="propiedad:valor;"
+    2) Etiqueta <style></style> anidada a la etiqueta <head< (cabecera)
+    3) Declarar el contenido CSS en un archivo independiente de extensión .css
+  -->
+  <h1 style="color:red;">Introducción a la Computación</h1>
+  <h2>Definición de Hardware</h2>
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam eum magnam dicta ipsum fugit nostrum neque culpa qui autem, aliquam, dolor cumque eos, incidunt ipsa nihil quis atque porro enim impedit laborum veniam delectus dolores <b>NEGRILLA</b> Cumque dolore aliquid, odio nobis facilis nemo nostrum tempora fuga ab. Praesentium ad <i>ITALICA</i> et nisi maiores tempora quas voluptas excepturi ex animi eius dolorum quo delectus odio, magni, doloremque corporis? Expedita at explicabo tenetur <u>SUB RAYADO</u> numquam labore soluta! Sint recusandae <sup>SUPER INDICE</sup> ut ipsa rerum perferendis dolore hic, aliquam exercitationem, repellat facere libero cum! <s>TACHADO</s> Perferendis <sub>SUB INDICE</sub> deleniti <EM>ENFATIZADO</EM> sunt <strong>FUERZA</strong> alias placeat eveniet! Error id amet vel in veniam culpa!
+  <h2>Ejemplos de Hardawre</h2>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt perferendis odio exercitationem labore est? Harum tempore cumque fuga autem esse maxime numquam corrupti architecto cupiditate, error illo reiciendis, repellendus tempora neque ipsam deserunt odio rerum eveniet explicabo impedit quae asperiores! Suscipit pariatur, harum sapiente quo ullam molestias, modi veniam, aut quisquam minus facilis sit. Minus facilis optio a aliquid nobis, ea adipisci, veniam dolore eius expedita debitis fuga labore aspernatur, veritatis quia animi libero at dolorem! Recusandae nobis inventore rem dolores aperiam ratione, praesentium fuga eos voluptatum cumque vel ad!</p>
+
+<!-- Listas Ordenadas
+ <ol>
+  <li>Item1</li>
+  <li>item2</li>
+ </ol>
+Listas No Ordenadas
+ <ul>
+  <li>item1</li>
+  <li>item2</li>
+  ...
+ </ul>
+Atributos pueden ser Globales (Genéricos) o Particulares
+-->
+<ol type="i">
+  <li>Monitor</li>
+  <li>Teclado</li>
+  <li>Impresora</li>
+  <li>Mouse</li>
+  <li>CPU
+    <ol type="A">
+      <li>Unidad de </li>
+      <li>Unidad de Control</li>
+      <li>Unidad de Logica y Aritmética</li>
+    </ol>
+  </li>
+</ol>
+
+  <h2>Definición de Software</h2>
+  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia nobis commodi, ratione facilis fugiat voluptas tempore sint et alias ut iusto ipsam quaerat iste laborum magni aspernatur ducimus modi accusamus amet at molestiae. Accusamus vel rem quis qui sunt iusto, exercitationem corporis quia explicabo maiores perferendis in dignissimos facere minus illum veritatis. Minus laboriosam ipsum culpa est iusto beatae maxime! Mollitia incidunt at aspernatur culpa quod sapiente earum laboriosam consequuntur aliquam quo! Veniam, ullam! Officiis minus quisquam enim. Illum, veniam eveniet consequatur quaerat, odio consequuntur soluta iusto nam, nemo libero facilis fugiat. Dolore perspiciatis harum quia ad tenetur deleniti cumque, in doloremque voluptates mollitia natus assumenda provident adipisci similique neque sequi nesciunt quam soluta molestias ea velit voluptatibus odio dicta.</p>
+  <h2>Ejemplo de Software</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam incidunt quam facere provident reiciendis accusantium perferendis officia doloribus assumenda. Id sit repudiandae asperiores quibusdam, adipisci vitae facere at dolorem nihil corporis sequi? Explicabo nisi dolor blanditiis aut ut facere similique rem libero debitis ratione velit tempore deleniti, laboriosam sapiente ad repudiandae nam accusamus quam dolore est. Molestiae voluptate omnis repellat aperiam libero, deleniti, eligendi nisi itaque eos eum odit iure tempora doloribus! Eum iste nihil optio eius tenetur culpa voluptatum?</p>
+<!-- 
+  Para la etiqueta ul, el tipo puede ser:
+  type="disc"
+  type="circle"
+  type="square"
+  -->
+  <ul type="square">
+    <li>Lenguajes de Programación
+      <ul type="disc">
+        <li>Python</li>
+        <li>Java</li>
+        <li>JavaScript</li>
+        <li>PHP</li>
+        <li>C#</li>
+      </ul>
+    </li>
+    <li>Manejadores de Bases de Datos</li>
+    <li>Marcos de Desarrollo</li>
+    <li>Video Juegos
+      <ul type="square">
+        <li>Sonic</li>
+        <li>God Of War</li>
+        <li>Fortnite</li>
+        <li>Roblox</li>
+        <li>Call Of Duty</li>
+        <li>Counter Strike</li>
+        <li>Uncharted</li>
+        <li>Borderlands</li>
+      </ul>
+    </li>
+    <li>Herramientas Ofimáticas
+      <ul type="circle">
+        <li>Word</li>
+        <li>Excel</li>
+        <li>PowerPoint</li>
+        <li>Access</li>
+      </ul>
+    </li>
+  </ul>
+  <h2>Bases de Datos</h2>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem libero sequi facilis, numquam modi ratione eum magnam quaerat fugit labore ipsum vitae culpa itaque? Quidem amet placeat hic dolore perferendis? Minima neque, fugiat vitae quidem sunt rerum culpa officia maiores veritatis illum alias harum quod atque recusandae? Suscipit voluptatem laudantium, iusto aspernatur voluptatum voluptatibus vitae veritatis minus officiis numquam aliquam.</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Características</th>
+        <th>Imagen</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>MySQL</td>
+        <td>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia voluptatum blanditiis earum nam doloremque tenetur repellat fuga exercitationem totam non.</td>
+        <td>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium, ullam repudiandae sapiente illo quidem veniam quisquam labore enim eligendi quaerat praesentium doloremque inventore. Nesciunt fugit delectus sed alias, quaerat debitis modi esse facilis, mollitia iste vel iure culpa tempora repellendus.</td>
+        <td><img src="../img/mysql.png" alt="Imagen MySQL"></td>
+      </tr>
+      <tr>
+        <td>PostgreSQL</td>
+        <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias repellendus rerum tempore deserunt ipsam delectus eum nemo quasi sint commodi.</td>
+        <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque aliquid molestias aperiam sequi! Perferendis autem eum, officiis libero, quae fugit obcaecati eos saepe fuga necessitatibus illo accusamus ducimus rem sed.</td>
+        <td><img src="../img/postgresql.png" alt="Imagen PostgreSQL"></td>
+      </tr>
+      <tr>
+        <td>SQLite</td>
+        <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed ipsa veritatis eligendi quae animi aliquam pariatur quasi optio dolor, repudiandae dolorem est obcaecati iste libero.</td>
+        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis laborum nihil nulla temporibus voluptatibus est a consequatur nesciunt, eligendi ratione sapiente, neque aperiam, provident nisi mollitia odio voluptatum velit?</td>
+        <td><img src="../img/sqlite.jfif" alt="Imagen SQLite"></td>
+      </tr>
+      <tr>
+        <td>SQLServer</td>
+        <td>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo enim reiciendis fuga cumque quisquam aliquam iste sed odio totam, commodi nulla dicta, laboriosam hic aut veniam error. Numquam, dolores! Minus aspernatur ea velit, corrupti sapiente deleniti similique, voluptatem dolore recusandae, iusto labore reiciendis nostrum illum consequatur nisi explicabo atque? Quos recusandae incidunt beatae deserunt rerum. Aspernatur!</td>
+        <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic explicabo unde voluptate accusantium ipsam repellendus corrupti, magni officiis, reprehenderit possimus molestias dolorem maxime cumque maiores soluta accusamus. Eaque corporis beatae, molestiae ipsa dicta sunt?</td>
+        <td><img src="../img/sqlserver.jfif" alt="Imagen SQLServer"></td>
+      </tr>
+    </tbody>
+
+  </table>
+
+
+
+</body>
+</html>
