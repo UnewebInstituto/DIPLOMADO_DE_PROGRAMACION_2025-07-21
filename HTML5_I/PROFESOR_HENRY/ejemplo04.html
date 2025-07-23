@@ -41,34 +41,46 @@
                         <h2>Etiqueta Vídeo</h2>
                     </hgroup>
                 </header>
-                <!--
-                <video src="../video/1992-153555258_small.mp4" controls></video>
+
+                <video src="../video/1992-153555258_small.mp4" controls>
+                    <track src="./track/pista_es.vtt"
+                           kind="subtitles"
+                           label="Español"
+                           srclang="es">
+                    <track src="./track/pista_en.vtt"
+                           kind="subtitles"
+                           label="Ingles"
+                           srclang="en">
+                </video>
+                <!-- 
+                    Formatos de vídeo, se tienen:
+                    mp4, ogg, webm
                 -->
+                <!--
                 <video controls>
-                    <!-- 
-                        Formatos de vídeo, se tienen:
-                        mp4, ogg, webm
-                    -->
                     <source src="../video/1992-153555258_small.mp4" type="video/mp4">
                     <source src="../video/1992-153555258_small.webm" type="video/webm">
                     <source src="../video/1992-153555258_small.ogg" type="video/ogg">
                 </video>
+                -->
                 <!-- Pie del artículo -->
                 <footer>Pie del primer artículo</footer>
             </article>
             <article>
                 <header>
                     <hgroup>
-                        <h2>Título 2do. Artículo</h2>
-                        <h3>Sub título 2do. Artículo</h3>
+                        <h2>Etiqueta Audio</h2>
                     </hgroup>
                 </header>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora sed, aspernatur at similique dicta quo? Iste doloribus ea possimus repellendus velit debitis dolorum, rem earum facilis voluptates. Velit, repellat doloribus id modi numquam est? Sunt, tenetur minus totam et sint accusantium dolorum ea, itaque eos odit culpa delectus exercitationem id sapiente, sequi repudiandae veniam! Assumenda excepturi explicabo debitis ipsum suscipit harum modi distinctio, ex velit iste nesciunt eum non maxime quam a odio voluptatem itaque!</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos aut quaerat maxime vel. Eum, error porro aspernatur corrupti quidem neque, voluptates consequuntur quisquam repellat at quaerat impedit rem cum modi mollitia, quam omnis veritatis culpa laudantium placeat? Ipsa reiciendis nisi accusantium ducimus excepturi veritatis tempore quam velit ratione quas hic rerum quia autem est sapiente doloribus vel, dignissimos incidunt in, voluptates dolor fugit totam? Quo dolorum molestiae aliquid facere atque. Quaerat eaque quidem nesciunt, rerum cumque non beatae illo fugiat, alias omnis dicta! Molestiae vitae enim explicabo temporibus quis adipisci quisquam nihil voluptas, provident id!</p>
-                <figure>
-                    <img src="../img/postgresql.png" alt="Imagen del segundo artículo">
-                    <figcaption>Imagen logo PostgreSQL</figcaption>
-                </figure>
+                <!--
+                <audio src="../audio/technology-305353.mp3" controls></audio>
+                -->
+                <audio controls>
+                    <source src="../audio/technology-305353.mp3" type="audio/mpeg">
+                    <source src="../audio/technology-305353.ogg" type="audio/ogg">
+                    <source src="../audio/technology-305353.wav" type="audio/wav">
+                    <source src="../audio/technology-305353.aac" type="audio/aac">
+                </audio>
                 <footer>Pie del segundo artículo</footer>
             </article>
         </section>

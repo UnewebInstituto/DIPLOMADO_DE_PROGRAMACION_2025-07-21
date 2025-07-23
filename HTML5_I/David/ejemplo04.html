@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ejemplo03</title>
+  <title>Ejemplo04</title>
   <link rel="shortcut icon" href="../img/uneweb_icono.png" type="image/x-icon">
   <link rel="stylesheet" href="./CSS/ejemplo04.css">
 </head>
@@ -16,6 +16,12 @@
       audio
       source
       track
+      
+      <video src="../video/1992-153555258_small.mp4" controls></video>
+      el atributo source se usa cuando se tiene un video o varios en diferentes  formatos 
+      
+      si se tiene un solo formato se usa video y ya 
+
     -->
   </header>
   <!--Menu-->
@@ -40,14 +46,23 @@
             <h2>Etiqueta Video</h2>
           </hgroup>
         </header>
+      <video src="../video/1992-153555258_small.mp4" controls>
+        <track src="./Track/Pista_es.vtt"
+        label="Español"
+        kind="subtitles"
+        srclang="es">
+        <track src="./Track/Pista_en.vtt"
+        kind="subtitles"
+        label="Ingles"
+        srclang="en">
+      </video>
       <!--
-        <video src="../video/1992-153555258_small.mp4" controls></video>
+      formatos de video se tienen
+      mp4, ogg, webm
       -->
+      <!--
         <video controls>
-          <!--
-          formatos de videose tienen
-          mp4, ogg, webm
-          -->
+          
           <source src="../video/1992-153555258_small.mp4"
           type="video/mp4">
           <source src="../video/1992-153555258_small.ogg"
@@ -55,23 +70,30 @@
           <source src="../video/1992-153555258_small.webm"
           type="video/webm">
         </video>
+      -->
         <!--Pie del Articulo-->
         <footer>Pie del primer Articulo</footer>
       </article>
       <article>
         <header>
           <hgroup>
-            <h2>Titulo 2do Articulo</h2>
-            <h3>Sub titulo 2do Articulo</h3>
+            <h2>Etiqueta Audio</h2>
           </hgroup>
         </header>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat delectus voluptatum quae ex tempore voluptatibus dolore, voluptas quam quasi natus sequi vitae, facere officia commodi sit quibusdam a laborum at, iste laboriosam. Velit repellat tenetur officiis minima beatae fugit ratione molestiae rerum necessitatibus quam architecto sequi id quisquam adipisci earum vitae, ex consectetur alias? Adipisci sunt dignissimos reiciendis, quasi dolores consequatur quae. Itaque, perspiciatis sit? Ducimus perferendis sequi distinctio ab est veniam voluptates. Iste, ex?</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor aliquid assumenda quisquam quo doloribus ipsum distinctio iure consequuntur est illum amet error ipsam odio tenetur, sapiente laboriosam excepturi minus unde fuga soluta inventore ad aperiam. Provident cupiditate harum quia iure excepturi aliquid cumque quam similique deleniti laborum. A culpa vel recusandae voluptatum dolore doloremque magnam rem soluta nihil ad at veritatis suscipit aliquam exercitationem, facilis animi libero tempora pariatur aspernatur porro cum ratione, omnis beatae? Recusandae, quae id asperiores omnis et hic maiores eaque libero totam amet autem impedit labore ipsam? Natus veniam at accusamus.
-        </p>
-        <figure>
-          <img src="../img/postgresql.png" alt="Imagen del segundo articulo">
-          <figcaption>Imagen logo PostgreSQL</figcaption>
-        </figure>
+        <!--
+        <audio src="../audio/technology-305353.mp3" controls>
+        </audio>
+        -->
+        <audio controls>
+          <source src="../audio/technology-305353.mp3" type="audio/mp3">
+          <source src="../audio/technology-305353.ogg" type="audio/ogg">
+          <source src="../audio/technology-305353.wav" type="audio/wav">
+          <source src="../audio/technology-305353.aac" type="audio/aac">
+        </audio>
+        <!--
+        <track> solo usa archivos .vtt
+        Pista de Texto para video Web
+        -->
         <footer>Pie del segundo Articulo</footer>
       </article>
     </section>

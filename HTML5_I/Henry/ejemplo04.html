@@ -45,21 +45,35 @@
       <header>
         <!-- Agrupamiento de encabezados -->
         <hgroup>
-          <h2><Em>Etiqueta video</Em></h2>
+          <h2><Em>Welcome</Em></h2>
           
         </hgroup>
       </header>
-      <!-- 
-      <video src="../video/1992-153555258_small.mp4" controls></video>
-      -->
+       
+      <video src="../video/1992-153555258_small.mp4" controls>
+        <track src="./track/pista_es.vtt"
+              kind="subtitles" 
+              srclang="es"
+              label="Español"
+        >      
+        <track src="./track/pista_en.vtt"
+              kind="subtitles" 
+              srclang="en"   
+              label="Inglés"   
+        > 
+      </video>
+     
+      si se tiene un solo formato se usa video y ya 
+      
 
-      <video controls>
-        <!-- Formatos de video se tienen 
+      <!--<video controls>
+        Formatos de video se tienen 
          mp4, ogg, webm
-         -->
+        
         <source src="../video/1992-153555258_small.mp4" type="video/mp4">
         <source src="../video/1992-153555258_small.ogg" type="video/ogg">
         <source src="../video/1992-153555258_small.webm" type="video/webm">
+      -->
      
       <!-- Pie del artículo -->
       <footer>Pie del primer articulo</footer>
@@ -68,20 +82,19 @@
       <!-- Encabezado del artículo -->
       <header>
         <hgroup>
-          <h2>Titulo segundo articulo</h2>
-          <h3>subtitulo segundo articulo</h3>
+          <h2> Etiqueta audio </h2> 
         </hgroup>
       </header>
-      <!-- Párrafo(s) -->
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. In, sapiente? Id, pariatur nesciunt possimus corrupti dolorum quidem. Adipisci repudiandae ut quibusdam repellat maxime ad sunt ipsa quam optio inventore necessitatibus fugiat, voluptatibus maiores dolores consequuntur nam. Quasi quod doloribus eaque eligendi aperiam obcaecati magni optio magnam labore explicabo saepe fuga perferendis enim sapiente maiores adipisci culpa quis nulla repellendus, provident cupiditate? Mollitia, velit esse! Et error dicta iusto commodi explicabo. Provident aspernatur porro harum odio.</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae magni expedita optio veritatis a quasi fugit quidem reprehenderit rem, voluptatem pariatur, praesentium saepe tempore porro nostrum magnam accusantium impedit? Aliquam voluptates beatae hic qui vero dolores id sint velit excepturi laboriosam quasi dolorum esse, similique corrupti natus quam labore laborum, est deleniti, totam provident optio eveniet libero? Error mollitia nisi ipsa magnam nesciunt cupiditate atque ipsum! Facilis tempore voluptatibus, aliquam necessitatibus minima voluptates mollitia autem omnis consequatur ea aperiam provident quae, cupiditate rerum molestias iusto rem! Placeat exercitationem maiores ullam sit earum ad, ipsum doloribus.</p>
-      <!-- Figura -->
-      <figure>
-        <!-- Imagen asociada a la figura -->
-        <img src="../img/postgresql.png" alt="imagen del segundo articulo">
-        <!-- Descripcion de la imagen -->
-        <figcaption>Imagen Logo postgreSQL</figcaption>
-      </figure>
+      <!--<audio src="../audio/technology-305353.mp3"controls></audio>  ( una forma de hacerlo)-->
+
+      <audio controls>
+        <source src="../audio/technology-305353.mp3" type="audio/mp3">
+        <source src="../audio/technology-305353.ogg" type="audio/ogg">
+        <source src="../audio/technology-305353.wav" type="audio/wav">
+        <source src="../audio/technology-305353.aac" type="audio/aac">
+      </audio>
+      
+      
       <!-- Pie del artículo -->
       <footer>Pie del segundo articulo</footer>
     </article>
