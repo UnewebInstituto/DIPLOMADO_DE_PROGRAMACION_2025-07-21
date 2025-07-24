@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../img/uneweb_icono.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/ejemplo05.css">
+    <title>Ejemplo05</title>
+</head>
+<body>
+    <h1>Etiquetas de formularios</h1>
+    <!--
+    <form action="" method="post" enctype="multipart/form-data">
+    -->
+    <form action="/guardar-datos-formulario" method="post">
+        <table>
+            <tr>
+                <td>Cédula</td>
+                <td>
+                    <!--
+                        En la etiqueta input, el atributo "name",
+                        corresponde al nombre de la variable, que 
+                        guardará temporalmente el dato ingresado, a
+                        través de la interface de usuario (teclado/pantalla). El atributo "id", corresponde al
+                        nombre del identificador, que permite acceder
+                        a la etiqueta desde CSS y JAVASCRIPT.
+                    -->
+                    <select name="tipo" id="tipo">
+                        <option value="V">V</option>
+                        <option value="E">E</option>
+                    </select>
+                    <input type="number" min="100000" max="90000000" name="numero" id="numero">
+                </td>
+            </tr>
+            <tr>
+                <td>Nombre:</td>
+                <td>
+                    <input type="text" name="nombre" id="nombre">
+                </td>
+            </tr>
+            <tr>
+                <td>Apellido:</td>
+                <td>
+                    <input type="text" name="apellido" id="apellido">
+                </td>
+            </tr>
+            <tr>
+                <td>Fecha de nacimiento:</td>
+                <td>
+                    <input type="date" name="fecha_nac" id="fecha_nac">
+                </td>
+            </tr>
+            <tr>
+                <td>Sexo:</td>
+                <td>
+                    <input type="radio" name="sexo" id="sexo_F" value="F">Femenino
+                    <input type="radio" name="sexo" id="sexo_M" value="M">Masculino
+                </td>
+            </tr>
+            <tr>
+                <td>Actividad:</td>
+                <td>
+                    <input type="checkbox" 
+                           name="actividad[]" 
+                           id="actividad" 
+                           value="Estudia" 
+                           multiple>Estudia
+                    <input type="checkbox" 
+                           name="actividad[]" 
+                           id="actividad" 
+                           value="Trabaja" 
+                           multiple>Trabaja
+                    <input type="checkbox" 
+                           name="actividad[]" 
+                           id="actividad" 
+                           value="Otra" 
+                           multiple>Otra
+                </td>
+            </tr>
+            <tr>
+                <td>Dirección</td>
+                <td>
+                    <textarea name="direccion" id="direccion" rows="5" cols="40" placeholder="Ingrese dirección de habitación"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>Buscar:</td>
+                <td>
+                    <input type="search" 
+                    name="buscar" 
+                    id="buscar" 
+                    placeholder="Término de búsqueda">
+                </td>
+            </tr>
+            <tr>
+                <td>Url:</td>
+                <td>
+                    <input type="url" 
+                           name="url"
+                           id="url"
+                           placeholder="Dirección sitio web">
+                </td>
+            </tr>
+            <tr>
+                <td>Correo electrónico:</td>
+                <td>
+                    <input type="email" 
+                           name="correo" 
+                           id="correo">
+                </td>
+            </tr>
+            <tr>
+                <td>Color:</td>
+                <td>
+                    <input type="color" 
+                           name="color" 
+                           id="color"
+                           value="#FFFFFF">
+                </td>
+            </tr>
+            <tr>
+                <td>Mes:</td>
+                <td>
+                    <input type="month" name="mes" id="mes">
+                </td>
+            </tr>
+            <tr>
+                <td>Fecha y Hora:</td>
+                <td>
+                    <input type="datetime-local" name="fecha_hora" id="fecha_hora">
+                </td>
+            </tr>
+            <tr>
+                <td>Semana:</td>
+                <td>
+                    <input type="week" name="semana" id="semana">
+                </td>
+            </tr>
+            <tr>
+                <td>Clave secreta:</td>
+                <td>
+                    <input type="password" name="clave" id="clave" placeholder="Ingrese su clave">
+                </td>
+            </tr>
+            <tr>
+                <td>Oculto:</td>
+                <td>
+                    <input type="hidden" name="oculto" id="oculto" value="Este valor se encuentra oculto">
+                </td>
+            </tr>
+            <!--
+            <tr>
+                <td>Archivo anexo:</td>
+                <td>
+                    <input type="file" name="archivo" id="archivo">
+                </td>
+            <tr>
+            -->
+                <td>
+                    <input type="submit" value="ENVIAR">
+                    <input type="reset" value="LIMPIAR">
+                </td>
+            </tr>
+            
+        </table>
+    </form>
+</body>
+</html>
+<!-- transmisión por get  -->
+<!--
+http://127.0.0.1:5505/HTML5_I/PROFESOR_HENRY/ejemplo05.html?tipo=V&numero=12000000&nombre=ANA&apellido=VASQUEZ&fecha_nac=2025-07-24&sexo=F&actividad%5B%5D=Estudia&direccion=SANTA+FE&buscar=html&url=https%3A%2F%2Fmonstergraphic1.blogspot.com%2F&correo=av%40gmail.com&color=%2300e658&mes=2025-07&fecha_hora=2025-07-24T11%3A53&semana=2025-W30&clave=CLAVE&oculto=Este+valor+se+encuentra+oculto&archivo=mysql.png
+-->
