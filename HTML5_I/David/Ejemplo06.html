@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /*
+    Asignación de propiedad a través del nombre de la etiqueta
+    Los párrafos contenidos en el contenedor caso1
+    */
+    #caso1 p{
+      color:aqua;
+      background-color: blue;
+    }
+    /*
+    Asignacion de propiedad a través del atributo id asignado a la etiqueta
+    */
+    #p1{
+      text-align: left;
+      background-color: aqua;
+      color: blue;
+    }
+    #p2{
+      text-align: center;
+      background-color: whitesmoke;
+      color: black;
+    }
+    #p3{
+      text-align: right;
+      background-color: bisque;
+      color: brown;
+    }
+
+    /*
+    Asignación de propiedades a través de nombres de clase
+    Los nombres de clase se declaran con puntos al inicio
+    */
+
+    .impar{
+      border-style: double;
+      border-width: 2px;
+      border-color: black;
+      text-align: center;
+      background-color: bisque;
+      padding: 10px;
+    }
+
+    .par{
+      border-style: dashed;
+      border-width: 4px;
+      border-color: red;
+      border-radius: 10px;
+      text-align: center;
+      font-family: Arial;
+      padding: 15px;
+    }
+
+    /*
+    Asignación de propiedad a través de parte del nombre asignado al atributo
+    */
+
+    /*
+
+  p[id^="prueba"]
+  Eso significa que tomara en cuenta todo if que empiece por "prueba"
+
+  p[id$="prueba"]
+  Eso significa que tomara en cuenta todo id que termine por "prueba"
+
+  p[id*="a_"]
+  Contenido
+
+  */
+
+  p[id^="prueba"]{
+    color: red;
+  }
+
+  p[id$="prueba"]{
+    color: blue;
+  }
+  
+  p[id*="a_"]{
+    font-style: italic;
+    font-size: 24px;
+  }
+
+  /*
+  selector:nth-child (even/odd) asigna la propiedad a las posiciones pares o impares, segun sea el caso en el contenedor donde se encuentre dicho selector
+
+  even: pares
+  odd: impares
+  */
+
+  p:nth-child(even){
+    text-shadow: 3px 3px 3px grey;
+  }
+
+  p:nth-child(odd){
+    text-shadow: -3px -3px 3px black;
+  }
+
+  </style>
+  <title>Ejemplo06</title>
+  <link rel="shortcut icon" href="../img/uneweb_icono.png" type="image/x-icon">
+  
+</head>
+<body>
+  <h1>Ejemplo06 CSS y HTML</h1>
+
+  <h2>Caso 1: Asignación de propiedad a través del nombre de etiqueta html.</h2>
+  <div id="caso1">
+    <p>Contenido 1er. párrafo</p>
+    <p>Contenido 2do. párrafo</p>
+    <p>Contenido 3er. párrafo</p>
+  </div>
+
+  <h2>Caso 2: Asignación de propiedad a través del atributo id aisgnado a la etiqueta html.</h2>
+  <div id="caso2">
+    <p id="p1">Contenido 1er. párrafo</p>
+    <p id="p2">Contenido 2do. párrafo</p>
+    <p id="p3">Contenido 3er. párrafo</p>
+  </div>
+
+  <h2>Caso 3: Asignación de propiedad a través del atributo class asignado a la etiqueta html.</h2>
+  <div id="caso3">
+    <label for="" class="impar">Esta es una etiqueta &lt;label&gt;</label>
+    <p class="impar">Contenido 1er. párrafo</p>
+    <div class="par">Esta es una etiqueta &lt;div&gt;</div>
+    <p class="par">Contenido 2do. párrafo</p>
+    <h3 class="impar">Esta es una etiqueta &lt;h3&gt;</h3>
+    <p class="impar">Contenido 3er. párrafo</p>
+  </div>
+
+  <h2>Caso 4: Asignación de propiedad a través de posición de la etiqueta html.</h2>
+  <div id="caso4">
+    <p id="prueba_parrafo">Contenido 1er. párrafo</p>
+    <p id="parrafo_prueba">Contenido 2do. párrafo</p>
+    <p id="prueba_parrafo">Contenido 3er. párrafo</p>
+    <p id="parrafo_prueba">Contenido 4to. párrafo</p>
+    <p id="prueba_parrafo">Contenido 5to. párrafo</p>
+  </div>
+
+
+</body>
+</html>

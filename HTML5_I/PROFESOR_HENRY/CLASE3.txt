@@ -1,0 +1,118 @@
+https://developer.mozilla.org/es/docs/Web/HTML/Reference/Elements/source
+
+
+https://developer.mozilla.org/es/docs/Web/HTML/Reference/Elements/picture
+
+
+¡Absolutamente\! Asumiendo el rol de experto en HTML, te proporcionaré los formatos válidos para la etiqueta `<source>` tanto para video como para audio, junto con consideraciones importantes para asegurar la máxima compatibilidad.
+
+La etiqueta `<source>` se utiliza dentro de `<video>` y `<audio>` para especificar múltiples fuentes de medios. El navegador intentará cargar la primera fuente que sea compatible.
+
+### Formatos Válidos para la Etiqueta `<source>` (Video)
+
+Para video, los formatos más comunes y ampliamente soportados son:
+
+  * **MP4 (.mp4)**: Este es el formato de video más universalmente soportado. Utiliza el códec de video H.264 y el códec de audio AAC.
+
+      * **`type` MIME**: `video/mp4`
+      * **Ejemplo:**
+        ```html
+        <source src="video.mp4" type="video/mp4">
+        ```
+
+  * **WebM (.webm)**: Un formato de código abierto desarrollado por Google, que ofrece alta calidad y compresión eficiente. Utiliza el códec de video VP8/VP9 y el códec de audio Vorbis/Opus. Es bien soportado en navegadores modernos.
+
+      * **`type` MIME**: `video/webm`
+      * **Ejemplo:**
+        ```html
+        <source src="video.webm" type="video/webm">
+        ```
+
+  * **Ogg (.ogv)**: Un formato de código abierto que utiliza el códec de video Theora y el códec de audio Vorbis. Aunque su soporte ha disminuido ligeramente en favor de WebM, sigue siendo una opción válida para la compatibilidad con navegadores más antiguos o específicos (como Firefox en ciertas versiones).
+
+      * **`type` MIME**: `video/ogg`
+      * **Ejemplo:**
+        ```html
+        <source src="video.ogv" type="video/ogg">
+        ```
+
+**Orden de Inclusión (Recomendado para Video):**
+
+Es una buena práctica listar las fuentes en un orden que priorice la calidad y la eficiencia, o la compatibilidad. Generalmente, se recomienda MP4 primero para su amplia compatibilidad, seguido de WebM para navegadores modernos, y luego Ogg si se desea una compatibilidad más amplia con navegadores más antiguos.
+
+```html
+<video controls width="640" height="360">
+    <source src="mi_video.mp4" type="video/mp4">
+    <source src="mi_video.webm" type="video/webm">
+    <source src="mi_video.ogv" type="video/ogg">
+    Tu navegador no soporta la etiqueta de video.
+</video>
+```
+
+### Formatos Válidos para la Etiqueta `<source>` (Audio)
+
+Para audio, los formatos más comunes y ampliamente soportados son:
+
+  * **MP3 (.mp3)**: El formato de audio más popular y universalmente soportado. Ofrece una buena relación calidad-tamaño.
+
+      * **`type` MIME**: `audio/mpeg` (aunque `audio/mp3` también es aceptado por algunos navegadores, `audio/mpeg` es el estándar)
+      * **Ejemplo:**
+        ```html
+        <source src="audio.mp3" type="audio/mpeg">
+        ```
+
+  * **Ogg Vorbis (.ogg)**: Un formato de audio de código abierto que ofrece una compresión eficiente sin pérdida de calidad significativa. Es bien soportado en navegadores modernos y de código abierto.
+
+      * **`type` MIME**: `audio/ogg`
+      * **Ejemplo:**
+        ```html
+        <source src="audio.ogg" type="audio/ogg">
+        ```
+
+  * **WAV (.wav)**: Un formato de audio sin compresión. Si bien es compatible, los archivos WAV suelen ser muy grandes, por lo que rara vez se usan para streaming web a menos que la calidad sin pérdidas sea absolutamente crítica y el tamaño del archivo no sea una preocupación.
+
+      * **`type` MIME**: `audio/wav`
+      * **Ejemplo:**
+        ```html
+        <source src="audio.wav" type="audio/wav">
+        ```
+
+  * **AAC (.aac)**: Un formato de audio con compresión que ofrece buena calidad y eficiencia. Es comúnmente usado dentro de contenedores MP4 para video, pero también puede ser un archivo de audio independiente.
+
+      * **`type` MIME**: `audio/aac` (aunque `audio/x-aac` o `audio/mp4` para archivos .m4a también se pueden ver)
+      * **Ejemplo:**
+        ```html
+        <source src="audio.aac" type="audio/aac">
+        ```
+
+**Orden de Inclusión (Recomendado para Audio):**
+
+Similar al video, es bueno ofrecer un MP3 para máxima compatibilidad, seguido de Ogg para navegadores modernos que prefieren formatos abiertos.
+
+```html
+<audio controls>
+    <source src="mi_audio.mp3" type="audio/mpeg">
+    <source src="mi_audio.ogg" type="audio/ogg">
+    Tu navegador no soporta la etiqueta de audio.
+</audio>
+```
+
+### Atributos Clave de la Etiqueta `<source>`
+
+  * **`src` (obligatorio):** La URL de la fuente del medio.
+  * **`type` (recomendado):** El tipo MIME del medio. Este atributo es crucial porque permite al navegador determinar rápidamente si puede reproducir el archivo sin tener que descargarlo primero. Si el navegador no soporta el tipo MIME especificado, pasará a la siguiente etiqueta `<source>`.
+
+### Consideraciones Adicionales como Experto en HTML:
+
+1.  **Compatibilidad del Navegador:** Aunque los formatos listados son los más comunes, la compatibilidad puede variar ligeramente entre versiones de navegadores. Siempre es una buena práctica probar tus implementaciones en diferentes navegadores (Chrome, Firefox, Safari, Edge) y dispositivos.
+2.  **Transcodificación:** Para asegurar la máxima compatibilidad, a menudo es necesario tener el mismo contenido de video o audio en múltiples formatos (MP4/WebM/Ogg para video, MP3/Ogg para audio). Existen herramientas de transcodificación (como FFmpeg) que te permiten convertir fácilmente tus archivos a los diferentes formatos.
+3.  **Contenido de Reserva:** Siempre incluye un mensaje de texto dentro de las etiquetas `<video>` o `<audio>` (después de las etiquetas `<source>`) para los navegadores que no soportan estas etiquetas o ninguno de los formatos proporcionados. Esto mejora la accesibilidad y la experiencia del usuario.
+4.  **Atributos de `<video>` y `<audio>`:** No olvides los atributos importantes de las etiquetas padre como `controls` (para mostrar los controles de reproducción), `autoplay` (para reproducción automática, aunque con restricciones de navegadores modernos), `loop` (para repetir), `muted` (para iniciar silenciado), `poster` (solo para video, una imagen que se muestra antes de la reproducción), y `preload` (para indicar al navegador cómo precargar el medio).
+5.  **Accesibilidad:** Considera añadir subtítulos (`<track>`) para videos y transcripciones para audio para mejorar la accesibilidad de tu contenido.
+
+Al seguir estas pautas, te asegurarás de que tu contenido multimedia se entregue de la manera más robusta y compatible posible a tus usuarios. ¡Espero que esta información te sea de gran utilidad\!ss
+
+
+https://developer.mozilla.org/es/docs/Glossary/WebVTT
+
+https://www.w3schools.com/colors/colors_picker.asp

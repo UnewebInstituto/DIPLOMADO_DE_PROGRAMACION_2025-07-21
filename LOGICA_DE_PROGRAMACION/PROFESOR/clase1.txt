@@ -1,0 +1,97 @@
+mariannybastidasgodoy@gmail.com;
+bermudez.reinaldo123@gmail.com;
+deivipython1601@gmail.com;
+henryeduardo56@gmail.com;
+
+Un algoritmo se puede definir como un conjunto **finito y ordenado de instrucciones o pasos bien definidos** que permiten resolver un problema, realizar un cálculo o procesar datos. Es esencialmente una receta detallada para lograr un objetivo específico.
+
+Aquí se desglosan los elementos clave de esta definición:
+
+* **Conjunto finito:** Significa que el algoritmo debe tener un número limitado de pasos. No puede ser un proceso interminable.
+* **Ordenado:** Los pasos deben seguir una secuencia lógica y predeterminada. El orden en que se ejecutan las instrucciones es crucial para obtener el resultado correcto.
+* **Instrucciones o pasos bien definidos:** Cada instrucción debe ser clara, precisa y no ambigua. No debe haber lugar a interpretaciones subjetivas. Cualquiera que siga el algoritmo debe llegar al mismo resultado.
+* **Resolver un problema, realizar un cálculo o procesar datos:** Este es el propósito fundamental de un algoritmo. Puede ser desde algo simple como sumar dos números hasta algo complejo como el funcionamiento de un motor de búsqueda o un sistema de inteligencia artificial.
+
+**Características importantes de un algoritmo:**
+
+* **Precisión:** Cada paso debe ser exacto y sin ambigüedades.
+* **Definición:** Si se ejecuta un algoritmo varias veces con los mismos datos de entrada, debe producir el mismo resultado cada vez.
+* **Finitud:** Debe terminar después de un número finito de pasos.
+* **Generalidad (opcional pero deseable):** Idealmente, un algoritmo debe ser aplicable a un conjunto de problemas similares, no solo a un caso específico.
+
+**Ejemplos sencillos de algoritmos en la vida cotidiana:**
+
+* **Receta de cocina:** Los pasos para preparar un plato son un algoritmo.
+* **Instrucciones para armar un mueble:** Una secuencia de pasos para ensamblar algo.
+* **Cómo llegar a un lugar usando un mapa:** Un conjunto de direcciones y acciones.
+
+En el contexto de la informática, los algoritmos son la base de todos los programas y sistemas. Son la lógica que permite a las computadoras realizar tareas.
+
+
+Existen varias notaciones o convenciones para la declaración de variables, especialmente en el contexto de la programación. Estas notaciones no son reglas estrictas de un lenguaje de programación en sí (la sintaxis la define el lenguaje), sino más bien **estilos o guías para nombrar y organizar las variables** de una manera consistente y legible. El objetivo principal es mejorar la claridad, la mantenibilidad del código y evitar errores.
+
+Aquí te presento las notaciones más comunes:
+
+### 1. **Camel Case (CamelCase)**
+
+Es una de las notaciones más populares. Se caracteriza por no usar espacios y capitalizar la primera letra de cada palabra subsiguiente después de la primera palabra, que puede empezar en minúscula o mayúscula.
+
+* **Lower Camel Case (camelCase):** La primera letra de la primera palabra es minúscula. Es muy común para nombres de variables y funciones.
+    * **Ejemplos:** `miVariable`, `nombreDeUsuario`, `totalVentasMensuales`
+
+* **Upper Camel Case (PascalCase):** La primera letra de cada palabra (incluida la primera) es mayúscula. Frecuentemente usado para nombres de clases, interfaces y a veces para constantes.
+    * **Ejemplos:** `MiClase`, `NombreDeProducto`, `TotalClientes`
+
+### 2. **Snake Case (snake_case)**
+
+En esta notación, las palabras se separan por guiones bajos (`_`) y todas las letras suelen ser minúsculas. Es muy común en lenguajes como Python, Ruby y en algunas bases de datos.
+
+* **Ejemplos:** `mi_variable`, `nombre_de_usuario`, `total_ventas_mensuales`
+
+### 3. **Kebab Case (kebab-case)**
+
+Similar a Snake Case, pero las palabras se separan por guiones medios (`-`). Es menos común en nombres de variables en la mayoría de los lenguajes de programación (ya que el guion medio suele ser el operador de resta), pero es muy utilizado en CSS para nombres de propiedades y selectores, así como en URLs y nombres de archivos.
+
+* **Ejemplos (fuera de variables de código fuente, más en otros contextos):** `mi-variable`, `nombre-de-usuario`, `total-ventas-mensuales`
+
+### 4. **Pascal Case (PascalCase)**
+
+Aunque a menudo se confunde o se usa indistintamente con "Upper Camel Case", el término "PascalCase" se refiere específicamente a la convención donde la primera letra de *todas* las palabras (incluyendo la primera) es mayúscula. Es ampliamente utilizado para nombres de clases, structs y en algunos lenguajes, para constantes.
+
+* **Ejemplos:** `MiClase`, `ProductoInventario`, `UsuarioRegistrado`
+
+### 5. **SCREAMING SNAKE CASE (SCREAMING_SNAKE_CASE)**
+
+También conocido como "Upper Snake Case". Todas las letras son mayúsculas y las palabras se separan por guiones bajos. Es la convención estándar para definir constantes globales o valores inmutables.
+
+* **Ejemplos:** `PI`, `MAX_INT`, `DIAS_SEMANA`, `VALOR_POR_DEFECTO`
+
+### 6. **Notación Húngara (Hungarian Notation)**
+
+Aunque menos utilizada hoy en día y a menudo criticada, fue popular en el pasado, especialmente en el desarrollo de Windows (con lenguajes como C y C++). Su objetivo es prefijar el nombre de la variable con una abreviatura que indique su tipo de dato o su propósito.
+
+* **Tipos principales:**
+    * **Apps Hungarian (Notación Húngara de Aplicaciones):** Prefijo que indica el *propósito* o la *semántica* de la variable.
+        * **Ejemplos:** `szNombre` (sz para string terminado en cero), `idxContador` (idx para índice), `fnCallback` (fn para función).
+    * **Systems Hungarian (Notación Húngara de Sistemas):** Prefijo que indica el *tipo de dato* de la variable.
+        * **Ejemplos:** `iContador` (i para integer), `strNombre` (str para string), `bEsValido` (b para boolean), `fSalario` (f para float).
+
+* **Críticas:** Puede volverse redundante o engañosa si el tipo de dato cambia pero el prefijo no se actualiza, y los IDEs modernos suelen ofrecer información de tipos directamente.
+
+### 7. **Notaciones específicas de lenguajes o frameworks**
+
+Algunos lenguajes o frameworks tienen sus propias convenciones o prefieren una de las anteriores de forma estricta:
+
+* **Java:** Generalmente usa `camelCase` para variables y métodos, `PascalCase` para clases e interfaces, y `SCREAMING_SNAKE_CASE` para constantes.
+* **Python:** Prefiere `snake_case` para variables y funciones, `PascalCase` para clases y `SCREAMING_SNAKE_CASE` para constantes.
+* **JavaScript:** Principalmente `camelCase` para variables y funciones, `PascalCase` para clases y `SCREAMING_SNAKE_CASE` para constantes.
+* **.NET (C#):** Sigue la convención de `PascalCase` para propiedades públicas y métodos, y `camelCase` para campos privados y parámetros locales.
+
+### ¿Por qué son importantes estas notaciones?
+
+* **Legibilidad:** Hacen que el código sea más fácil de leer y entender para otros desarrolladores (y para ti mismo en el futuro).
+* **Consistencia:** Unifica el estilo de un proyecto, lo que es crucial en equipos grandes.
+* **Mantenibilidad:** Facilita la depuración y la modificación del código.
+* **Comunicación:** Actúan como una forma de "lenguaje visual" que transmite información sobre la variable (por ejemplo, si es una constante, un tipo, etc.) sin necesidad de comentarios adicionales.
+
+La elección de una notación específica a menudo depende del lenguaje de programación que se esté utilizando y de las convenciones establecidas en un equipo o proyecto. Lo más importante es la **consistencia**.
