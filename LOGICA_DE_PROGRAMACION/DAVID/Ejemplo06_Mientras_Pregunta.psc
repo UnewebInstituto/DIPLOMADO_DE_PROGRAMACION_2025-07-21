@@ -6,13 +6,19 @@ Algoritmo Ejemplo06_Mientras_Pregunta
 	// Inicialización de variables
 	n <- 0
 	i <- 0
-	continuar <- 's'
+	continuar <- 'S'
+	
 	// Proceso 
-	Escribir 'Ingrese el numero de interaccones deseadas'
-	Leer n
-	Mientras i < n Hacer
-		Escribir i
-		i <- i + 1
+	Mientras  Mayusculas(continuar) = 'S' Hacer
+		Limpiar Pantalla
+		Escribir 'Ingrese el numero de interaccones deseadas'
+		Leer n
+		Mientras i < n Hacer
+			Escribir i
+			i <- i + 1
+		FinMientras
+		Escribir 'Fin...'
+		Escribir '¿Desea realizar otro calculo? (S/N)'
+		Leer continuar
 	FinMientras
-	Escribir 'Fin...'
 FinAlgoritmo

@@ -2,9 +2,11 @@ Algoritmo Ejemplo03_Seleccion_Multiple
 	// Declaracion de Variables
 	Definir mensaje Como Caracter
 	Definir lenguaje Como Caracter
+	Definir continuar Como Caracter
 	// Inicializar las variables
 	lenguaje <- ''
 	mensaje <- ''
+	continuar <- 'S'
 	// Entrda de datos (Lectura estandar)
 	Escribir 'Ejemplo02 Condicional Multiple'
 	Escribir 'Por favor indique cual de los siguientes'
@@ -17,6 +19,7 @@ Algoritmo Ejemplo03_Seleccion_Multiple
 	Escribir '6- Otros'
 	Leer lenguaje
 	// Nueva
+	Mientras continuar = 's' o continuar ='S' Hacer
 	Según lenguaje Hacer
 		'1':
 			mensaje <- 'Usted selecciono Phyton, le  gusta los lenguajes'
@@ -41,7 +44,8 @@ Algoritmo Ejemplo03_Seleccion_Multiple
 			mensaje <- 'Usted selecciono una opcion'
 			mensaje <- mensaje+' no valida.'
 	FinSegún
-
-	// Salida de Proceso
-	Escribir mensaje
+Escribir mensaje
+Escribir '¿Desea efectuar otro calculo (S/N)'
+Leer continuar
+FinMientras
 FinAlgoritmo
