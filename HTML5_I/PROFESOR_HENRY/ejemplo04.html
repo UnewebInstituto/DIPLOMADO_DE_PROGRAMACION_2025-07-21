@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../img/uneweb_icono.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/ejemplo04.css">
+    <title>Ejemplo04</title>
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <h1>Ejemplo04 - Etiquetas semánticas multimedia</h1>
+        <!--
+            video
+            audio
+            source
+            track
+        -->
+    </header>
+    <!-- Menú -->
+    <nav>
+        <!-- Lista no ordenada -->
+        <ul>
+            <a href=""><li>Inicio</li></a>
+            <a href=""><li>Productos</li></a>
+            <a href=""><li>Servicios</li></a>
+            <a href=""><li>Contactos</li></a>
+        </ul>
+    </nav>
+    <!-- Contenedor -->
+    <div class="contenedor">
+        <!-- Sección -->
+        <section>
+            <!-- Artículos -->
+            <article>
+                <!-- Encabezado del artículo-->
+                <header>
+                    <!-- Agrupamiento de encabezados -->
+                    <hgroup>
+                        <h2>Etiqueta Vídeo</h2>
+                    </hgroup>
+                </header>
+
+                <video src="../video/1992-153555258_small.mp4" controls>
+                    <track src="./track/pista_es.vtt"
+                           kind="subtitles"
+                           label="Español"
+                           srclang="es">
+                    <track src="./track/pista_en.vtt"
+                           kind="subtitles"
+                           label="Ingles"
+                           srclang="en">
+                </video>
+                <!-- 
+                    Formatos de vídeo, se tienen:
+                    mp4, ogg, webm
+                -->
+                <!--
+                <video controls>
+                    <source src="../video/1992-153555258_small.mp4" type="video/mp4">
+                    <source src="../video/1992-153555258_small.webm" type="video/webm">
+                    <source src="../video/1992-153555258_small.ogg" type="video/ogg">
+                </video>
+                -->
+                <!-- Pie del artículo -->
+                <footer>Pie del primer artículo</footer>
+            </article>
+            <article>
+                <header>
+                    <hgroup>
+                        <h2>Etiqueta Audio</h2>
+                    </hgroup>
+                </header>
+                <!--
+                <audio src="../audio/technology-305353.mp3" controls></audio>
+                -->
+                <audio controls>
+                    <source src="../audio/technology-305353.mp3" type="audio/mpeg">
+                    <source src="../audio/technology-305353.ogg" type="audio/ogg">
+                    <source src="../audio/technology-305353.wav" type="audio/wav">
+                    <source src="../audio/technology-305353.aac" type="audio/aac">
+                </audio>
+                <footer>Pie del segundo artículo</footer>
+            </article>
+        </section>
+        <!-- Apartado -->
+        <aside>
+            <!-- Citas -->
+            <blockquote>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis officiis porro quis ratione, inventore maxime? Modi, a? Eius suscipit porro fugiat saepe unde dolor nihil rem officia quaerat tempore eum vitae quae molestias maiores quo id a nulla perferendis, nam laborum ad repellat veniam. Minima aperiam dolore eligendi tenetur exercitationem odit id consectetur soluta blanditiis deleniti dolorem ad veritatis, ipsum natus autem temporibus consequuntur cum nisi culpa. Hic sit ipsa dolorem dolorum ratione, a, quam eius odio necessitatibus, laudantium exercitationem.
+            </blockquote>
+            <blockquote>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo inventore pariatur ratione velit repudiandae neque at qui voluptatum quas fugiat. Facilis, pariatur ex expedita quia provident fugit eligendi iste dolorem asperiores quos repellendus omnis! Rem, ullam distinctio, nostrum obcaecati inventore eum hic provident animi, debitis ex cumque alias? Molestiae cum tempore, ab qui eligendi aliquam et eveniet doloribus consequuntur, ullam dolor praesentium? Exercitationem aut magnam reprehenderit temporibus nemo aspernatur ad!</blockquote>
+        </aside>
+    </div>
+    <!-- Pie -->
+    <footer>
+        Diplomado de programación - Uneweb - &copy; 2025
+    </footer>
+</body>
+</html>

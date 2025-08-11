@@ -1,0 +1,22 @@
+{
+  "Tipo": "V",
+  "Numero": "29987858",
+  "Nombre": "Henry",
+  "Apellido": "Santaella",
+  "Fecha_nac": "2025-07-01",
+  "Sexo": "M",
+  "Actividad": [
+    "on"
+  ],
+  "direccion": "lomas del sol ",
+  "Buscar": "html",
+  "Url": "https://www.playstation.com/en-us/",
+  "Correo": "henryeduardo56@gmail.com",
+  "color": "#8a0f0f",
+  "Mes": "2025-08",
+  "Fecha_hora": "2025-07-15T12:42",
+  "Semana": "2025-W29",
+  "Clave": "3006",
+  "Oculto": "Este valor se encuentra Oculto"
+}
+---

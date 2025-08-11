@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo 05</title>
+  <link rel="stylesheet" href="./CSS/ejemplo05.css">
+  <link rel="shortcut icon" href="../img/uneweb_icono.png" type="image/x-icon">
+</head>
+<body>
+  <!--
+    <form action="" method="get" enctype="multipart/form-data">
+  -->
+  <h1>Etiquetas de Formularios</h1>
+  <form action="/guardar-datos-formulario" method="post">
+    <table>
+      <tr>
+        <td>Cédula</td>
+        <!--
+        En la etiqueta <input>
+        name: corresponde al nombre de la variable que guardara temporalmente el dato ingresado a través de la interface de usuario (teclado/pantalla)
+        id: corresponde al nombre del identidicador que permite acceder a la etiqueta desde JavaScript o CSS
+        -->
+        <td>
+          <select name="Tipo" id="Tipo">
+            <option value="V">V</option>
+            <option value="E">E</option>
+          </select>
+          <input type="number" min="100000" max="99999999" name="numero" id="numero">
+        </td>
+      </tr>
+      <!--Nombre-->
+      <tr>
+        <td>Nombre</td>
+        <td>
+          <input type="text" name="nombre" id="nombre">
+        </td>
+      </tr>
+      <!--Apellido-->
+      <tr>
+        <td>Apellido</td>
+        <td>
+          <input type="text" name="apellido" id="apellido">
+        </td>
+      </tr>
+      <!--Fecha de Nacimiento-->
+      <tr>
+        <td>Fecha de Nacimiento</td>
+        <td>
+          <input type="date" name="fecha_nac" id="fecha_nac">
+        </td>
+      </tr>
+      <!--Género-->
+      <tr>
+        <td>Sexo</td>
+        <td>
+          <input type="radio" name="sexo" id="genero" value="F">Femenino
+          <input type="radio" name="sexo" id="genero" value="M">Masculino
+        </td>
+      </tr>
+      <!--Seleccion Multiple-->
+      <tr>
+        <td>Actividad</td>
+        <td>
+          <input type="checkbox" 
+                 name="actividad[]" 
+                 id="actividad" 
+                 value="Estudia"
+                 multiple>Estudia
+          <input type="checkbox" 
+                 name="actividad[]" 
+                 id="actividad" 
+                 value="Trabaja"
+                 multiple>Trabaja
+          <input type="checkbox" 
+                 name="actividad[]" 
+                 id="actividad" 
+                 value="Otros"
+                 multiple>Otros
+        </td>
+      </tr>
+      <!--Dirección-->
+      <tr>
+        <td>Dirección</td>
+        <td>
+          <textarea name="dirección"
+                    id="dirección"
+                    rows="5" cols="50"
+                    placeholder="Ingrese dirección de habitación"></textarea>
+        </td>
+      </tr>
+      <!--Busqueda-->
+      <tr>
+        <td>Buscar</td>
+        <td>
+          <input type="search" 
+                 name="buscar" id="buscar"
+                 placeholder="Término de Busqueda">
+        </td>
+      </tr>
+      <!--URL-->
+      <tr>
+        <td>URL</td>
+        <td>
+          <input type="url" 
+                 name="url"
+                 id="url"
+                 placeholder="Dirección de sitio web">
+        </td>
+      </tr>
+      <!--Correo Electronico-->
+      <tr>
+        <td>Correo Electronico</td>
+        <td>
+          <input type="email" 
+                 name="correo"
+                 id="correo">
+        </td>
+      </tr>
+      <!--Color-->
+      <tr>
+        <td>Color</td>
+        <td>
+          <input type="color"
+                 name="color"
+                 id="color"
+                 value="#008000">
+        </td>
+      </tr>
+      <!--Mes-->
+      <tr>
+        <td>Mes</td>
+        <td>
+          <input type="month"
+                 name="mes"
+                 id="mes">
+        </td>
+      </tr>
+      <!--Fecha y Hora-->
+      <tr>
+        <td>Fecha y Hora</td>
+        <td>
+          <input type="datetime-local"
+                 name="hora"
+                 id="hora">
+        </td>
+      </tr>
+      <!--Semana-->
+      <tr>
+        <td>Semana</td>
+        <td>
+          <input type="week"
+                 name="semana"
+                 id="semana">
+        </td>
+      </tr>
+      <!--Contraseña-->
+      <tr>
+        <td>Contraseña</td>
+        <td>
+          <input type="password"
+                 name="clave"
+                 id="clave"
+                 placeholder="Ingrese su clave">
+        </td>
+      </tr>
+      <!--Oculto-->
+    <tr>
+      <td>Oculto</td>
+      <td>
+        <input type="hidden" name="oculto" id="oculto" value="este valor se encuentra oculto">
+      </td>
+    </tr>
+    <!--
+    <tr>
+      <td>Archivo Anexo</td>
+      <td>
+        <input type="file" name="archivo" id="archivo">
+      </td>
+    </tr>
+    -->
+      <!--Botones-->
+      <tr>
+        <td>
+          <input type="submit" value="Enviar">
+          <input type="reset" value="Limpiar">
+        </td>
+      </tr>
+    </table>
+  </form>
+</body>
+</html>
+<!--
+http://127.0.0.1:5504/HTML5_I/David/ejemplo05.html?Tipo=V&numero=1200000&nombre=Julibileisly&apellido=Ordosgoiti&fecha_nac=2025-07-03&sexo=F&actividad%5B%5D=Estudia&direcci%C3%B3n=asasddfs&buscar=html&url=https%3A%2F%2Fwww.google.com&correo=esomero%40gmail.com&color=%23008000&mes=2025-11&hora=2025-07-31T11%3A55&semana=2025-W29&clave=werwwer&oculto=este+valor+se+encuentra+oculto
+
+La transmision con post y enctype="multipart/form-data" es para enviarlo a un registro (servidor) exisitente, el cual en este ejemplo no existe todavia
+-->

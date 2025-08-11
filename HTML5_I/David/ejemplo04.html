@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo04</title>
+  <link rel="shortcut icon" href="../img/uneweb_icono.png" type="image/x-icon">
+  <link rel="stylesheet" href="./CSS/ejemplo04.css">
+</head>
+<body>
+  <!--Encabezado-->
+  <header>
+    <h1>Ejemplo 04 - Etiquetas Semánticas Multimedia</h1>
+    <!--
+      video
+      audio
+      source
+      track
+      
+      <video src="../video/1992-153555258_small.mp4" controls></video>
+      el atributo source se usa cuando se tiene un video o varios en diferentes  formatos 
+      
+      si se tiene un solo formato se usa video y ya 
+
+    -->
+  </header>
+  <!--Menu-->
+  <nav>
+    <!--lista no ordenada-->
+    <ul>
+      <a href=""><li>Inicio</li></a>
+      <a href=""><li>Productos</li></a>
+      <a href=""><li>Servicios</li></a>
+      <a href=""><li>Contactos</li></a>
+    </ul>
+  </nav>
+  <!--Contenedor-->
+  <div class="Contenedor">
+    <!--Seccion-->
+    <section>
+      <article>
+        <!--Encabezado del Articulo-->
+        <header>
+          <!--Agrupamiento de Encabezados-->
+          <hgroup>
+            <h2>Etiqueta Video</h2>
+          </hgroup>
+        </header>
+      <video src="../video/1992-153555258_small.mp4" controls>
+        <track src="./Track/Pista_es.vtt"
+        label="Español"
+        kind="subtitles"
+        srclang="es">
+        <track src="./Track/Pista_en.vtt"
+        kind="subtitles"
+        label="Ingles"
+        srclang="en">
+      </video>
+      <!--
+      formatos de video se tienen
+      mp4, ogg, webm
+      -->
+      <!--
+        <video controls>
+          
+          <source src="../video/1992-153555258_small.mp4"
+          type="video/mp4">
+          <source src="../video/1992-153555258_small.ogg"
+          type="video/ogg">
+          <source src="../video/1992-153555258_small.webm"
+          type="video/webm">
+        </video>
+      -->
+        <!--Pie del Articulo-->
+        <footer>Pie del primer Articulo</footer>
+      </article>
+      <article>
+        <header>
+          <hgroup>
+            <h2>Etiqueta Audio</h2>
+          </hgroup>
+        </header>
+        <!--
+        <audio src="../audio/technology-305353.mp3" controls>
+        </audio>
+        -->
+        <audio controls>
+          <source src="../audio/technology-305353.mp3" type="audio/mp3">
+          <source src="../audio/technology-305353.ogg" type="audio/ogg">
+          <source src="../audio/technology-305353.wav" type="audio/wav">
+          <source src="../audio/technology-305353.aac" type="audio/aac">
+        </audio>
+        <!--
+        <track> solo usa archivos .vtt
+        Pista de Texto para video Web
+        -->
+        <footer>Pie del segundo Articulo</footer>
+      </article>
+    </section>
+    <!--Apartado-->
+    <aside>
+      <!--Citas-->
+      <blockquote>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut eos iure odit explicabo repellat perferendis vitae nihil assumenda quaerat corrupti cum, impedit nobis porro ab, ipsa laborum, cumque velit fuga non nulla numquam a obcaecati laudantium! Adipisci in itaque, aliquid delectus doloremque ad nam ut qui sit, eaque aperiam? Iste consequuntur expedita animi debitis saepe tenetur aliquid impedit earum sequi itaque, iure sunt, excepturi, id facilis ab voluptate quasi deleniti necessitatibus voluptas consequatur. Sapiente dolore excepturi veniam consectetur commodi at!
+      </blockquote>
+      <blockquote>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore repellat commodi ut odio! Delectus corrupti molestias id magni, deleniti iure odit facere natus culpa earum incidunt qui illo enim debitis fugit illum totam? Laboriosam et autem repellat tenetur eum amet provident eos reprehenderit maxime quos corrupti est quia adipisci sint atque eveniet, praesentium quae. Maiores deserunt, debitis, impedit magni architecto, neque nulla aperiam velit suscipit eveniet maxime doloribus amet! Laudantium.</blockquote>
+    </aside>
+  </div>
+  <!--Pie-->
+  <footer>
+    Diplomado de Programación - UneWeb - &copy; 2025
+  </footer>
+
+
+</body>
+</html>

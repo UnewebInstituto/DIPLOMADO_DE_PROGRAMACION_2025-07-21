@@ -1,0 +1,23 @@
+    /* (*:caracter comodin, significa todas las etiquetas) todas las etiquetas va a estar afectadas por la propiedad entre llaves */
+    *{
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    /* Etiqueta p y td, texto contenido este justificado */
+    p,td{
+      text-align: justify;
+    }
+    /* Todas las etiquetas img, tienen las propiedades entre llaves */
+    img{
+      width: 150px;
+      height: 150px;
+      border-style: solid;
+      border-width: 2px;
+      border-color: black;
+      border-radius: 25px;
+      box-shadow: 2px 2px 4px brown;
+    }
+    th, td{
+      border-color: black;
+      border-width: 1px;
+      border-style: solid;
+    }

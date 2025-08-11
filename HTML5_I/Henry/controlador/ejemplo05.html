@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="../img/uneweb_icono.png" type="image/x-icon">
+  <link rel="stylesheet" href="./css/ejemplo05.css">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Etiqueta de formularios</h1>
+  
+  <!-- 
+  <form action="" method="post" enctype="multipart/form-data">-->
+  <form action="/guardar-datos-formulario" method="post">
+    <table>
+      <tr>
+        <td>Cedula</td>
+        <td>
+          <!--
+          En la etiqueta input, el atributo name corresponde al nombre de la variable, que guardara temporalmente el dato ingresado a traves de la interface de usario. El atributo Id corresponde al nombre del identificador que permite acceder a la etiqueta desde ccs y javascript. 
+          -->
+          <select name="Tipo" id="Tipo">
+               <option value="V">V</option>
+               <option value="E">E</option> 
+          </select>
+          <input type="number" min="100000" max="90000000" 
+           name="Numero" id="Numero">
+        </td>
+      </tr>
+      <tr>
+        <td>Nombre</td>
+        <td>
+          <input type="text" name="Nombre" id="Nombre">
+        </td>
+      </tr>
+      <tr>
+        <td>Apellido</td>
+        <td>
+          <input type="text" name="Apellido" id="Apellido">
+        </td>
+      </tr>
+      <tr>
+        <td>Fecha de nacimiento</td>
+        <td>
+          <input type="date" name="Fecha_nac" id="Fecha_nac">
+        </td>   
+      </tr> 
+      <tr>
+        <td>Sexo</td>
+        <td>
+          <input type="radio" name="Sexo" id="sexof" value="F">Femenino
+          <input type="radio" name="Sexo" id="sexom" value="M">Masculino
+        </td> 
+      </tr>
+      <tr>
+        <td>Actividad</td>
+        <td>
+          <input 
+            type="checkbox" 
+            name="Actividad[]" 
+            id="Actividad" 
+            valor="Estudia" 
+          multiple>Estudia
+          <input 
+            type="checkbox" 
+            name="Actividad[]" 
+            id="Actividad" 
+            valor="Trabaja" 
+            multiple>Trabaja
+          <input 
+            type="checkbox" 
+            name="Actividad[]" 
+            id="Actividad" 
+            valor="Otros" 
+            multiple>Otros
+        </td>
+      
+      </tr>   
+      <tr>
+        <td>Direccion</td>
+        <td>
+          <textarea name="direccion" id="direccion" rows="5" cols="40" placeholder="Direccion de habitacion"></textarea>
+        </td>   
+      </tr>  
+      <tr>
+        <td>Buscar</td>
+        <td>
+          <input type="search" name="Buscar" id="Buscar" placeholder="Termino de busqueda "> 
+        </td>  
+      </tr>
+      <tr>
+        <td>URL</td>
+        <td>
+          <input type="url" name="Url" id="Url" placeholder="Direccion sitio web">
+        </td>
+      </tr>
+      <tr>
+        <td>Correo Electronico:</td>
+        <td>
+          <input type="email" name="Correo" id="Correo" placeholder="Correo electronico">
+        </td>
+      </tr>
+      <tr>
+        <td>Color</td>
+        <td>
+          <input type="color" name="color" id="color">
+        </td>
+      </tr>
+      <tr>
+        <td>Mes</td>
+        <td>
+          <input type="month" name="Mes" id="Mes">
+        </td>
+      </tr>
+      <tr>
+        <td>Fecha y hora</td>
+        <td>
+          <input type="datetime-local" name="Fecha_hora" id="Fecha_hora">
+        </td>
+      </tr>
+      <tr>
+        <td>Semana</td>
+        <td>
+          <input type="week" name="Semana" id="Semana">
+        </td>
+      </tr>
+      
+      <tr>
+        <td>Clave secreta</td>
+        <td>
+          <input type="password" name="Clave" id="Clave" placeholder="Ingrese su Clave">
+        </td>
+      </tr>
+      <tr>
+        <td>Oculto</td>
+        <td>
+          <input type="hidden" name="Oculto" id="Oculto" value="Este valor se encuentra Oculto">
+        </td>
+      </tr>
+      <!--<tr>
+        <td>Archivo anexo:</td>
+        <td>
+          <input type="file" name="Archivo" id="Archivo" accept=".jpg, .png, .pdf">
+        </td>
+      </tr>-->
+      <tr>
+        <td>
+          <input type="submit" value="ENVIAR"><input type="reset" value="LIMPIAR">
+        </td>
+      </tr>
+    </table>
+  </form>
+</body>
+</html>
+
+
+<!-- 
+
+transmision con get: 
+
+http://127.0.0.1:5502/Henry/ejemplo05.html?Tipo=V&Numero=29987858&Nombre=Henry&Apellido=Santaella&Fecha_nac=2025-07-10&Sexo=M&Actividad%5B%5D=on&direccion=lomas+del+sol&Buscar=html&Url=https%3A%2F%2Fwww.playstation.com%2Fen-us%2F&Correo=henryeduardo56%40gmail.com&color=%23000000&Mes=2025-11&Fecha_hora=2025-07-09T12%3A00&Semana=2025-W27&Clave=3006&Oculto=Este+valor+se+encuentra+Oculto&Archivo=basketball-147794_640+%281%29.png
+
+La transmision con post y enctype="multipart/form-data" es para enviarlo a un registro (servidor) exisitente, el cual en este ejemplo no existe todavia
+-->

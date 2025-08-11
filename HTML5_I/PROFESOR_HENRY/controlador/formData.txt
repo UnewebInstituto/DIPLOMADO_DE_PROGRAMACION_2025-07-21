@@ -1,0 +1,22 @@
+{
+  "tipo": "V",
+  "numero": "12123456",
+  "nombre": "ANA",
+  "apellido": "VASQUEZ",
+  "fecha_nac": "1965-08-18",
+  "sexo": "F",
+  "actividad": [
+    "Trabaja"
+  ],
+  "direccion": "SANTA FE",
+  "buscar": "html",
+  "url": "https://monstergraphic1.blogspot.com/",
+  "correo": "av@gmail.com",
+  "color": "#ed9292",
+  "mes": "2025-07",
+  "fecha_hora": "2025-07-24T12:41",
+  "semana": "2025-W30",
+  "clave": "palabra clave",
+  "oculto": "Este valor se encuentra oculto"
+}
+---

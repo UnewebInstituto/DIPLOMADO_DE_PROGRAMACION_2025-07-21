@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="shortcut icon" href="../img/uneweb_icono.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/ejemplo02.css">
+    <style>
+        /* (*:caracter comodin, significa todas las etiquetas) Todas las etiquetas van a estar afectadas por la propiedad entre llaves */
+        /*
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        */
+        /* Etiqueta p y td, texto contenido este justificado */
+        /*
+        p, td{
+            text-align: justify;
+        }
+        */
+        /* Todas las etiquetas img, tienen las propiedades entre llaves */
+        /*
+        img{
+            width: 150px;
+            height: 150px;
+            border-style: solid;
+            border-width: 2px;
+            border-color: blue;
+            border-radius: 25px;
+        }
+        th, td{
+            border-color: gray;
+            border-width: 1px;
+            border-style: solid;
+        }
+        */
+    </style>
+</head>
+<body>
+    <!--
+        CSS: Hojas de Estilo Cascada
+        1) Atributo style="propiedad:valor;propiedad:valor;"
+        2) Etiqueta <style></style> anidada a la etiqueta
+           <head> (cabecera)
+        3) Declarar el contenido CSS, en un archivo independiente
+        de extensión .css
+    -->
+    <h1 style="color: blue;">Introducción a la Computación</h1>
+    <!--
+        Anclas
+        <a href="enlace de destino" target="_blank">Contenido de la etiqueta</a>
+                        |
+                        v
+                 Corresponde a #nombre, si el contenido es del mismo documento,
+                 donde #nombre, es el valor dado al atributo id="", que identifica
+                 el punto de llegada.
+    -->
+    <h2 id="contenido">Contenido</h2>
+    <ul>
+        <a href="#defhw"><li>Definición de Hardware</li></a>
+        <a href="#ejhw"><li>Ejemplos de Hardware</li></a>
+        <a href="#defsw"><li>Definición de Software</li></a>
+        <a href="#ejsw"><li>Ejemplos de Software</li></a>
+        <a href="#bd"><li>Bases de Datos</li></a>
+    </ul>
+    <h2 id="defhw">Definición de Hardware<a href="#contenido"><span title="Ir al Contenido">&#9757;</span></a></h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam molestias <b>NEGRILLA</b> id aspernatur, unde voluptatum dolores. Est ea dolore, adipisci voluptatum dolorum consequatur, qui maiores, saepe repellat magni quod vero vel nemo cupiditate excepturi commodi? Itaque pariatur vero quos eos dolorum <i>ITALICA</i> incidunt sit laborum. Minima reiciendis, saepe dolorem repellendus iure sed accusantium iusto nostrum, maiores repellat enim modi facilis vel deserunt tenetur aliquam mollitia, quos ea? Adipisci nemo cumque magni <u>SUB RAYADO</u>architecto aperiam, quis obcaecati minima debitis consequatur corporis reiciendis animi maxime <sup>SUPER ÍNDICE</sup> quisquam! Numquam blanditiis cumque, officia reiciendis quod, libero <s>TACHADO</s> iure quo quas iusto alias dolorum tempora <sub>SUB ÍNDICE</sub> veniam, <em>ENFATIZADO</em> autem <strong>FUERTE</strong> cupiditate soluta deserunt.</p>
+    <h2 id="ejhw">Ejemplos de Hardware<a href="#contenido"><span title="Ir al Contenido">&#9757;</span></a></h2>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo, magni rem suscipit molestiae nemo veniam ipsam neque accusamus odit sequi voluptas optio voluptatibus in harum corporis doloremque eligendi tenetur aliquid. Sunt non totam, voluptatum magni alias illum saepe ut officia vero. Veniam illum deleniti laudantium iste modi enim nihil esse incidunt quaerat quasi magni, cum ducimus vitae corporis praesentium ab, numquam quis perferendis est ad adipisci eligendi quidem! Illo fugiat aliquid quae consequuntur aspernatur suscipit magnam unde nisi, maxime rem, recusandae voluptatem. Adipisci sequi inventore ratione explicabo consequuntur. Id, rem.</p>
+    <!-- Listas Ordenadas 
+        <ol>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            ...
+        </ol>
+        Listas No Ordenadas 
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            ...
+        </ul>
+        Atributos puede ser globales (genericos) o partículares
+    -->
+    <ol type="i">
+        <li>Monitor</li>
+        <li>Teclado</li>
+        <li>Impresora</li>
+        <li>Mouse</li>
+        <li id="cpu">CPU
+            <ol type="a">
+                <a href="ejemplo02_cpu.html#um"><li>Unidad de Memoria</li></a>
+                <a href="ejemplo02_cpu.html#uc"><li>Unidad de Control</li></a>
+                <a href="ejemplo02_cpu.html#ula"><li>Unidad Lógica y Aritmética</li></a>
+            </ol>
+        </li>
+    </ol>
+
+    <h2 id="defsw">Definición de Software<a href="#contenido"><span title="Ir al Contenido">&#9757;</span></a></h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione dolorum quo aliquam quibusdam aspernatur ipsa minima molestiae nulla quis dignissimos, totam, aliquid libero! Ad nostrum cum vero natus, rem iusto repudiandae voluptates laudantium a. Perspiciatis, repellat. Doloribus veniam harum eius sit laborum esse reiciendis voluptates enim, doloremque voluptatem earum cumque velit exercitationem, dolorum temporibus magni modi, laudantium odit neque odio rerum quo iusto omnis. Itaque natus et ipsam dolores nulla temporibus laboriosam, rerum, corporis delectus quibusdam, cupiditate libero dignissimos dolore. Sed, illum! Modi ea explicabo neque, consectetur, autem pariatur vel dolor debitis architecto repellat assumenda praesentium. Nihil accusantium delectus commodi rerum impedit eius unde ullam quod. Eum, iste, eveniet necessitatibus quo neque labore tempora libero omnis provident doloribus facilis commodi?</p>
+    <h2 id="ejsw">Ejemplos de Software<a href="#contenido"><span title="Ir al Contenido">&#9757;</span></a></h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto nostrum doloremque libero sit dicta vitae inventore iusto, quia placeat quae, atque cupiditate alias! Aliquid unde quaerat nulla blanditiis provident deserunt, maxime autem minus perferendis pariatur. Recusandae at aliquam consequatur, quibusdam iure officiis corporis, similique quaerat, vel quam voluptatibus et provident. Voluptas asperiores quas sit est dicta, incidunt, quod voluptatem quam sint qui possimus cum placeat aut nostrum ipsum fugit facere repudiandae nemo? Cumque laudantium tempore reprehenderit dolores iusto deserunt itaque?</p>
+    <!--
+        Para la etiqueta ul, el tipo puede ser:
+        type="disc"
+        type="circle"
+        type="square"
+    -->
+    <ul type="square">
+        <li>Lenguajes de programación.
+            <ul type="disc">
+                <a href="https://www.python.org/" target="_blank"><li>Python</li></a>
+                <a href="https://developer.mozilla.org/es/docs/Web/JavaScript" target="_blank"><li>Javascript</li></a>
+                <a href="https://www.php.net/" target="_blank"><li>PHP</li></a>
+                <a href="https://es.wikipedia.org/wiki/Sun_Java_System_Application_Server" target="_blank"><li>Java</li></a>
+                <a href="https://learn.microsoft.com/es-es/dotnet/csharp/" target="_blank"><li>C#</li></a>
+            </ul>
+        </li>
+        <li>Manejadores de Bases de Datos.</li>
+        <li>Marcos de desarrollo.</li>
+        <li>Video juegos.</li>
+        <li>Herramientas ofimáticas
+            <ul type="circle">
+                <li>Word</li>
+                <li>Excel</li>
+                <li>Powerpoint</li>
+                <li>Access</li>
+            </ul>
+        </li>
+    </ul>
+    <h2 id="bd">Bases de Datos<a href="#contenido"><span title="Ir al Contenido">&#9757;</span></a></h2>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe doloribus deleniti recusandae ratione non tempora, quam id, placeat sint repellendus, quod dolor fugit sequi? Vel eaque excepturi cumque eius a sint ipsum necessitatibus voluptas dolorem veniam recusandae totam architecto nisi voluptates, exercitationem, aut laboriosam atque explicabo perspiciatis reiciendis? Doloremque, dolorum!</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Características</th>
+                <th>Imagen</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>MySQL</td>
+                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. In labore, dolorum quos doloremque, animi et ratione dolorem repellat incidunt quo tempore amet autem similique adipisci! Dicta veritatis neque quibusdam illo quam aperiam nisi exercitationem totam quasi facere! Placeat debitis eos libero est repudiandae, iste itaque nesciunt dicta natus, id rem!</td>
+                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur nam quas labore? Neque voluptates porro laudantium laborum quam expedita cumque facere? Necessitatibus beatae recusandae quia odio earum dolorum natus quo suscipit quisquam similique labore eos ipsam saepe, maxime nam rem. Saepe officia nostrum provident impedit?</td>
+                <td><img src="../img/mysql.png" alt="Imagen MySQL"></td>
+            </tr>
+            <tr>
+                <td>PostgreSQL</td>
+                <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius eveniet consequuntur facere labore error exercitationem natus libero deleniti nostrum, voluptates excepturi et. Quas laborum impedit quo, nisi ut ipsa quia reprehenderit minus incidunt? Explicabo incidunt cum fuga labore suscipit asperiores iusto delectus modi, voluptatibus at.</td>
+                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque aliquam fugit ad tempore eaque totam deleniti, dolorem molestias eius incidunt commodi, quae, molestiae corporis natus aliquid laudantium tempora velit. Laudantium, ipsum iusto! Mollitia quisquam beatae officia labore ipsum voluptatum provident.</td>
+                <td><img src="../img/postgresql.png" alt="Imagen PostgreSQL"></td>
+            </tr>
+            <tr>
+                <td>SQLite</td>
+                <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique temporibus sint hic suscipit veniam enim aliquam ex minus tenetur modi repellat atque optio quos obcaecati, saepe consequatur et iure. Officiis eum corrupti omnis hic deleniti fuga voluptate nobis consequuntur libero adipisci totam ipsa repellat, non aut aperiam dolorum perspiciatis necessitatibus!</td>
+                <td>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut consequuntur, architecto voluptates qui commodi consectetur culpa in quisquam dolores fugiat velit, quis eum. Unde rem iure consequatur accusantium laboriosam voluptas earum esse dolor, nulla sit et asperiores temporibus exercitationem possimus praesentium natus eaque quis ipsum repudiandae sapiente voluptates voluptatum fugit. Sit, earum in nam itaque culpa eveniet! Repudiandae, delectus soluta!</td>
+                <td><img src="../img/sqlite.jfif" alt="Imagen SQLite"></td>
+            </tr>
+            <tr>
+                <td>SQLServer</td>
+                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque laudantium in, repellendus nisi totam eveniet earum possimus fugit iste quam sapiente atque eligendi perferendis ducimus? Sapiente, sed! Dignissimos iure atque consequatur laudantium reiciendis illum autem distinctio rem ducimus quae, sapiente laboriosam consequuntur. Ratione, unde maiores!</td>
+                <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium eligendi labore, reprehenderit et facilis eius voluptas, magni aperiam repellat ex aut quos autem illum dolore ratione animi fugit possimus suscipit sapiente doloremque dolorem. Sed dolore aliquid enim consectetur repudiandae praesentium.</td>
+                <td><img src="../img/sqlserver.jfif" alt="Imagen SQLServer"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+</body>
+</html>

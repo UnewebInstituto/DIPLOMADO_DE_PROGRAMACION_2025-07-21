@@ -1,0 +1,271 @@
+Como desarrollador web, te proporciono a continuación la solución para crear un endpoint en Node.js que guardará los datos de tu formulario HTML en un archivo de texto plano.
+
+**1. Configuración del Proyecto:**
+
+Primero, necesitas configurar un proyecto de Node.js.
+
+  * **Crea un directorio para tu proyecto:**
+    ```bash
+    mkdir guardador-de-formularios
+    cd guardador-de-formularios
+    ```
+  * **Inicializa un proyecto de Node.js:**
+    ```bash
+    npm init -y
+    ```
+  * **Instala Express y body-parser:**
+    `express` es un framework web para Node.js, y `body-parser` es un middleware que nos ayudará a parsear los datos entrantes del formulario.
+    ```bash
+    npm install express body-parser
+    ```
+
+**2. Código del Servidor (server.js):**
+
+Crea un archivo llamado `server.js` (o `app.js`) en el directorio de tu proyecto y añade el siguiente código:
+
+```javascript
+const express = require('express');
+const bodyParser = require('body-parser');
+const fs = require('fs');
+const path = require('path');
+
+const app = express();
+const PORT = 3000;
+const DATA_FILE = path.join(__dirname, 'formData.txt'); // Archivo donde se guardarán los datos del formulario
+
+// Middleware para parsear los datos del formulario codificados en URL
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// Sirve archivos estáticos (tu formulario HTML)
+app.use(express.static(__dirname)); 
+
+// Endpoint para manejar las submisiones del formulario
+app.post('/guardar-datos-formulario', (req, res) => {
+    const formData = req.body; // Los datos del formulario estarán en req.body
+
+    // Puedes personalizar cómo quieres formatear los datos para tu archivo
+    // Por ejemplo, convertir el objeto a una cadena, JSON, o un formato personalizado
+    const dataToSave = JSON.stringify(formData, null, 2) + '\n---\n'; // Añade un separador para múltiples envíos
+
+    // Adjunta los datos al archivo
+    fs.appendFile(DATA_FILE, dataToSave, (err) => {
+        if (err) {
+            console.error('Error al escribir en el archivo:', err);
+            return res.status(500).send('Error al guardar los datos.');
+        }
+        console.log('¡Datos del formulario guardados con éxito!');
+        // Redirige o envía un mensaje de éxito al cliente
+        res.status(200).send('¡Formulario enviado y datos guardados!');
+        // Alternativamente, podrías redirigir:
+        // res.redirect('/exito.html'); // Crea una página exito.html
+    });
+});
+
+// Inicia el servidor
+app.listen(PORT, () => {
+    console.log(`Servidor ejecutándose en http://localhost:${PORT}`);
+    console.log(`Los datos del formulario se guardarán en: ${DATA_FILE}`);
+});
+```
+
+**Explicación de `server.js`:**
+
+  * `require('express')`: Importa el framework Express.
+  * `require('body-parser')`: Importa el middleware `body-parser`.
+  * `require('fs')`: Importa el módulo de sistema de archivos (File System) integrado de Node.js, que te permite interactuar con el sistema de archivos (por ejemplo, escribir archivos).
+  * `require('path')`: Importa el módulo `Path` integrado de Node.js, útil para trabajar con rutas de archivos y directorios.
+  * `app.use(bodyParser.urlencoded({ extended: true }))`: Esta línea es crucial. Le dice a Express que use `body-parser` para parsear los datos codificados en URL entrantes (que es como tu formulario HTML enviará los datos con `method="post"` y el `enctype` por defecto). La opción `extended: true` permite que objetos y arrays más ricos sean codificados en el formato codificado en URL.
+  * `app.use(express.static(__dirname))`: Esta línea sirve archivos estáticos desde el directorio actual. Esto significa que tu archivo `ejemplo05.html` será accesible directamente desde el servidor.
+  * `app.post('/guardar-datos-formulario', ...)`: Esto define un endpoint POST en la ruta `/guardar-datos-formulario`. Cuando tu formulario envíe datos a esta URL usando el método POST, esta función se ejecutará.
+  * `req.body`: Después de que `body-parser` procese la solicitud, los datos parseados del formulario estarán disponibles en `req.body` como un objeto JavaScript.
+  * `JSON.stringify(formData, null, 2)`: Esto convierte el objeto JavaScript `formData` en una cadena JSON con formato agradable.
+  * `fs.appendFile(DATA_FILE, dataToSave, (err) => { ... })`: Esta es la función principal para guardar datos.
+      * `DATA_FILE`: La ruta al archivo donde se guardarán los datos. `path.join(__dirname, 'formData.txt')` asegura una ruta correcta independientemente del sistema operativo.
+      * `dataToSave`: El contenido que quieres escribir en el archivo.
+      * La función de callback `(err) => { ... }` se ejecuta después de que la operación del archivo se complete. `err` contendrá un objeto de error si algo salió mal, de lo contrario, será `null`.
+  * `res.status(200).send('¡Formulario enviado y datos guardados!')`: Envía un mensaje de éxito de vuelta al cliente después de que los datos se guarden. También podrías redirigir al usuario a otra página (`res.redirect('/exito.html')`).
+  * `app.listen(PORT, ...)`: Inicia el servidor de Node.js en el puerto especificado.
+
+**3. Modifica tu Formulario HTML (ejemplo05.html):**
+
+Necesitas cambiar el atributo `action` de tu etiqueta `<form>` en `ejemplo05.html` para que apunte al nuevo endpoint de Node.js y asegurarte de que `method="post"`:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../img/uneweb_icono.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/ejemplo05.css">
+    <title>Ejemplo05</title>
+</head>
+<body>
+    <h1>Etiquetas de formularios</h1>
+    <form action="/guardar-datos-formulario" method="post"> 
+        <table>
+            <tr>
+                <td>Cédula</td>
+                <td>
+                    <select name="tipo" id="tipo">
+                        <option value="V">V</option>
+                        <option value="E">E</option>
+                    </select>
+                    <input type="number" min="100000" max="90000000" name="numero" id="numero">
+                </td>
+            </tr>
+            <tr>
+                <td>Nombre:</td>
+                <td>
+                    <input type="text" name="nombre" id="nombre">
+                </td>
+            </tr>
+            <tr>
+                <td>Apellido:</td>
+                <td>
+                    <input type="text" name="apellido" id="apellido">
+                </td>
+            </tr>
+            <tr>
+                <td>Fecha de nacimiento:</td>
+                <td>
+                    <input type="date" name="fecha_nac" id="fecha_nac">
+                </td>
+            </tr>
+            <tr>
+                <td>Sexo:</td>
+                <td>
+                    <input type="radio" name="sexo" id="sexo_F" value="F">Femenino
+                    <input type="radio" name="sexo" id="sexo_M" value="M">Masculino
+                </td>
+            </tr>
+            <tr>
+                <td>Actividad:</td>
+                <td>
+                    <input type="checkbox" 
+                           name="actividad[]" 
+                           id="actividad_estudia" 
+                           value="Estudia">Estudia
+                    <input type="checkbox" 
+                           name="actividad[]" 
+                           id="actividad_trabaja" 
+                           value="Trabaja">Trabaja
+                    <input type="checkbox" 
+                           name="actividad[]" 
+                           id="actividad_otra" 
+                           value="Otra">Otra
+                </td>
+            </tr>
+            <tr>
+                <td>Dirección</td>
+                <td>
+                    <textarea name="direccion" id="direccion" rows="5" cols="40" placeholder="Ingrese dirección de habitación"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>Buscar:</td>
+                <td>
+                    <input type="search" 
+                    name="buscar" 
+                    id="buscar" 
+                    placeholder="Término de búsqueda">
+                </td>
+            </tr>
+            <tr>
+                <td>Url:</td>
+                <td>
+                    <input type="url" 
+                           name="url"
+                           id="url"
+                           placeholder="Dirección sitio web">
+                </td>
+            </tr>
+            <tr>
+                <td>Correo electrónico:</td>
+                <td>
+                    <input type="email" 
+                           name="correo" 
+                           id="correo">
+                </td>
+            </tr>
+            <tr>
+                <td>Color:</td>
+                <td>
+                    <input type="color" 
+                           name="color" 
+                           id="color"
+                           value="#FFFFFF">
+                </td>
+            </tr>
+            <tr>
+                <td>Mes:</td>
+                <td>
+                    <input type="month" name="mes" id="mes">
+                </td>
+            </tr>
+            <tr>
+                <td>Fecha y Hora:</td>
+                <td>
+                    <input type="datetime-local" name="fecha_hora" id="fecha_hora">
+                </td>
+            </tr>
+            <tr>
+                <td>Semana:</td>
+                <td>
+                    <input type="week" name="semana" id="semana">
+                </td>
+            </tr>
+            <tr>
+                <td>Clave secreta:</td>
+                <td>
+                    <input type="password" name="clave" id="clave" placeholder="Ingrese su clave">
+                </td>
+            </tr>
+            <tr>
+                <td>Oculto:</td>
+                <td>
+                    <input type="hidden" name="oculto" id="oculto" value="Este valor se encuentra oculto">
+                </td>
+            </tr>
+            <tr>
+                <td>Archivo anexo:</td>
+                <td>
+                    <input type="file" name="archivo" id="archivo">
+                </td>
+            <tr>
+                <td>
+                    <input type="submit" value="ENVIAR">
+                    <input type="reset" value="LIMPIAR">
+                </td>
+            </tr>
+            
+        </table>
+    </form>
+</body>
+</html>
+```
+
+**Notas importantes sobre los cambios en el HTML:**
+
+  * `action="/guardar-datos-formulario"`: Esto le dice al formulario que envíe sus datos al endpoint `/guardar-datos-formulario` en tu servidor Node.js.
+  * `method="post"`: Esto asegura que los datos se envíen utilizando el método HTTP POST, que es estándar para envíos de formularios que crean o actualizan datos.
+  * **Subida de Archivos:** El código actual de Node.js con `body-parser.urlencoded` **no maneja directamente la subida de archivos**. Si necesitas manejar la entrada `archivo` (tipo `file`), tendrás que usar un middleware como `multer`. Este es un tema más complejo y requiere una configuración adicional. Por simplicidad, esta solución se centra en guardar datos de formulario basados en texto.
+
+**4. Ejecutando la Aplicación:**
+
+1.  Coloca tanto `server.js` como `ejemplo05.html` en el mismo directorio (por ejemplo, `guardador-de-formularios`).
+2.  Abre tu terminal o línea de comandos, navega al directorio `guardador-de-formularios`.
+3.  Ejecuta tu servidor Node.js:
+    ```bash
+    node server.js
+    ```
+    Deberías ver el mensaje: `Servidor ejecutándose en http://localhost:3000`
+    Y `Los datos del formulario se guardarán en: /ruta/a/tu/proyecto/guardador-de-formularios/formData.txt`
+4.  Abre tu navegador web y ve a `http://localhost:3000/ejemplo05.html`.
+5.  Rellena el formulario y haz clic en "ENVIAR".
+
+**5. Verificando los Datos Guardados:**
+
+Después de enviar el formulario, deberías ver un archivo `formData.txt` creado en el directorio de tu proyecto (o se le adjuntará si ya existe). Este archivo contendrá los datos del formulario enviados en formato JSON. Cada envío estará separado por `---`.
+
+Esta configuración proporciona un endpoint básico pero funcional para capturar y guardar los datos de tu formulario en un archivo de texto plano utilizando Node.js.
