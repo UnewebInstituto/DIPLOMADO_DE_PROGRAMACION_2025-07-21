@@ -14,8 +14,12 @@
   <a href="./Ejemplo01.html">Regresar a la pagina anterior
   </a>
   <br>
+  <br>
   <button onclick="obtenerCoordenadas()">Obtener Coordenadas</button>
-  <button onclick="verMapa()">Ver Mapa</button>
+  <!--
+  El atributo disabled en el botón evita que se pueda hacer clic en el boton hasta que se obtengan las coordenadas 
+  -->
+  <button id="btnVerMapa" onclick="verMapa()" disabled>Ver Mapa</button>
   <div id="resultado"></div>
   <script src="./JS/Ejemplo03_Geolocalizacion.js"></script>
 </body>

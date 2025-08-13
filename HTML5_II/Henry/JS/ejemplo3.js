@@ -13,6 +13,9 @@ function mostrarCoordenadas(p){
   latitud = p.coords.latitude;
   longitud = p.coords.longitude;
   resultado.innerHTML += "<br>Latitud: " + latitud + "<br>Longitud: " + longitud;
+  btnVerMapa = document.getElementById("btnVerMapa");
+  // El botón es habilitado
+  btnVerMapa.disabled = false;
 }
 
 function mostrarError(e){
@@ -33,11 +36,14 @@ function mostrarError(e){
   }
 }
 
+
 function verMapa(){
-  var url = "https://www.openstreetmap.org/#map=15/" + latitud + "/" + longitud;
+  var url = "https://www.openstreetmap.org/#map=17/" + latitud + "/" + longitud;
   window.open(url);
+  btnVerMapa.disabled = true;
 }
 
 
 var resultado = document.getElementById("resultado");
 var latitud, longitud;
+var btnVerMapa;

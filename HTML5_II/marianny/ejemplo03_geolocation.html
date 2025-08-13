@@ -15,6 +15,10 @@
     <a href="./ejemplo01.html">Regresar al menú</a>
     <br>
     <button onclick="obtenerCoordenadas()">Obtener coordenadas</button>
+    <!-- 
+    El atributo "disabled" inhibe el botón, hasta que se habilite nuevamente mediante la obtención de coordenadas.
+    -->
+    <button id="btnVerMapa" onclick="verMapa()" disabled>Ver mapa</button>
     <br>
     <div id="resultado"></div>
     <script src="./js/ejemplo03_geolocation.js"></script>

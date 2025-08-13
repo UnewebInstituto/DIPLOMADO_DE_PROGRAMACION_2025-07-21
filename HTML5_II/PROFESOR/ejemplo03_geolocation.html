@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejemplo02 Canvas</title>
+    <title>Ejemplo03 Geolocation</title>
     <link rel="shortcut icon" href="../img/uneweb_icono.png" type="image/x-icon">
     <link rel="stylesheet" href="">
 </head>
@@ -15,6 +15,10 @@
     <a href="./ejemplo01.html">Regresar al menú</a>
     <br>
     <button onclick="obtenerCoordenadas()">Obtener coordenadas</button>
+    <!-- 
+    El atributo "disabled" inhibe el botón, hasta que se habilite nuevamente mediante la obtención de coordenadas.
+    -->
+    <button id="btnVerMapa" onclick="verMapa()" disabled>Ver mapa</button>
     <br>
     <div id="resultado"></div>
     <script src="./js/ejemplo03_geolocation.js"></script>

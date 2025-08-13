@@ -14,8 +14,11 @@ function mostrarCoordenadas(posicion) {
   latitud = posicion.coords.latitude;
   longitud = posicion.coords.longitude;
   resultado.innerHTML += "<br>Latitud: " + latitud + "<br>Longitud: " + longitud;
-
-
+  //Dado a que se obtuvo coordenadas se cambia el valor logico de la variable controlVerMapa
+  controlVerMapa = true;
+  btnVerMapa=document.getElementById("btnVerMapa");
+  //El boton es habilitado
+  btnVerMapa.disabled = false;
 }
 
 function mostrarError(error) {
@@ -37,11 +40,16 @@ function mostrarError(error) {
 }
 
 function verMapa() {
-  var url = "https://www.openstreetmap.org/#map=10/" + latitud + "/" + longitud;
+  var url = "https://www.openstreetmap.org/#map=17/" + latitud + "/" + longitud;
   window.open(url);
+  btnVerMapa.disabled = true; // Deshabilita el botón después de abrir el mapa
 }
 
 var resultado = document.getElementById("resultado"); //Esto hace que busque el elemento con id resultado en el HTML
 
 var latitud, longitud; //Declaración de variables
+
+var controlVerMapa = false; //Variable para controlar si se muestra el boton de Ver mapa o no
+
+var btnVerMapa; //Variable para el botón de ver mapa
 

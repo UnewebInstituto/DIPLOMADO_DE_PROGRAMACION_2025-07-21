@@ -1,0 +1,9 @@
+https://www.w3schools.com/
+
+https://www.w3schools.com/js/js_api_intro.asp
+
+https://www.w3schools.com/HTML/html5_draganddrop.asp
+
+https://developer.mozilla.org/es/docs/Web/API/Web_Workers_API
+
+https://www.w3schools.com/html/html5_webworkers.asp

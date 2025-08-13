@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo04 Drag and Drop</title>
+    <link rel="shortcut icon" href="../img/uneweb_icono.png" type="image/x-icon">
+    <link rel="stylesheet" href="./CSS/Ejemplo04.css">
+</head>
+<body>
+    <h1>Api Drag and Drop</h1>
+    <br>
+    <a href="https://developer.mozilla.org/es/docs/Web/API/HTML_Drag_and_Drop_API/File_drag_and_drop" target="_blank">Documentación MDN</a>
+    <br>
+    <a href="https://www.w3schools.com/HTML/html5_draganddrop.asp" target="_blank">Documentación W3Schools</a>
+    <br>
+    <a href="./Ejemplo01.html">Regresar al menú</a>
+    <br>
+    <br>
+    <div id="caja1" ondrop="manejadorSoltar(event)"
+    ondragover="manejadorArrastrarSobre(event)">
+        <img src="../img/819fe43541381390120a22bf810e684f.jpg" 
+            alt="Imagen"
+            id="imagenMover"
+            draggable="true"
+            ondragstart="manejadorInicioArrastre(event)">
+    </div>
+    <div id="caja2" 
+        ondrop="manejadorSoltar(event)"
+        ondragover="manejadorArrastrarSobre(event)"></div>
+    <script src="./js/Ejemplo04.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo05 WebWorker</title>
+    <link rel="shortcut icon" href="../img/uneweb_icono.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/ejemplo05_webworker.css">
+</head>
+<body>
+    <h1>Api WebWorker</h1>
+    <!--
+    Para probar esta API, es requerido que se ejecute sobre servidor web local o remoto.
+    Por ejemplo live-server, http-server, etc.
+    -->
+    <br>
+    <a href="https://developer.mozilla.org/es/docs/Web/API/Web_Workers_API" target="_blank">Documentación MDN</a>
+    <br>
+    <a href="https://www.w3schools.com/html/html5_webworkers.asp" target="_blank">Documentación W3Schools</a>
+    <br>
+    <a href="./ejemplo01.html">Regresar al menú</a>
+    <br>
+    <label for="">Contador de números:</label>
+    <div id="contador">0</div>
+    <br>
+    <button onclick="iniciarTrabajador()">Iniciar trabajador</button>
+    <button onclick="detenerTrabajador()">Detener trabajador</button>
+    <script src="./js/ejemplo05_webworker.js"></script>
+</body>
+</html>
