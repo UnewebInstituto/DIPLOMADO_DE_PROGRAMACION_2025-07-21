@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="../img/uneweb_icono.png" type="image/x-icon">
+  <link rel="stylesheet" href="./CSS/Ejemplo06.css".css">
+  <title>Ejemplo 06</title>
+</head>
+<body>
+  <h1>Ejemplo 06</h1>
+  <h2> Uso de las etiquetas &lt;range&gt;, &lt;output&gt;, &lt;meter&gt;, &lt;progress&gt; </h2>
+  <h3>Caso &lt;range&gt; y &lt;output&gt;</h3>
+  <form action="" method="post" onclick="detectarCambios()">
+    <label for="">Por favor, indique en la escala de 0 a 100 ¿Cuál es su conocimiento acerca de tecnologías de la información?</label>
+    <br>
+    <input type="range" 
+           name="conocimientos_ti" 
+           id="conocimientos_ti" 
+           min="0" max="100" 
+           value="50">
+    <output for="conocimientos_ti" 
+            id="resultado_conocimientos_ti" 
+            name="resultado_conocimientos_ti">50</output>
+  </form>
+  <div>
+    <h3>Caso &lt;meter&gt;</h3>
+    <label for="">¿En una escala del 0 al 100 cuánto es su conocimiento sobre la IA?</label>
+    <br>
+    <br>
+    <input type="number" 
+           name="conocimientos_ia" 
+           id="conocimientos_ia" 
+           min="0" 
+           max="100" 
+           step="1" 
+           value="50"
+           onclick="cambiosMeter()">
+    <br>
+    <meter value="50"
+           min="0"
+           max="100"
+           id="resultado_conocimientos_ia"
+           low="30"
+           optimum="60"
+           max="100"
+           high="80">
+    </meter>
+    <br>
+    <h3>Caso &lt;progress&gt;</h3>
+    <label for="">¿Del 0 al 100 cuánto es su conocimiento en el lenguaje de programación python?</label>
+    <br>
+    <br>
+    <input type="number" 
+           name="conocimientos_py" 
+           id="conocimientos_py" 
+           min="0" 
+           max="100" 
+           step="1" 
+           value="50"
+           onclick="cambiosProgress()">
+    <br>
+    <progress id="resultado_conocimientos_py"
+              value="50"
+              min="0"
+              max="100"></progress>
+  </div>
+
+<script src="./JS/Ejemplo06.js"></script>
+  
+</body>
+</html>

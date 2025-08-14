@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="../img/uneweb_icono.png" type="image/x-icon">
+  <link rel="stylesheet" href="./CSS/Ejemplo06.css">
+  <title>Document</title>
+</head>
+<body>
+    <h1>Ejemplo06</h1>
+    <h2>Uso de las etiquetas &lt;range&gt; &lt;output&gt; &lt;meter&gt; &lt;progress&gt;</h2>
+    <form action="" method="post" onclick="detectarCambios()">
+      <h3>Caso &lt;range&gt; &lt;output&gt; </h3>
+      <label for="">¿Por Favor indique de la escala del 0 a 100, cuál es su conocimiento acerca de tecnologia de informació?</label>
+      <br>
+      <input type="range" 
+      name="conocimientos_ti" 
+      id="conocimientos_ti" 
+      min="0" 
+      max="100" 
+      value="0">
+      <output for="conocimientos_ti" 
+      name="resultado_conocimientos_ti" 
+      id="resultado_conocimientos_ti">0
+    </output>
+
+    </form>
+    <div>
+      <h4>Caso &lt;meter&gt;</h4>
+      <label for="">En una escala del 0 al 100, ¿cuál es su conocimiento acerca de Inteligencia Artificial?</label>
+      <br>
+      <input type="number" name="conocimientos_ia" id="conocimientos_ia" min="0" max="100" step="1" value="0" onclick="cambiosMeter()">
+      <br>
+      <meter 
+      id="resultado_conocimientos_ia" 
+      min="0";
+      max="100";
+      low="30" ;
+      optimum="60" ;
+      high="100";
+      value="0"></meter>
+      <br>
+      <h4>Caso &lt;progress&gt;</h4>
+      <label for="">En una escala del 0 al 100, ¿cuál es su conocimiento acerca de Python?</label>
+      <br>
+      <input type="number" name="conocimientos_py" id="conocimientos_py" min="0" max="100" step="1" value="0" onclick="cambiosProgress()">
+      <br>
+      <progress id="resultado_conocimientos_py"
+        value="0"
+        min="0"
+        max="100"></progress>
+    </div>
+    <script src="./js/Ejemplo06.js"></script>
+</body>
+</html>
