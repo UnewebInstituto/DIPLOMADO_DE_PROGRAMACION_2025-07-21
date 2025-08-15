@@ -41,3 +41,8 @@ h1{
   cursor: pointer;
 }
 
+#fecha_hora{
+  text-align: center;
+  color: blue;
+}
+

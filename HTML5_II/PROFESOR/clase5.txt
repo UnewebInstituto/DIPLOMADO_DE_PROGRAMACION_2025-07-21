@@ -1,0 +1,8 @@
+https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Date/Date
+
+
+https://jquery.com/
+
+https://htmlcheatsheet.com/
+
+https://www.w3schools.com/bootstrap5/tryit.asp?filename=trybs_table_striped&stacked=h
