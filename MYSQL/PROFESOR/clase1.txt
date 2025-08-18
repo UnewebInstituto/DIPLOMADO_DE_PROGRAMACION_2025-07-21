@@ -1,0 +1,1050 @@
+INSTALACIÓN:
+XAMPP
+https://www.apachefriends.org/es/index.html
+
+APPSERV
+https://www.appserv.org/en/
+
+WAMP
+https://www.wampserver.com/en/
+
+
+Sitios web oficiales
+https://mariadb.org/
+https://www.mysql.com/
+
+CASO DE ESTUDIO XAMPP:
+----------------------
+
+
+C:\XAMPP
+
+
+https://www.ilerna.es/blog/modelo-entidad-relacion-base-datos
+
+El modelo entidad-relación (MER), también conocido como diagrama entidad-relación (DER), es una herramienta para modelar datos que representa visualmente las entidades de una base de datos y sus relaciones. Este modelo, desarrollado por Peter Chen en 1976, facilita la comprensión de cómo se organizan y relacionan los datos dentro de un sistema de información. 
+Componentes del Modelo Entidad-Relación:
+Entidades:
+Son objetos, personas, conceptos o lugares del mundo real sobre los que se quiere almacenar información. Por ejemplo, en una base de datos de una universidad, las entidades podrían ser estudiantes, profesores, asignaturas, etc.
+Atributos:
+Describen las propiedades o características de las entidades. Por ejemplo, para la entidad "Estudiante", los atributos podrían ser nombre, apellidos, número de matrícula, etc.
+Relaciones:
+Representan las conexiones entre las diferentes entidades, indicando cómo interactúan entre sí. Por ejemplo, la relación "Matriculado en" podría conectar las entidades "Estudiante" y "Asignatura". 
+Beneficios del Modelo Entidad-Relación:
+Facilita la comprensión:
+Permite visualizar la estructura de la base de datos de forma clara y sencilla.
+Ayuda en el diseño:
+Es una herramienta útil para el diseño inicial de bases de datos, permitiendo identificar entidades y relaciones.
+Documentación:
+Sirve como documentación del diseño de la base de datos.
+Comunicación:
+Facilita la comunicación entre diseñadores, desarrolladores y usuarios finales. 
+Ejemplo:
+En una base de datos de una tienda, se podrían tener las siguientes entidades y relaciones: 
+Entidades: Cliente, Producto, Pedido, Empleado.
+Atributos:
+Cliente: ID_Cliente, Nombre, Dirección, Teléfono.
+Producto: ID_Producto, Nombre, Precio, Descripción.
+Pedido: ID_Pedido, Fecha, ID_Cliente, Total.
+Empleado: ID_Empleado, Nombre, Cargo.
+Relaciones:
+"Realiza" entre Cliente y Pedido.
+"Contiene" entre Pedido y Producto.
+"Trabaja en" entre Empleado y Pedido (o Cliente).
+Este modelo visualiza cómo se relacionan los clientes con los productos a través de los pedidos y cómo los empleados interactúan con estos procesos. 
+¿Qué es el modelo entidad relación 
+
+
+Setting environment for using XAMPP for Windows.
+Profe@DESKTOP-DME1HRR c:\xampp
+# mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 8
+Server version: 10.4.28-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> create database bd_profesor_20250818;
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [(none)]> show databases like '%_20250818%';
++------------------------+
+| Database (%_20250818%) |
++------------------------+
+| bd_david_20250818      |
+| bd_henry_20250818      |
+| bd_profesor_20250818   |
++------------------------+
+3 rows in set (0.036 sec)
+
+MariaDB [(none)]> drop database bd_profesor_20250818;
+Query OK, 0 rows affected (0.009 sec)
+
+MariaDB [(none)]> show databases like '%_20250818%';
++------------------------+
+| Database (%_20250818%) |
++------------------------+
+| bd_david_20250818      |
+| bd_henry_20250818      |
++------------------------+
+2 rows in set (0.002 sec)
+
+MariaDB [(none)]> show databases like '%_20250818%';
++------------------------+
+| Database (%_20250818%) |
++------------------------+
+| bd_david_20250818      |
+| bd_henry_20250818      |
++------------------------+
+2 rows in set (0.002 sec)
+
+MariaDB [(none)]> show databases like '%_20250818%';
++------------------------+
+| Database (%_20250818%) |
++------------------------+
+| bd_david_20250818      |
+| bd_henry_20250818      |
++------------------------+
+2 rows in set (0.002 sec)
+
+MariaDB [(none)]> show databases like '%_20250818%';
++------------------------+
+| Database (%_20250818%) |
++------------------------+
+| bd_david_20250818      |
+| bd_henry_20250818      |
++------------------------+
+2 rows in set (0.002 sec)
+
+MariaDB [(none)]> show databases like '%_20250818%';
++------------------------+
+| Database (%_20250818%) |
++------------------------+
+| bd_david_20250818      |
+| bd_henry_20250818      |
++------------------------+
+2 rows in set (0.013 sec)
+
+MariaDB [(none)]> show databases like '%_20250818%';
++------------------------+
+| Database (%_20250818%) |
++------------------------+
+| bd_david_20250818      |
+| bd_henry_20250818      |
++------------------------+
+2 rows in set (0.002 sec)
+
+MariaDB [(none)]> show databases like '%_20250818%';Ç
++------------------------+
+| Database (%_20250818%) |
++------------------------+
+| bd_david_20250818      |
+| bd_henry_20250818      |
++------------------------+
+2 rows in set (0.002 sec)
+
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '?' at line 1
+MariaDB [(none)]> create database bd_profesor_20250818;
+Query OK, 1 row affected (0.002 sec)
+
+MariaDB [(none)]> show databases like '%_20250818%';
++------------------------+
+| Database (%_20250818%) |
++------------------------+
+| bd_david_20250818      |
+| bd_henry_20250818      |
+| bd_profesor_20250818   |
++------------------------+
+3 rows in set (0.002 sec)
+
+MariaDB [(none)]> use bd_profesor_20250818;
+Database changed
+MariaDB [bd_profesor_20250818]> show tables;
+Empty set (0.001 sec)
+
+MariaDB [bd_profesor_20250818]> create table contactos(
+    ->     nombre VARCHAR(80),
+    ->     apellido VARCHAR(80),
+    ->     telefono VARCHAR(20),
+    ->     correo_electronico VARCHAR(100)
+    -> );
+Query OK, 0 rows affected (0.025 sec)
+
+MariaDB [bd_profesor_20250818]> show tables;
++--------------------------------+
+| Tables_in_bd_profesor_20250818 |
++--------------------------------+
+| contactos                      |
++--------------------------------+
+1 row in set (0.001 sec)
+
+MariaDB [bd_profesor_20250818]> describe contactos;
++--------------------+--------------+------+-----+---------+-------+
+| Field              | Type         | Null | Key | Default | Extra |
++--------------------+--------------+------+-----+---------+-------+
+| nombre             | varchar(80)  | YES  |     | NULL    |       |
+| apellido           | varchar(80)  | YES  |     | NULL    |       |
+| telefono           | varchar(20)  | YES  |     | NULL    |       |
+| correo_electronico | varchar(100) | YES  |     | NULL    |       |
++--------------------+--------------+------+-----+---------+-------+
+4 rows in set (0.007 sec)
+
+MariaDB [bd_profesor_20250818]> show create table contactos;
++-----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Table     | Create Table                                                                                                                                                                                                                                                      |
++-----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| contactos | CREATE TABLE `contactos` (
+  `nombre` varchar(80) DEFAULT NULL,
+  `apellido` varchar(80) DEFAULT NULL,
+  `telefono` varchar(20) DEFAULT NULL,
+  `correo_electronico` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci |
++-----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.001 sec)
+
+MariaDB [bd_profesor_20250818]>
+MariaDB [bd_profesor_20250818]>
+MariaDB [bd_profesor_20250818]>
+MariaDB [bd_profesor_20250818]> show create table contactos;
++-----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Table     | Create Table                                                                                                                                                                                                                                                      |
++-----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| contactos | CREATE TABLE `contactos` (
+  `nombre` varchar(80) DEFAULT NULL,
+  `apellido` varchar(80) DEFAULT NULL,
+  `telefono` varchar(20) DEFAULT NULL,
+  `correo_electronico` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci |
++-----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.000 sec)
+
+MariaDB [bd_profesor_20250818]>
+MariaDB [bd_profesor_20250818]>
+MariaDB [bd_profesor_20250818]> show create table contactos;
++-----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Table     | Create Table                                                                                                                                                                                                                                                      |
++-----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| contactos | CREATE TABLE `contactos` (
+  `nombre` varchar(80) DEFAULT NULL,
+  `apellido` varchar(80) DEFAULT NULL,
+  `telefono` varchar(20) DEFAULT NULL,
+  `correo_electronico` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci |
++-----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.000 sec)
+
+MariaDB [bd_profesor_20250818]> alter table contactos drop column telefono;
+Query OK, 0 rows affected (0.034 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [bd_profesor_20250818]> describe contactos;
++--------------------+--------------+------+-----+---------+-------+
+| Field              | Type         | Null | Key | Default | Extra |
++--------------------+--------------+------+-----+---------+-------+
+| nombre             | varchar(80)  | YES  |     | NULL    |       |
+| apellido           | varchar(80)  | YES  |     | NULL    |       |
+| correo_electronico | varchar(100) | YES  |     | NULL    |       |
++--------------------+--------------+------+-----+---------+-------+
+3 rows in set (0.008 sec)
+
+MariaDB [bd_profesor_20250818]> alter table contactos add column telefono VARCHAR(20);
+Query OK, 0 rows affected (0.020 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [bd_profesor_20250818]> describe contactos;
++--------------------+--------------+------+-----+---------+-------+
+| Field              | Type         | Null | Key | Default | Extra |
++--------------------+--------------+------+-----+---------+-------+
+| nombre             | varchar(80)  | YES  |     | NULL    |       |
+| apellido           | varchar(80)  | YES  |     | NULL    |       |
+| correo_electronico | varchar(100) | YES  |     | NULL    |       |
+| telefono           | varchar(20)  | YES  |     | NULL    |       |
++--------------------+--------------+------+-----+---------+-------+
+4 rows in set (0.015 sec)
+
+MariaDB [bd_profesor_20250818]> alter table contactos add column cedula varchar(10) first;
+Query OK, 0 rows affected (0.016 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [bd_profesor_20250818]> describe contactos;
++--------------------+--------------+------+-----+---------+-------+
+| Field              | Type         | Null | Key | Default | Extra |
++--------------------+--------------+------+-----+---------+-------+
+| cedula             | varchar(10)  | YES  |     | NULL    |       |
+| nombre             | varchar(80)  | YES  |     | NULL    |       |
+| apellido           | varchar(80)  | YES  |     | NULL    |       |
+| correo_electronico | varchar(100) | YES  |     | NULL    |       |
+| telefono           | varchar(20)  | YES  |     | NULL    |       |
++--------------------+--------------+------+-----+---------+-------+
+5 rows in set (0.007 sec)
+
+MariaDB [bd_profesor_20250818]> alter table contactos add column direcciones text after apellido;
+Query OK, 0 rows affected (0.018 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [bd_profesor_20250818]> describe contactos;
++--------------------+--------------+------+-----+---------+-------+
+| Field              | Type         | Null | Key | Default | Extra |
++--------------------+--------------+------+-----+---------+-------+
+| cedula             | varchar(10)  | YES  |     | NULL    |       |
+| nombre             | varchar(80)  | YES  |     | NULL    |       |
+| apellido           | varchar(80)  | YES  |     | NULL    |       |
+| direcciones        | text         | YES  |     | NULL    |       |
+| correo_electronico | varchar(100) | YES  |     | NULL    |       |
+| telefono           | varchar(20)  | YES  |     | NULL    |       |
++--------------------+--------------+------+-----+---------+-------+
+6 rows in set (0.010 sec)
+
+MariaDB [bd_profesor_20250818]> alter table contactos change column direcciones direccion text;
+Query OK, 0 rows affected (0.019 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [bd_profesor_20250818]> describe contactos;
++--------------------+--------------+------+-----+---------+-------+
+| Field              | Type         | Null | Key | Default | Extra |
++--------------------+--------------+------+-----+---------+-------+
+| cedula             | varchar(10)  | YES  |     | NULL    |       |
+| nombre             | varchar(80)  | YES  |     | NULL    |       |
+| apellido           | varchar(80)  | YES  |     | NULL    |       |
+| direccion          | text         | YES  |     | NULL    |       |
+| correo_electronico | varchar(100) | YES  |     | NULL    |       |
+| telefono           | varchar(20)  | YES  |     | NULL    |       |
++--------------------+--------------+------+-----+---------+-------+
+6 rows in set (0.004 sec)
+
+MariaDB [bd_profesor_20250818]> alter table contactos modify column direccion varchar(100);
+Query OK, 0 rows affected (0.041 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [bd_profesor_20250818]> describe contactos;
++--------------------+--------------+------+-----+---------+-------+
+| Field              | Type         | Null | Key | Default | Extra |
++--------------------+--------------+------+-----+---------+-------+
+| cedula             | varchar(10)  | YES  |     | NULL    |       |
+| nombre             | varchar(80)  | YES  |     | NULL    |       |
+| apellido           | varchar(80)  | YES  |     | NULL    |       |
+| direccion          | varchar(100) | YES  |     | NULL    |       |
+| correo_electronico | varchar(100) | YES  |     | NULL    |       |
+| telefono           | varchar(20)  | YES  |     | NULL    |       |
++--------------------+--------------+------+-----+---------+-------+
+6 rows in set (0.005 sec)
+
+MariaDB [bd_profesor_20250818]> alter table contactos rename to prueba_contactos;
+Query OK, 0 rows affected (0.006 sec)
+
+MariaDB [bd_profesor_20250818]> show tables;
++--------------------------------+
+| Tables_in_bd_profesor_20250818 |
++--------------------------------+
+| prueba_contactos               |
++--------------------------------+
+1 row in set (0.001 sec)
+
+MariaDB [bd_profesor_20250818]> alter table prueba_contactos rename contactos;
+Query OK, 0 rows affected (0.020 sec)
+
+MariaDB [bd_profesor_20250818]>
+MariaDB [bd_profesor_20250818]>
+MariaDB [bd_profesor_20250818]>
+MariaDB [bd_profesor_20250818]> show tables;
++--------------------------------+
+| Tables_in_bd_profesor_20250818 |
++--------------------------------+
+| contactos                      |
++--------------------------------+
+1 row in set (0.001 sec)
+
+MariaDB [bd_profesor_20250818]> describe contactos;
++--------------------+--------------+------+-----+---------+-------+
+| Field              | Type         | Null | Key | Default | Extra |
++--------------------+--------------+------+-----+---------+-------+
+| cedula             | varchar(10)  | YES  |     | NULL    |       |
+| nombre             | varchar(80)  | YES  |     | NULL    |       |
+| apellido           | varchar(80)  | YES  |     | NULL    |       |
+| direccion          | varchar(100) | YES  |     | NULL    |       |
+| correo_electronico | varchar(100) | YES  |     | NULL    |       |
+| telefono           | varchar(20)  | YES  |     | NULL    |       |
++--------------------+--------------+------+-----+---------+-------+
+6 rows in set (0.004 sec)
+
+MariaDB [bd_profesor_20250818]> insert into contactos(cedula, nombre, apellido, direccion, correo_electronico, telefono) values
+    -> ('V1234','ANA','VASQUEZ','SANTA FE','AV@GMAIL.COM','+58 414 1234567'),
+    -> ('V5678','YOLANDA','TORTOZA','CATIA LA MAR','YT@GMAIL.COM','+58 416 9876543'),
+    -> ('V9012','LIBIA','COLS','GUARENAS','LC@GMAIL.COM','58 414 4567890');
+Query OK, 3 rows affected (0.011 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+MariaDB [bd_profesor_20250818]> USE BD_DAVID_20250818;
+Database changed
+MariaDB [BD_DAVID_20250818]> select * from contactos;
+Empty set (0.012 sec)
+
+MariaDB [BD_DAVID_20250818]> USE BD_henry_20250818;
+Database changed
+MariaDB [BD_henry_20250818]> select * from contactos;
++-----------+---------+-----------+------------------------------------+-------------+--------------------------+
+| Cedula    | nombre  | apellido  | direcciones                        | telefono    | correo_electronico       |
++-----------+---------+-----------+------------------------------------+-------------+--------------------------+
+| V29987858 | Ana     | Vasquez   | Calle 1, Casa 2                    | 04122710844 | anavasquez89@gmail.com   |
+| V30370879 | Vanessa | Rodriguez | Bello Monte                        | 04242680622 | vanessarod@gmail.com     |
+| V25478963 | Carlos  | Gomez     | Avenida Principal, Edificio 3      | 04141234567 | carlosgomez@gmail.com    |
+| V26543210 | Mar?a   | Fernandez | Urbanizaci?n Centro, Apartamento 5 | 04162345678 | mariafernandez@gmail.com |
+| V29987858 | Ana     | Vasquez   | Calle 1, Casa 2                    | 04122710844 | anavasquez89@gmail.com   |
+| V30370879 | Vanessa | Rodriguez | Bello Monte                        | 04242680622 | vanessarod@gmail.com     |
+| V25478963 | Carlos  | Gomez     | Avenida Principal, Edificio 3      | 04141234567 | carlosgomez@gmail.com    |
+| V26543210 | Mar?a   | Fernandez | Urbanizaci?n Centro, Apartamento 5 | 04162345678 | mariafernandez@gmail.com |
+| V29987858 | Ana     | Vasquez   | Calle 1, Casa 2                    | 04122710844 | anavasquez89@gmail.com   |
+| V30370879 | Vanessa | Rodriguez | Bello Monte                        | 04242680622 | vanessarod@gmail.com     |
+| V25478963 | Carlos  | Gomez     | Avenida Principal, Edificio 3      | 04141234567 | carlosgomez@gmail.com    |
+| V26543210 | Mar?a   | Fernandez | Urbanizaci?n Centro, Apartamento 5 | 04162345678 | mariafernandez@gmail.com |
++-----------+---------+-----------+------------------------------------+-------------+--------------------------+
+12 rows in set (0.001 sec)
+
+MariaDB [BD_henry_20250818]>
+MariaDB [BD_henry_20250818]>
+MariaDB [BD_henry_20250818]>
+MariaDB [BD_henry_20250818]>
+MariaDB [BD_henry_20250818]>
+MariaDB [BD_henry_20250818]> use bd_profesor_20250818
+Database changed
+MariaDB [bd_profesor_20250818]> show tables;
++--------------------------------+
+| Tables_in_bd_profesor_20250818 |
++--------------------------------+
+| contactos                      |
++--------------------------------+
+1 row in set (0.001 sec)
+
+MariaDB [bd_profesor_20250818]> -- CONSULTAR DATOS
+MariaDB [bd_profesor_20250818]> -- SELECT
+MariaDB [bd_profesor_20250818]> -- * TODAS LAS COLUMNAS
+MariaDB [bd_profesor_20250818]> -- VER TODOS EL CONTENIDO DE LA TABLA
+MariaDB [bd_profesor_20250818]> SELECT * FROM contactos;
++--------+---------+----------+--------------+--------------------+-----------------+
+| cedula | nombre  | apellido | direccion    | correo_electronico | telefono        |
++--------+---------+----------+--------------+--------------------+-----------------+
+| V1234  | ANA     | VASQUEZ  | SANTA FE     | AV@GMAIL.COM       | +58 414 1234567 |
+| V5678  | YOLANDA | TORTOZA  | CATIA LA MAR | YT@GMAIL.COM       | +58 416 9876543 |
+| V9012  | LIBIA   | COLS     | GUARENAS     | LC@GMAIL.COM       | 58 414 4567890  |
++--------+---------+----------+--------------+--------------------+-----------------+
+3 rows in set (0.001 sec)
+
+MariaDB [bd_profesor_20250818]>
+MariaDB [bd_profesor_20250818]> -- VER TODOS LOS REGISTROS, PERO SÓLO ALGUNOS CAMPOS
+MariaDB [bd_profesor_20250818]> SELECT NOMBRE, APELLIDO FROM contactos;
++---------+----------+
+| NOMBRE  | APELLIDO |
++---------+----------+
+| ANA     | VASQUEZ  |
+| YOLANDA | TORTOZA  |
+| LIBIA   | COLS     |
++---------+----------+
+3 rows in set (0.000 sec)
+
+MariaDB [bd_profesor_20250818]>
+MariaDB [bd_profesor_20250818]> -- VER UN REGISTRO EN PARTICULAR DE LA TABLA
+MariaDB [bd_profesor_20250818]> SELECT * FROM contactos WHERE cedula = 'V1234';
++--------+--------+----------+-----------+--------------------+-----------------+
+| cedula | nombre | apellido | direccion | correo_electronico | telefono        |
++--------+--------+----------+-----------+--------------------+-----------------+
+| V1234  | ANA    | VASQUEZ  | SANTA FE  | AV@GMAIL.COM       | +58 414 1234567 |
++--------+--------+----------+-----------+--------------------+-----------------+
+1 row in set (0.008 sec)
+
+MariaDB [bd_profesor_20250818]> SELECT NOMBRE, APELLIDO FROM contactos WHERE cedula = 'V1234';
++--------+----------+
+| NOMBRE | APELLIDO |
++--------+----------+
+| ANA    | VASQUEZ  |
++--------+----------+
+1 row in set (0.001 sec)
+
+MariaDB [bd_profesor_20250818]>
+MariaDB [bd_profesor_20250818]>
+MariaDB [bd_profesor_20250818]> -- CONSULTAR DATOS
+MariaDB [bd_profesor_20250818]> -- SELECT
+MariaDB [bd_profesor_20250818]> -- * TODAS LAS COLUMNAS
+MariaDB [bd_profesor_20250818]> -- VER TODOS EL CONTENIDO DE LA TABLA
+MariaDB [bd_profesor_20250818]> SELECT * FROM contactos;
++--------+---------+----------+--------------+--------------------+-----------------+
+| cedula | nombre  | apellido | direccion    | correo_electronico | telefono        |
++--------+---------+----------+--------------+--------------------+-----------------+
+| V1234  | ANA     | VASQUEZ  | SANTA FE     | AV@GMAIL.COM       | +58 414 1234567 |
+| V5678  | YOLANDA | TORTOZA  | CATIA LA MAR | YT@GMAIL.COM       | +58 416 9876543 |
+| V9012  | LIBIA   | COLS     | GUARENAS     | LC@GMAIL.COM       | 58 414 4567890  |
++--------+---------+----------+--------------+--------------------+-----------------+
+3 rows in set (0.000 sec)
+
+MariaDB [bd_profesor_20250818]>
+MariaDB [bd_profesor_20250818]> -- VER TODOS LOS REGISTROS, PERO SÓLO ALGUNOS CAMPOS
+MariaDB [bd_profesor_20250818]> SELECT NOMBRE, APELLIDO FROM contactos;
++---------+----------+
+| NOMBRE  | APELLIDO |
++---------+----------+
+| ANA     | VASQUEZ  |
+| YOLANDA | TORTOZA  |
+| LIBIA   | COLS     |
++---------+----------+
+3 rows in set (0.000 sec)
+
+MariaDB [bd_profesor_20250818]>
+MariaDB [bd_profesor_20250818]> -- VER UN REGISTRO EN PARTICULAR DE LA TABLA
+MariaDB [bd_profesor_20250818]> SELECT * FROM contactos WHERE cedula = 'V1234';
++--------+--------+----------+-----------+--------------------+-----------------+
+| cedula | nombre | apellido | direccion | correo_electronico | telefono        |
++--------+--------+----------+-----------+--------------------+-----------------+
+| V1234  | ANA    | VASQUEZ  | SANTA FE  | AV@GMAIL.COM       | +58 414 1234567 |
++--------+--------+----------+-----------+--------------------+-----------------+
+1 row in set (0.000 sec)
+
+MariaDB [bd_profesor_20250818]> SELECT NOMBRE, APELLIDO FROM contactos WHERE cedula = 'V1234';
++--------+----------+
+| NOMBRE | APELLIDO |
++--------+----------+
+| ANA    | VASQUEZ  |
++--------+----------+
+1 row in set (0.000 sec)
+
+MariaDB [bd_profesor_20250818]>
+MariaDB [bd_profesor_20250818]> SELECT * FROM contactos;
++--------+---------+----------+--------------+--------------------+-----------------+
+| cedula | nombre  | apellido | direccion    | correo_electronico | telefono        |
++--------+---------+----------+--------------+--------------------+-----------------+
+| V1234  | ANA     | VASQUEZ  | SANTA FE     | AV@GMAIL.COM       | +58 414 1234567 |
+| V5678  | YOLANDA | TORTOZA  | CATIA LA MAR | YT@GMAIL.COM       | +58 416 9876543 |
+| V9012  | LIBIA   | COLS     | GUARENAS     | LC@GMAIL.COM       | 58 414 4567890  |
++--------+---------+----------+--------------+--------------------+-----------------+
+3 rows in set (0.001 sec)
+
+MariaDB [bd_profesor_20250818]> SELECT NOMBRE, APELLIDO FROM contactos;
++---------+----------+
+| NOMBRE  | APELLIDO |
++---------+----------+
+| ANA     | VASQUEZ  |
+| YOLANDA | TORTOZA  |
+| LIBIA   | COLS     |
++---------+----------+
+3 rows in set (0.000 sec)
+
+MariaDB [bd_profesor_20250818]> SELECT * FROM contactos WHERE cedula = 'V1234';
++--------+--------+----------+-----------+--------------------+-----------------+
+| cedula | nombre | apellido | direccion | correo_electronico | telefono        |
++--------+--------+----------+-----------+--------------------+-----------------+
+| V1234  | ANA    | VASQUEZ  | SANTA FE  | AV@GMAIL.COM       | +58 414 1234567 |
++--------+--------+----------+-----------+--------------------+-----------------+
+1 row in set (0.000 sec)
+
+MariaDB [bd_profesor_20250818]> SELECT NOMBRE, APELLIDO FROM contactos WHERE cedula = 'V1234';
++--------+----------+
+| NOMBRE | APELLIDO |
++--------+----------+
+| ANA    | VASQUEZ  |
++--------+----------+
+1 row in set (0.000 sec)
+
+MariaDB [bd_profesor_20250818]> DELETE FROM contactos WHERE cedula = 'V1234';
+Query OK, 1 row affected (0.010 sec)
+
+MariaDB [bd_profesor_20250818]> SELECT * FROM contactos;
++--------+---------+----------+--------------+--------------------+-----------------+
+| cedula | nombre  | apellido | direccion    | correo_electronico | telefono        |
++--------+---------+----------+--------------+--------------------+-----------------+
+| V5678  | YOLANDA | TORTOZA  | CATIA LA MAR | YT@GMAIL.COM       | +58 416 9876543 |
+| V9012  | LIBIA   | COLS     | GUARENAS     | LC@GMAIL.COM       | 58 414 4567890  |
++--------+---------+----------+--------------+--------------------+-----------------+
+2 rows in set (0.000 sec)
+
+MariaDB [bd_profesor_20250818]> DELETE FROM contactos;
+Query OK, 2 rows affected (0.008 sec)
+
+MariaDB [bd_profesor_20250818]> SELECT * FROM contactos;
+Empty set (0.000 sec)
+
+MariaDB [bd_profesor_20250818]> insert into contactos(cedula, nombre, apellido, direccion, correo_electronico, telefono) values
+    -> ('V1234','ANA','VASQUEZ','SANTA FE','AV@GMAIL.COM','+58 414 1234567'),
+    -> ('V5678','YOLANDA','TORTOZA','CATIA LA MAR','YT@GMAIL.COM','+58 416 9876543'),
+    -> ('V9012','LIBIA','COLS','GUARENAS','LC@GMAIL.COM','58 414 4567890');
+Query OK, 3 rows affected (0.008 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+MariaDB [bd_profesor_20250818]> select * from contactos;
++--------+---------+----------+--------------+--------------------+-----------------+
+| cedula | nombre  | apellido | direccion    | correo_electronico | telefono        |
++--------+---------+----------+--------------+--------------------+-----------------+
+| V1234  | ANA     | VASQUEZ  | SANTA FE     | AV@GMAIL.COM       | +58 414 1234567 |
+| V5678  | YOLANDA | TORTOZA  | CATIA LA MAR | YT@GMAIL.COM       | +58 416 9876543 |
+| V9012  | LIBIA   | COLS     | GUARENAS     | LC@GMAIL.COM       | 58 414 4567890  |
++--------+---------+----------+--------------+--------------------+-----------------+
+3 rows in set (0.001 sec)
+
+MariaDB [bd_profesor_20250818]> UPDATE contactos SET direccion = 'CHACAITO';
+Query OK, 3 rows affected (0.010 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+MariaDB [bd_profesor_20250818]> select * from contactos;
++--------+---------+----------+-----------+--------------------+-----------------+
+| cedula | nombre  | apellido | direccion | correo_electronico | telefono        |
++--------+---------+----------+-----------+--------------------+-----------------+
+| V1234  | ANA     | VASQUEZ  | CHACAITO  | AV@GMAIL.COM       | +58 414 1234567 |
+| V5678  | YOLANDA | TORTOZA  | CHACAITO  | YT@GMAIL.COM       | +58 416 9876543 |
+| V9012  | LIBIA   | COLS     | CHACAITO  | LC@GMAIL.COM       | 58 414 4567890  |
++--------+---------+----------+-----------+--------------------+-----------------+
+3 rows in set (0.000 sec)
+
+MariaDB [bd_profesor_20250818]> UPDATE contactos SET direccion = 'EL ROSAL' where cedula = 'V1234';
+Query OK, 1 row affected (0.009 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [bd_profesor_20250818]> UPDATE contactos SET direccion = 'EL MARQUES' where cedula = 'V5678';
+Query OK, 1 row affected (0.002 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [bd_profesor_20250818]> UPDATE contactos SET direccion = 'LA URBINA' where cedula = 'V9012';
+Query OK, 1 row affected (0.008 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [bd_profesor_20250818]> select * from contactos;
++--------+---------+----------+------------+--------------------+-----------------+
+| cedula | nombre  | apellido | direccion  | correo_electronico | telefono        |
++--------+---------+----------+------------+--------------------+-----------------+
+| V1234  | ANA     | VASQUEZ  | EL ROSAL   | AV@GMAIL.COM       | +58 414 1234567 |
+| V5678  | YOLANDA | TORTOZA  | EL MARQUES | YT@GMAIL.COM       | +58 416 9876543 |
+| V9012  | LIBIA   | COLS     | LA URBINA  | LC@GMAIL.COM       | 58 414 4567890  |
++--------+---------+----------+------------+--------------------+-----------------+
+3 rows in set (0.000 sec)
+
+MariaDB [bd_profesor_20250818]> create table contactos1(
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     nombre VARCHAR(80),
+    ->     apellido VARCHAR(80),
+    ->     telefono VARCHAR(20),
+    ->     correo_electronico VARCHAR(100)
+    -> );
+Query OK, 0 rows affected (0.020 sec)
+
+MariaDB [bd_profesor_20250818]>
+MariaDB [bd_profesor_20250818]> insert into contactos1(nombre, apellido, correo_electronico, telefono) values
+    -> ('ANA','VASQUEZ','AV@GMAIL.COM','+58 414 1234567'),
+    -> ('YOLANDA','TORTOZA','YT@GMAIL.COM','+58 416 9876543'),
+    -> ('LIBIA','COLS','LC@GMAIL.COM','58 414 4567890');.
+Query OK, 3 rows affected (0.009 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '.' at line 1
+MariaDB [bd_profesor_20250818]>
+MariaDB [bd_profesor_20250818]>
+MariaDB [bd_profesor_20250818]>
+MariaDB [bd_profesor_20250818]>
+MariaDB [bd_profesor_20250818]>
+MariaDB [bd_profesor_20250818]> select * from contactos1;
++----+---------+----------+-----------------+--------------------+
+| id | nombre  | apellido | telefono        | correo_electronico |
++----+---------+----------+-----------------+--------------------+
+|  1 | ANA     | VASQUEZ  | +58 414 1234567 | AV@GMAIL.COM       |
+|  2 | YOLANDA | TORTOZA  | +58 416 9876543 | YT@GMAIL.COM       |
+|  3 | LIBIA   | COLS     | 58 414 4567890  | LC@GMAIL.COM       |
++----+---------+----------+-----------------+--------------------+
+3 rows in set (0.000 sec)
+
+MariaDB [bd_profesor_20250818]> describe contactos1;
++--------------------+--------------+------+-----+---------+----------------+
+| Field              | Type         | Null | Key | Default | Extra          |
++--------------------+--------------+------+-----+---------+----------------+
+| id                 | int(11)      | NO   | PRI | NULL    | auto_increment |
+| nombre             | varchar(80)  | YES  |     | NULL    |                |
+| apellido           | varchar(80)  | YES  |     | NULL    |                |
+| telefono           | varchar(20)  | YES  |     | NULL    |                |
+| correo_electronico | varchar(100) | YES  |     | NULL    |                |
++--------------------+--------------+------+-----+---------+----------------+
+5 rows in set (0.017 sec)
+
+MariaDB [bd_profesor_20250818]> describe contactos1;
++--------------------+--------------+------+-----+---------+----------------+
+| Field              | Type         | Null | Key | Default | Extra          |
++--------------------+--------------+------+-----+---------+----------------+
+| id                 | int(11)      | NO   | PRI | NULL    | auto_increment |
+| nombre             | varchar(80)  | YES  |     | NULL    |                |
+| apellido           | varchar(80)  | YES  |     | NULL    |                |
+| telefono           | varchar(20)  | YES  |     | NULL    |                |
+| correo_electronico | varchar(100) | YES  |     | NULL    |                |
++--------------------+--------------+------+-----+---------+----------------+
+5 rows in set (0.006 sec)
+
+MariaDB [bd_profesor_20250818]> show create table contactos1;
++------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Table      | Create Table                                                                                                                                                                                                                                                                                                                                      |
++------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| contactos1 | CREATE TABLE `contactos1` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(80) DEFAULT NULL,
+  `apellido` varchar(80) DEFAULT NULL,
+  `telefono` varchar(20) DEFAULT NULL,
+  `correo_electronico` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci |
++------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.001 sec)
+
+MariaDB [bd_profesor_20250818]> insert into contactos1(id, nombre, apellido, correo_electronico, telefono) values
+    -> (null,'LUISA','GOMEZ','LG@GMAIL.COM','+58 414 9234567');
+Query OK, 1 row affected (0.016 sec)
+
+MariaDB [bd_profesor_20250818]> select * from contactos1;
++----+---------+----------+-----------------+--------------------+
+| id | nombre  | apellido | telefono        | correo_electronico |
++----+---------+----------+-----------------+--------------------+
+|  1 | ANA     | VASQUEZ  | +58 414 1234567 | AV@GMAIL.COM       |
+|  2 | YOLANDA | TORTOZA  | +58 416 9876543 | YT@GMAIL.COM       |
+|  3 | LIBIA   | COLS     | 58 414 4567890  | LC@GMAIL.COM       |
+|  4 | LUISA   | GOMEZ    | +58 414 9234567 | LG@GMAIL.COM       |
++----+---------+----------+-----------------+--------------------+
+4 rows in set (0.000 sec)
+
+MariaDB [bd_profesor_20250818]> insert into contactos1(id, nombre, apellido, correo_electronico, telefono) values
+    -> (2,'NELLY','CONTRERAS','NC@GMAIL.COM','+58 414 8234567');
+ERROR 1062 (23000): Duplicate entry '2' for key 'PRIMARY'
+MariaDB [bd_profesor_20250818]> insert into contactos1(id, nombre, apellido, correo_electronico, telefono) values
+    -> (NULL,'NELLY','CONTRERAS','NC@GMAIL.COM','+58 414 8234567');
+Query OK, 1 row affected (0.012 sec)
+
+MariaDB [bd_profesor_20250818]> select * from contactos1;
++----+---------+-----------+-----------------+--------------------+
+| id | nombre  | apellido  | telefono        | correo_electronico |
++----+---------+-----------+-----------------+--------------------+
+|  1 | ANA     | VASQUEZ   | +58 414 1234567 | AV@GMAIL.COM       |
+|  2 | YOLANDA | TORTOZA   | +58 416 9876543 | YT@GMAIL.COM       |
+|  3 | LIBIA   | COLS      | 58 414 4567890  | LC@GMAIL.COM       |
+|  4 | LUISA   | GOMEZ     | +58 414 9234567 | LG@GMAIL.COM       |
+|  5 | NELLY   | CONTRERAS | +58 414 8234567 | NC@GMAIL.COM       |
++----+---------+-----------+-----------------+--------------------+
+5 rows in set (0.000 sec)
+
+MariaDB [bd_profesor_20250818]> create table contactos2(
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     nombre VARCHAR(80),
+    ->     apellido VARCHAR(80),
+    ->     telefono VARCHAR(20),
+    ->     correo_electronico VARCHAR(100) UNIQUE
+    -> );
+Query OK, 0 rows affected (0.016 sec)
+
+MariaDB [bd_profesor_20250818]> describe contactos2;
++--------------------+--------------+------+-----+---------+----------------+
+| Field              | Type         | Null | Key | Default | Extra          |
++--------------------+--------------+------+-----+---------+----------------+
+| id                 | int(11)      | NO   | PRI | NULL    | auto_increment |
+| nombre             | varchar(80)  | YES  |     | NULL    |                |
+| apellido           | varchar(80)  | YES  |     | NULL    |                |
+| telefono           | varchar(20)  | YES  |     | NULL    |                |
+| correo_electronico | varchar(100) | YES  | UNI | NULL    |                |
++--------------------+--------------+------+-----+---------+----------------+
+5 rows in set (0.014 sec)
+
+MariaDB [bd_profesor_20250818]> show create table contactos2;
++------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Table      | Create Table                                                                                                                                                                                                                                                                                                                                                                               |
++------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| contactos2 | CREATE TABLE `contactos2` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(80) DEFAULT NULL,
+  `apellido` varchar(80) DEFAULT NULL,
+  `telefono` varchar(20) DEFAULT NULL,
+  `correo_electronico` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `correo_electronico` (`correo_electronico`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci |
++------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.000 sec)
+
+MariaDB [bd_profesor_20250818]> insert into contactos2(nombre, apellido, correo_electronico, telefono) values
+    -> ('ANA','VASQUEZ','AV@GMAIL.COM','+58 414 1234567'),
+    -> ('YOLANDA','TORTOZA','YT@GMAIL.COM','+58 416 9876543'),
+    -> ('LIBIA','COLS','LC@GMAIL.COM','58 414 4567890');
+Query OK, 3 rows affected (0.012 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+MariaDB [bd_profesor_20250818]> insert into contactos2(id, nombre, apellido, correo_electronico, telefono) values
+    -> (NULL,'NELLY','CONTRERAS','AV@GMAIL.COM','+58 414 8234567');
+ERROR 1062 (23000): Duplicate entry 'AV@GMAIL.COM' for key 'correo_electronico'
+MariaDB [bd_profesor_20250818]> USE BD_HENRY_20250818
+Database changed
+MariaDB [BD_HENRY_20250818]> SELECT * FROM CONTACTOS2;
++----+--------+-----------+-----------------+------------------------+
+| id | nombre | apellido  | telefono        | correo_electronico     |
++----+--------+-----------+-----------------+------------------------+
+|  1 | Nelly  | contreras | +58 414 1234567 | anavasquez89@gmail.com |
++----+--------+-----------+-----------------+------------------------+
+1 row in set (0.000 sec)
+
+MariaDB [BD_HENRY_20250818]> USE BD_PROFESOR_20250818;
+Database changed
+MariaDB [BD_PROFESOR_20250818]> values
+    -> (NULL,'NELLY','CONTRERAS','NC@GMAIL.COM','+58 414 8234567');values
++------+-------+-----------+--------------+-----------------+
+| NULL | NELLY | CONTRERAS | NC@GMAIL.COM | +58 414 8234567 |
++------+-------+-----------+--------------+-----------------+
+| NULL | NELLY | CONTRERAS | NC@GMAIL.COM | +58 414 8234567 |
++------+-------+-----------+--------------+-----------------+
+1 row in set (0.009 sec)
+
+    -> (NULL,'NELLY','CONTRERAS','NC@GMAIL.COM','+58 414 8234567');
++------+-------+-----------+--------------+-----------------+
+| NULL | NELLY | CONTRERAS | NC@GMAIL.COM | +58 414 8234567 |
++------+-------+-----------+--------------+-----------------+
+| NULL | NELLY | CONTRERAS | NC@GMAIL.COM | +58 414 8234567 |
++------+-------+-----------+--------------+-----------------+
+1 row in set (0.000 sec)
+
+MariaDB [BD_PROFESOR_20250818]> SELECT * FROM CONTACTOS2;
++----+---------+----------+-----------------+--------------------+
+| id | nombre  | apellido | telefono        | correo_electronico |
++----+---------+----------+-----------------+--------------------+
+|  1 | ANA     | VASQUEZ  | +58 414 1234567 | AV@GMAIL.COM       |
+|  2 | YOLANDA | TORTOZA  | +58 416 9876543 | YT@GMAIL.COM       |
+|  3 | LIBIA   | COLS     | 58 414 4567890  | LC@GMAIL.COM       |
++----+---------+----------+-----------------+--------------------+
+3 rows in set (0.000 sec)
+
+MariaDB [BD_PROFESOR_20250818]> insert into contactos2(id, nombre, apellido, correo_electronico, telefono) values
+    -> (NULL,'NELLY','CONTRERAS','NC@GMAIL.COM','+58 414 8234567');
+Query OK, 1 row affected (0.008 sec)
+
+MariaDB [BD_PROFESOR_20250818]> SELECT * FROM CONTACTOS2;
++----+---------+-----------+-----------------+--------------------+
+| id | nombre  | apellido  | telefono        | correo_electronico |
++----+---------+-----------+-----------------+--------------------+
+|  1 | ANA     | VASQUEZ   | +58 414 1234567 | AV@GMAIL.COM       |
+|  2 | YOLANDA | TORTOZA   | +58 416 9876543 | YT@GMAIL.COM       |
+|  3 | LIBIA   | COLS      | 58 414 4567890  | LC@GMAIL.COM       |
+|  5 | NELLY   | CONTRERAS | +58 414 8234567 | NC@GMAIL.COM       |
++----+---------+-----------+-----------------+--------------------+
+4 rows in set (0.000 sec)
+
+MariaDB [BD_PROFESOR_20250818]> SHOW CREATE TABLE CONTACTOS2;
++------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Table      | Create Table                                                                                                                                                                                                                                                                                                                                                                                                |
++------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| CONTACTOS2 | CREATE TABLE `contactos2` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(80) DEFAULT NULL,
+  `apellido` varchar(80) DEFAULT NULL,
+  `telefono` varchar(20) DEFAULT NULL,
+  `correo_electronico` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `correo_electronico` (`correo_electronico`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci |
++------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.000 sec)
+
+MariaDB [BD_PROFESOR_20250818]> insert into contactos1(id, nombre, apellido, correo_electronico, telefono) values
+    -> (4,'LUISA','GOMEZ','LG@GMAIL.COM','+58 414 9234567');
+ERROR 1062 (23000): Duplicate entry '4' for key 'PRIMARY'
+MariaDB [BD_PROFESOR_20250818]> SELECT * FROM CONTACTOS2;
++----+---------+-----------+-----------------+--------------------+
+| id | nombre  | apellido  | telefono        | correo_electronico |
++----+---------+-----------+-----------------+--------------------+
+|  1 | ANA     | VASQUEZ   | +58 414 1234567 | AV@GMAIL.COM       |
+|  2 | YOLANDA | TORTOZA   | +58 416 9876543 | YT@GMAIL.COM       |
+|  3 | LIBIA   | COLS      | 58 414 4567890  | LC@GMAIL.COM       |
+|  5 | NELLY   | CONTRERAS | +58 414 8234567 | NC@GMAIL.COM       |
++----+---------+-----------+-----------------+--------------------+
+4 rows in set (0.000 sec)
+
+MariaDB [BD_PROFESOR_20250818]>
+MariaDB [BD_PROFESOR_20250818]> insert into contactos2(id, nombre, apellido, correo_electronico, telefono) values
+    -> (4,'LUISA','GOMEZ','LG@GMAIL.COM','+58 414 9234567');
+Query OK, 1 row affected (0.008 sec)
+
+MariaDB [BD_PROFESOR_20250818]> SELECT * FROM CONTACTOS2;
++----+---------+-----------+-----------------+--------------------+
+| id | nombre  | apellido  | telefono        | correo_electronico |
++----+---------+-----------+-----------------+--------------------+
+|  1 | ANA     | VASQUEZ   | +58 414 1234567 | AV@GMAIL.COM       |
+|  2 | YOLANDA | TORTOZA   | +58 416 9876543 | YT@GMAIL.COM       |
+|  3 | LIBIA   | COLS      | 58 414 4567890  | LC@GMAIL.COM       |
+|  4 | LUISA   | GOMEZ     | +58 414 9234567 | LG@GMAIL.COM       |
+|  5 | NELLY   | CONTRERAS | +58 414 8234567 | NC@GMAIL.COM       |
++----+---------+-----------+-----------------+--------------------+
+5 rows in set (0.000 sec)
+
+MariaDB [BD_PROFESOR_20250818]> SHOW CREATE TABLE CONTACTOS2;
++------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Table      | Create Table                                                                                                                                                                                                                                                                                                                                                                                                |
++------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| CONTACTOS2 | CREATE TABLE `contactos2` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(80) DEFAULT NULL,
+  `apellido` varchar(80) DEFAULT NULL,
+  `telefono` varchar(20) DEFAULT NULL,
+  `correo_electronico` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `correo_electronico` (`correo_electronico`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci |
++------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.000 sec)
+
+MariaDB [BD_PROFESOR_20250818]> CREATE TABLE proveedores(
+    ->     id int auto_increment primary key,
+    ->     nombre varchar(80),
+    ->     direccion text,
+    ->     telefono varchar(20),
+    ->     correo_electronico varchar(100) unique
+    -> );
+Query OK, 0 rows affected (0.026 sec)
+
+MariaDB [BD_PROFESOR_20250818]>
+MariaDB [BD_PROFESOR_20250818]> create table productos(
+    ->     id int auto_increment primary key,
+    ->     proveedor_id int,
+    ->     nombre varchar(100),
+    ->     precio decimal(10,2),
+    ->     cantidad int,
+    ->     foreign key (proveedor_id) references proveedores(id)
+    -> );
+Query OK, 0 rows affected (0.019 sec)
+
+MariaDB [BD_PROFESOR_20250818]> show tables;
++--------------------------------+
+| Tables_in_bd_profesor_20250818 |
++--------------------------------+
+| contactos                      |
+| contactos1                     |
+| contactos2                     |
+| productos                      |
+| proveedores                    |
++--------------------------------+
+5 rows in set (0.001 sec)
+
+MariaDB [BD_PROFESOR_20250818]> show create table productos;
++-----------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Table     | Create Table                                                                                                                                                                                                                                                                                                                                                                                                                                           |
++-----------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| productos | CREATE TABLE `productos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `proveedor_id` int(11) DEFAULT NULL,
+  `nombre` varchar(100) DEFAULT NULL,
+  `precio` decimal(10,2) DEFAULT NULL,
+  `cantidad` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `proveedor_id` (`proveedor_id`),
+  CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`proveedor_id`) REFERENCES `proveedores` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci |
++-----------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.001 sec)
+
+MariaDB [BD_PROFESOR_20250818]> show create table proveedores;
++-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Table       | Create Table                                                                                                                                                                                                                                                                                                                                                                          |
++-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| proveedores | CREATE TABLE `proveedores` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(80) DEFAULT NULL,
+  `direccion` text DEFAULT NULL,
+  `telefono` varchar(20) DEFAULT NULL,
+  `correo_electronico` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `correo_electronico` (`correo_electronico`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci |
++-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.001 sec)
+
+MariaDB [BD_PROFESOR_20250818]> INSERT INTO PROVEEDORES(nombre, direccion, telefono, correo)
+    -> values
+    -> ('GENERAL ELECTRIC','AV. LECUNA','+58 212 1234567', 'info@ge.com'),
+    -> ('LG','AV. ROMULO GALLEGOS','+58 212 2234567', 'info@lg.com'),
+    -> ('MABE','AV. FRANCISCO DE MIRANDA','+58 212 3234567', 'info@mabe.com'),
+    -> ('WHIRPOOL','AV. SAN MARTIN','+58 212 4234567', 'info@whirpool.com');
+ERROR 1054 (42S22): Unknown column 'correo' in 'field list'
+MariaDB [BD_PROFESOR_20250818]>
+MariaDB [BD_PROFESOR_20250818]>
+MariaDB [BD_PROFESOR_20250818]>  INSERT INTO PROVEEDORES(nombre, direccion, telefono, correo_electronico)
+    -> values
+    -> ('GENERAL ELECTRIC','AV. LECUNA','+58 212 1234567', 'info@ge.com'),
+    -> ('LG','AV. ROMULO GALLEGOS','+58 212 2234567', 'info@lg.com'),
+    -> ('MABE','AV. FRANCISCO DE MIRANDA','+58 212 3234567', 'info@mabe.com'),
+    -> ('WHIRPOOL','AV. SAN MARTIN','+58 212 4234567', 'info@whirpool.com');
+Query OK, 4 rows affected (0.012 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+MariaDB [BD_PROFESOR_20250818]> INSERT INTO PRODUCTOS(proveedor_id, nombre, precio, cantidad)
+    -> values
+    -> (1, 'LAVADORA', 450.00, 10),
+    -> (1, 'REFRIGERADOR', 800.00, 5),
+    -> (2, 'LAVADORA', 500.00, 8),
+    -> (2, 'REFRIGERADOR', 850.00, 6),
+    -> (3, 'LAVADORA', 400.00, 12),
+    -> (3, 'REFRIGERADOR', 750.00, 7),
+    -> (4, 'LAVADORA', 600.00, 9),
+    -> (4, 'REFRIGERADOR', 900.00, 4),
+    -> (1, 'MICROONDAS', 150.00, 15),
+    -> (2, 'MICROONDAS', 180.00, 10),
+    -> (3, 'MICROONDAS', 170.00, 8),
+    -> (4, 'MICROONDAS', 200.00, 5),
+    -> (1, 'HORNOS', 300.00, 6),
+    -> (2, 'HORNOS', 320.00, 4),
+    -> (3, 'HORNOS', 310.00, 5),
+    -> (4, 'HORNOS', 350.00, 3);
+Query OK, 16 rows affected (0.014 sec)
+Records: 16  Duplicates: 0  Warnings: 0
+
+MariaDB [BD_PROFESOR_20250818]> select * from proveedores;
++----+------------------+--------------------------+-----------------+--------------------+
+| id | nombre           | direccion                | telefono        | correo_electronico |
++----+------------------+--------------------------+-----------------+--------------------+
+|  1 | GENERAL ELECTRIC | AV. LECUNA               | +58 212 1234567 | info@ge.com        |
+|  2 | LG               | AV. ROMULO GALLEGOS      | +58 212 2234567 | info@lg.com        |
+|  3 | MABE             | AV. FRANCISCO DE MIRANDA | +58 212 3234567 | info@mabe.com      |
+|  4 | WHIRPOOL         | AV. SAN MARTIN           | +58 212 4234567 | info@whirpool.com  |
++----+------------------+--------------------------+-----------------+--------------------+
+4 rows in set (0.002 sec)
+
+MariaDB [BD_PROFESOR_20250818]> select * from productos;
++----+--------------+--------------+--------+----------+
+| id | proveedor_id | nombre       | precio | cantidad |
++----+--------------+--------------+--------+----------+
+|  1 |            1 | LAVADORA     | 450.00 |       10 |
+|  2 |            1 | REFRIGERADOR | 800.00 |        5 |
+|  3 |            2 | LAVADORA     | 500.00 |        8 |
+|  4 |            2 | REFRIGERADOR | 850.00 |        6 |
+|  5 |            3 | LAVADORA     | 400.00 |       12 |
+|  6 |            3 | REFRIGERADOR | 750.00 |        7 |
+|  7 |            4 | LAVADORA     | 600.00 |        9 |
+|  8 |            4 | REFRIGERADOR | 900.00 |        4 |
+|  9 |            1 | MICROONDAS   | 150.00 |       15 |
+| 10 |            2 | MICROONDAS   | 180.00 |       10 |
+| 11 |            3 | MICROONDAS   | 170.00 |        8 |
+| 12 |            4 | MICROONDAS   | 200.00 |        5 |
+| 13 |            1 | HORNOS       | 300.00 |        6 |
+| 14 |            2 | HORNOS       | 320.00 |        4 |
+| 15 |            3 | HORNOS       | 310.00 |        5 |
+| 16 |            4 | HORNOS       | 350.00 |        3 |
++----+--------------+--------------+--------+----------+
+16 rows in set (0.000 sec)
+
+MariaDB [BD_PROFESOR_20250818]> use bd_henry_20250818
+Database changed
+MariaDB [bd_henry_20250818]> select * from proveedores;
+Empty set (0.002 sec)
+
+MariaDB [bd_henry_20250818]> show create table proveedores;
++-------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Table       | Create Table                                                                                                                                                                                                                                                                                                                                         |
++-------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| proveedores | CREATE TABLE `proveedores` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(80) DEFAULT NULL,
+  `telefono` varchar(20) DEFAULT NULL,
+  `correo_electronico` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `correo_electronico` (`correo_electronico`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci |
++-------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.000 sec)
+
+MariaDB [bd_henry_20250818]>
+

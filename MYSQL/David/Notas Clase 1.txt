@@ -1,0 +1,43 @@
+en xampp no importa si escribes en mayuscula o minuscula, siempre lo leerá en minúscula aunque lo pongas en mayuscula
+
+Los tipos de Datos de MySQL y MariaDB son:
+
+numericos
+cadenas de caracteres
+booleanos
+fecha y hora
+binarios
+JSON
+Enumerados
+Conjuntos
+
+Dentro de Cadenas de Caracteres hay:
+
+char
+varchar
+text
+tinytext
+mediumtext
+longtext
+binary
+varbinary
+blob
+tinyblob
+mediumblob
+longblob
+
+- CHAR es una cadena de caracteres de longitud fija. Puede tener un máximo de 255 caracteres.
+- VARCHAR es una cadena de caracteres de longitud variable. Puede tener un máximo de 65,535 caracteres.
+
+En VARCHAR tu le declaras un limite, con text no hace falta que lo declares, pero si limite sera el mismo q el de VARCHAR
+
+-Indices Primarios: Corresponde a un indice unico que identifica cada registro por un numero consecutivo y que no se repite
+
+Tipos de datos numericos ENTEROS (con sus rangos)
+-- TINYINT: -128 a 127 (con signo) o 0 a 255 (sin signo)
+-- SMALLINT: -32,768 a 32,767 (con signo) o 0 a 65,535 (sin signo)
+-- MEDIUMINT: -8,388,608 a 8,388,607 (con signo) o 0 a 16,777,215 (sin signo)
+-- INT: -2,147,483,648 a 2,147,483,647 (con signo) o 0 a 4,294,967,295 (sin signo)
+
+Tipos de datos numericos DECIMALES
+-- DECIMAL, FLOAT, DOUBLE
