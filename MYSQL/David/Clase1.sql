@@ -4,6 +4,9 @@ mysql -u root -p
 -- CREACIÓN DE BASE DE DATOS
 create database bd_David_20250818;
 
+-- BORRAR UNA BASE DE DATOS
+drop database bd_David_20250818;
+
 -- CONSULTAR QUE BASES DE DATOS EXISTEN EN EL SERVIDOR
 -- AQUI NOS DEVUELVE LOS NOMBRES DE BASES DE DATOS QUE
 -- TERMINAN EN _20250818
@@ -22,6 +25,9 @@ create table contactos (
     telefono varchar(20),
     correo_electronico varchar(100)
 );
+
+-- BORRAR UNA TABLA
+drop table contactos;
 
 -- CONSULTAR ESTRUCTURA DE LA TABLA
 describe contactos;
@@ -79,7 +85,7 @@ update contactos set direccion = 'Turmero' where cedula = 'V5721483';
 -- HAY 2 MANERAS:
 -- 1. DELETE
 DELETE FROM contactos;
--- 2. TRUNCATE
+-- 2. TRUNCATE 
 TRUNCATE TABLE contactos;
 
 -- CREACION DE INDICES PRIMARIOS
@@ -135,45 +141,46 @@ insert into contactos2(id, nombre, apellido, correo_electronico, telefono) value
 create table proveedores (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(80),
+    direccion VARCHAR(200),
     telefono VARCHAR(20),
     correo_electronico VARCHAR(100) UNIQUE
 );
 
 create table productos (
     id INT AUTO_INCREMENT PRIMARY KEY,
+    proveedor_id INT,
     nombre VARCHAR(100),
     precio DECIMAL(10,2),
     cantidad INT,
-    proveedor_id INT,
     FOREIGN KEY (proveedor_id) REFERENCES proveedores(id)
 );
 
 -- DATA PARA CARGAR
 
-insert into proveedores(nombre, direccion, telefono, correo_electronico) values
-('General Electric', 'DireccionGE', '+58 212 1234567', 'info@ge.com'),
-('LG', 'DireccionLG', '+58 212 7654321', 'info@lg.com'),
-('MABE', 'DireccionMABE', '+58 212 1122334', 'info@mabe.com'),
-('WHIRLPOOL', 'DireccionWHIRLPOOL', '+58 212 4433221', 'info@wp.com');
+insert into proveedores(id, nombre, direccion, telefono, correo_electronico) values
+(null, 'General Electric', 'DireccionGE', '+58 212 1234567', 'info@ge.com'),
+(null, 'LG', 'DireccionLG', '+58 212 7654321', 'info@lg.com'),
+(null, 'MABE', 'DireccionMABE', '+58 212 1122334', 'info@mabe.com'),
+(null, 'WHIRLPOOL', 'DireccionWHIRLPOOL', '+58 212 4433221', 'info@wp.com');
 
-INSERT INTO productos(proveedor_id, nombre, precio, cantidad)
+INSERT INTO productos(id, proveedor_id, nombre, precio, cantidad)
 values
-(1, 'LAVADORA', 450.00, 10),
-(1, 'REFRIGERADOR', 800.00, 5),
-(2, 'LAVADORA', 500.00, 8),
-(2, 'REFRIGERADOR', 850.00, 6),
-(3, 'LAVADORA', 400.00, 12),
-(3, 'REFRIGERADOR', 750.00, 7),
-(4, 'LAVADORA', 600.00, 9),
-(4, 'REFRIGERADOR', 900.00, 4),
-(1, 'MICROONDAS', 150.00, 15),
-(2, 'MICROONDAS', 180.00, 10),
-(3, 'MICROONDAS', 170.00, 8),
-(4, 'MICROONDAS', 200.00, 5),
-(1, 'HORNOS', 300.00, 6),
-(2, 'HORNOS', 320.00, 4),
-(3, 'HORNOS', 310.00, 5),
-(4, 'HORNOS', 350.00, 3);
+(null, 1, 'LAVADORA', 450.00, 10),
+(null, 1, 'REFRIGERADOR', 800.00, 5),
+(null, 2, 'LAVADORA', 500.00, 8),
+(null, 2, 'REFRIGERADOR', 850.00, 6),
+(null, 3, 'LAVADORA', 400.00, 12),
+(null, 3, 'REFRIGERADOR', 750.00, 7),
+(null, 4, 'LAVADORA', 600.00, 9),
+(null, 4, 'REFRIGERADOR', 900.00, 4),
+(null, 1, 'MICROONDAS', 150.00, 15),
+(null, 2, 'MICROONDAS', 180.00, 10),
+(null, 3, 'MICROONDAS', 170.00, 8),
+(null, 4, 'MICROONDAS', 200.00, 5),
+(null, 1, 'HORNOS', 300.00, 6),
+(null, 2, 'HORNOS', 320.00, 4),
+(null, 3, 'HORNOS', 310.00, 5),
+(null, 4, 'HORNOS', 350.00, 3);
 
 
 

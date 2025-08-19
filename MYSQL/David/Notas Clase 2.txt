@@ -1,0 +1,7 @@
+Clumnas Calculadas
+Funciones:
+SUM()
+MAX()
+MIN()
+AVG()
+COUNT()

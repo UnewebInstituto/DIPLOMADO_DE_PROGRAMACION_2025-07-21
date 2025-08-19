@@ -1,0 +1,29 @@
+COLUMNAS CALCULADAS
+FUNCIONES:
+SUM()
+MAX()
+MIN()
+AVG()
+COUNT()
+
+
+MariaDB [bd_profesor_20250818]> help functions;
+You asked for help about help category: "Functions"
+For more information, type 'help <item>', where <item> is one of the following
+categories:
+   Bit Functions
+   Comparison Operators
+   Control Flow Functions
+   Date and Time Functions
+   Dynamic Column Functions
+   Encryption Functions
+   Information Functions
+   JSON Functions
+   Logical Operators
+   Miscellaneous Functions
+   Numeric Functions
+   Spider Functions
+   String Functions
+   Window Functions
+
+MariaDB [bd_profesor_20250818]>
