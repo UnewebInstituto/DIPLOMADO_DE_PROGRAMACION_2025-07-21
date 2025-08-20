@@ -1,0 +1,13 @@
+La normalización de bases de datos es el proceso de organizar los datos en una base de datos para reducir la redundancia y mejorar la integridad de los datos. Se aplica mediante un conjunto de reglas conocidas como formas normales, que ayudan a eliminar datos duplicados y a asegurar que la información esté almacenada de manera lógica y consistente. 
+
+https://es.wikipedia.org/wiki/Normalizaci%C3%B3n_de_bases_de_datos
+
+
+-- RESPALDO DE BASES DE DATOS MYSQL
+C:\.PROFESORES\HENRY_DUQUE\DIPLOMADO_DE_PROGRAMACION_2025-07-21>cd mysql
+
+C:\.PROFESORES\HENRY_DUQUE\DIPLOMADO_DE_PROGRAMACION_2025-07-21\MYSQL>cd profesor
+
+C:\.PROFESORES\HENRY_DUQUE\DIPLOMADO_DE_PROGRAMACION_2025-07-21\MYSQL\PROFESOR>
+
+c:\xampp\mysql\mysqldump -u -p bd_profesor_20250918 > respaldos/bd_profesor_20250818-20250820.sql

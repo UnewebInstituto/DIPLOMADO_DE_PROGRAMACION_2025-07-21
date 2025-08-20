@@ -1,0 +1,2 @@
+c:\xampp\mysql\mysqldump -u -p bd_Henry_20250818 > "respaldos\bd_Henry_20250818-20250820.sql"
+c:\xampp\mysql\mysqldump -u -p bd_catalogo_henry_20250818 > "respaldos\bd_catalogo_henry_20250818-20250820.sql"
