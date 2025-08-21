@@ -1,6 +1,6 @@
 -- MariaDB dump 10.19  Distrib 10.4.28-MariaDB, for Win64 (AMD64)
 --
--- Host: localhost    Database: bd_profesor_20250818
+-- Host: localhost    Database: bd_Henry_20250818
 -- ------------------------------------------------------
 -- Server version	10.4.28-MariaDB
 
@@ -23,12 +23,12 @@ DROP TABLE IF EXISTS `contactos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `contactos` (
-  `cedula` varchar(10) DEFAULT NULL,
+  `Cedula` varchar(10) DEFAULT NULL,
   `nombre` varchar(80) DEFAULT NULL,
   `apellido` varchar(80) DEFAULT NULL,
-  `direccion` varchar(100) DEFAULT NULL,
-  `correo_electronico` varchar(100) DEFAULT NULL,
-  `telefono` varchar(20) DEFAULT NULL
+  `direcciones` varchar(150) DEFAULT NULL,
+  `telefono` varchar(20) DEFAULT NULL,
+  `correo_electronico` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -38,7 +38,7 @@ CREATE TABLE `contactos` (
 
 LOCK TABLES `contactos` WRITE;
 /*!40000 ALTER TABLE `contactos` DISABLE KEYS */;
-INSERT INTO `contactos` VALUES ('V1234','ANA','VASQUEZ','EL ROSAL','AV@GMAIL.COM','+58 414 1234567'),('V5678','YOLANDA','TORTOZA','EL MARQUES','YT@GMAIL.COM','+58 416 9876543'),('V9012','LIBIA','COLS','LA URBINA','LC@GMAIL.COM','58 414 4567890');
+INSERT INTO `contactos` VALUES ('V29987858','Ana','Vasquez','El rosal','04122710844','anavasquez89@gmail.com'),('V30370879','Vanessa','Rodriguez','Valle arriba','04242680622','vanessarod@gmail.com'),('V25478963','Carlos','Gomez','La Urbina','04141234567','carlosgomez@gmail.com'),('V26543210','Mar?a','Fernandez','El Cafetal','04162345678','mariafernandez@gmail.com');
 /*!40000 ALTER TABLE `contactos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -56,7 +56,7 @@ CREATE TABLE `contactos1` (
   `telefono` varchar(20) DEFAULT NULL,
   `correo_electronico` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -65,7 +65,7 @@ CREATE TABLE `contactos1` (
 
 LOCK TABLES `contactos1` WRITE;
 /*!40000 ALTER TABLE `contactos1` DISABLE KEYS */;
-INSERT INTO `contactos1` VALUES (1,'ANA','VASQUEZ','+58 414 1234567','AV@GMAIL.COM'),(2,'YOLANDA','TORTOZA','+58 416 9876543','YT@GMAIL.COM'),(3,'LIBIA','COLS','58 414 4567890','LC@GMAIL.COM'),(4,'LUISA','GOMEZ','+58 414 9234567','LG@GMAIL.COM'),(5,'NELLY','CONTRERAS','+58 414 8234567','NC@GMAIL.COM');
+INSERT INTO `contactos1` VALUES (1,'Ana','Vasquez','04122710844','anavasquez89@gmail.com'),(2,'Vanessa','Rodriguez','04242680622','vanessarod@gmail.com'),(3,'Carlos','Gomez','04141234567','carlosgomez@gmail.com'),(4,'Mar?a','Fernandez','04162345678','mariafernandez@gmail.com'),(5,'LUISA','GOMEZ','+58 414 9234567','LG@GMAIL.COM'),(6,'Nelly','contreras','+58 414 1234567','nc@GMAIL.COM'),(7,'Ana','Vasquez','04122710844','anavasquez89@gmail.com'),(8,'Vanessa','Rodriguez','04242680622','vanessarod@gmail.com'),(9,'Carlos','Gomez','04141234567','carlosgomez@gmail.com'),(10,'Mar?a','Fernandez','04162345678','mariafernandez@gmail.com');
 /*!40000 ALTER TABLE `contactos1` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -84,7 +84,7 @@ CREATE TABLE `contactos2` (
   `correo_electronico` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `correo_electronico` (`correo_electronico`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -93,7 +93,7 @@ CREATE TABLE `contactos2` (
 
 LOCK TABLES `contactos2` WRITE;
 /*!40000 ALTER TABLE `contactos2` DISABLE KEYS */;
-INSERT INTO `contactos2` VALUES (1,'ANA','VASQUEZ','+58 414 1234567','AV@GMAIL.COM'),(2,'YOLANDA','TORTOZA','+58 416 9876543','YT@GMAIL.COM'),(3,'LIBIA','COLS','58 414 4567890','LC@GMAIL.COM'),(4,'LUISA','GOMEZ','+58 414 9234567','LG@GMAIL.COM'),(5,'NELLY','CONTRERAS','+58 414 8234567','NC@GMAIL.COM');
+INSERT INTO `contactos2` VALUES (1,'Ana','Vasquez','04122710844','anavasquez89@gmail.com'),(2,'Vanessa','Rodriguez','04242680622','vanessarod@gmail.com'),(3,'Carlos','Gomez','04141234567','carlosgomez@gmail.com'),(4,'Mar?a','Fernandez','04162345678','mariafernandez@gmail.com'),(5,'LUISA','GOMEZ','+58 414 9234567','LG@GMAIL.COM'),(6,'Nelly','contreras','+58 414 1234567','nc@gmail.com');
 /*!40000 ALTER TABLE `contactos2` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -118,7 +118,7 @@ CREATE TABLE `estudiantes` (
 
 LOCK TABLES `estudiantes` WRITE;
 /*!40000 ALTER TABLE `estudiantes` DISABLE KEYS */;
-INSERT INTO `estudiantes` VALUES (1,'Juan','P?rez'),(2,'Ana','G?mez'),(3,'Luis','Mart?nez'),(4,'Mar?a','L?pez');
+INSERT INTO `estudiantes` VALUES (1,'Juan','Perez'),(2,'Maria','Gomez'),(3,'Luis','Lopez'),(4,'Ana','Martinez');
 /*!40000 ALTER TABLE `estudiantes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -145,9 +145,37 @@ CREATE TABLE `estudiantes_materias` (
 
 LOCK TABLES `estudiantes_materias` WRITE;
 /*!40000 ALTER TABLE `estudiantes_materias` DISABLE KEYS */;
-INSERT INTO `estudiantes_materias` VALUES (1,1),(1,2),(2,1),(2,3),(3,2),(3,4),(4,4);
+INSERT INTO `estudiantes_materias` VALUES (1,1),(1,2),(1,3),(2,2),(2,4),(3,1),(3,5),(4,3),(4,4),(4,5);
 /*!40000 ALTER TABLE `estudiantes_materias` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Temporary table structure for view `estudiantes_materias_view`
+--
+
+DROP TABLE IF EXISTS `estudiantes_materias_view`;
+/*!50001 DROP VIEW IF EXISTS `estudiantes_materias_view`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `estudiantes_materias_view` AS SELECT
+ 1 AS `Nombre`,
+  1 AS `Apellido`,
+  1 AS `Materias` */;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary table structure for view `estudiantes_materias_view_innerjoin`
+--
+
+DROP TABLE IF EXISTS `estudiantes_materias_view_innerjoin`;
+/*!50001 DROP VIEW IF EXISTS `estudiantes_materias_view_innerjoin`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `estudiantes_materias_view_innerjoin` AS SELECT
+ 1 AS `Nombre`,
+  1 AS `Apellido`,
+  1 AS `Materias` */;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Table structure for table `materias`
@@ -160,7 +188,7 @@ CREATE TABLE `materias` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -169,7 +197,7 @@ CREATE TABLE `materias` (
 
 LOCK TABLES `materias` WRITE;
 /*!40000 ALTER TABLE `materias` DISABLE KEYS */;
-INSERT INTO `materias` VALUES (1,'Matem?ticas'),(2,'Historia'),(3,'Castellano'),(4,'Biologia');
+INSERT INTO `materias` VALUES (1,'Matematica'),(2,'Historia'),(3,'Ciencias'),(4,'Castellano'),(5,'Biologia');
 /*!40000 ALTER TABLE `materias` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -225,7 +253,7 @@ CREATE TABLE `productos1` (
 
 LOCK TABLES `productos1` WRITE;
 /*!40000 ALTER TABLE `productos1` DISABLE KEYS */;
-INSERT INTO `productos1` VALUES (1,1,'LAVADORA',450.00,10),(2,1,'REFRIGERADOR',800.00,5),(3,2,'LAVADORA',500.00,8),(4,2,'REFRIGERADOR',850.00,6),(5,3,'LAVADORA',400.00,12),(6,3,'REFRIGERADOR',750.00,7),(7,4,'LAVADORA',600.00,9),(8,4,'REFRIGERADOR',900.00,4),(9,1,'MICROONDAS',150.00,15),(10,2,'MICROONDAS',180.00,10),(11,3,'MICROONDAS',170.00,8),(12,4,'MICROONDAS',200.00,5),(13,1,'HORNOS',300.00,6),(14,2,'HORNOS',320.00,4),(15,3,'HORNOS',310.00,5),(16,4,'HORNOS',350.00,3),(17,11,'LAVADORA',450.00,10),(18,11,'REFRIGERADOR',800.00,5),(19,22,'LAVADORA',500.00,8),(20,22,'REFRIGERADOR',850.00,6),(21,33,'LAVADORA',400.00,12),(22,33,'REFRIGERADOR',750.00,7),(23,44,'LAVADORA',600.00,9);
+INSERT INTO `productos1` VALUES (1,1,'LAVADORA',450.00,10),(2,1,'REFRIGERADOR',800.00,5),(3,2,'LAVADORA',500.00,8),(4,2,'REFRIGERADOR',850.00,6),(5,3,'LAVADORA',400.00,12),(6,3,'REFRIGERADOR',750.00,7),(7,4,'LAVADORA',600.00,9),(8,4,'REFRIGERADOR',900.00,4),(9,1,'MICROONDAS',150.00,15),(10,2,'MICROONDAS',180.00,10),(11,3,'MICROONDAS',170.00,8),(12,4,'MICROONDAS',200.00,5),(13,1,'HORNOS',300.00,6),(14,2,'HORNOS',320.00,4),(15,3,'HORNOS',310.00,5),(16,4,'HORNOS',350.00,3),(17,11,'LAVADORA',450.00,10),(18,11,'REFRIGERADOR',800.00,5),(19,22,'LAVADORA',500.00,8),(20,22,'REFRIGERADOR',850.00,6),(21,33,'LAVADORA',400.00,12),(22,44,'REFRIGERADOR',750.00,7),(23,44,'LAVADORA',600.00,9);
 /*!40000 ALTER TABLE `productos1` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -273,7 +301,7 @@ CREATE TABLE `proveedores` (
   `correo_electronico` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `correo_electronico` (`correo_electronico`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -282,7 +310,7 @@ CREATE TABLE `proveedores` (
 
 LOCK TABLES `proveedores` WRITE;
 /*!40000 ALTER TABLE `proveedores` DISABLE KEYS */;
-INSERT INTO `proveedores` VALUES (1,'GENERAL ELECTRIC','AV. LECUNA','+58 212 1234567','info@ge.com'),(2,'LG','AV. ROMULO GALLEGOS','+58 212 2234567','info@lg.com'),(3,'MABE','AV. FRANCISCO DE MIRANDA','+58 212 3234567','info@mabe.com'),(4,'WHIRPOOL','AV. SAN MARTIN','+58 212 4234567','info@whirpool.com'),(5,'ELECTROLUX','AV. PPAL. DE LAS MERCEDES','+58 212 9234567','info@electrolux.com'),(6,'SONY','AV. VICTORIA','+58 212 8234567','info@sony.com'),(7,'DAMASCO','AV. PRESIDENTE MEDINA','+58 212 7234567','info@damasco.com');
+INSERT INTO `proveedores` VALUES (1,'GENERAL ELECTRIC','AV. LECUNA','+58 212 1234567','info@ge.com'),(2,'LG','AV. ROMULO GALLEGOS','+58 212 2234567','info@lg.com'),(3,'MABE','AV. FRANCISCO DE MIRANDA','+58 212 3234567','info@mabe.com'),(4,'WHIRPOOL','AV. SAN MARTIN','+58 212 4234567','info@whirpool.com'),(9,'SAMSUNG','AV. BOL?VAR','+58 212 5234567','info@samsung.com'),(10,'PANASONIC','AV. SUCRE','+58 212 6234567','info@panasonic.com'),(11,'SONY','AV. LIBERTADOR','+58 212 7234567','info@sony.com');
 /*!40000 ALTER TABLE `proveedores` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -310,7 +338,7 @@ CREATE TABLE `proveedores1` (
 
 LOCK TABLES `proveedores1` WRITE;
 /*!40000 ALTER TABLE `proveedores1` DISABLE KEYS */;
-INSERT INTO `proveedores1` VALUES (1,'GENERAL ELECTRIC','AV. LECUNA','+58 212 1234567','info@ge.com'),(2,'LG','AV. ROMULO GALLEGOS','+58 212 2234567','info@lg.com'),(3,'MABE','AV. FRANCISCO DE MIRANDA','+58 212 3234567','info@mabe.com'),(4,'WHIRPOOL','AV. SAN MARTIN','+58 212 4234567','info@whirpool.com'),(5,'ELECTROLUX','AV. PPAL. DE LAS MERCEDES','+58 212 9234567','info@electrolux.com'),(6,'SONY','AV. VICTORIA','+58 212 8234567','info@sony.com'),(7,'DAMASCO','AV. PRESIDENTE MEDINA','+58 212 7234567','info@damasco.com');
+INSERT INTO `proveedores1` VALUES (1,'GENERAL ELECTRIC','AV. LECUNA','+58 212 1234567','info@ge.com'),(2,'LG','AV. ROMULO GALLEGOS','+58 212 2234567','info@lg.com'),(3,'MABE','AV. FRANCISCO DE MIRANDA','+58 212 3234567','info@mabe.com'),(4,'WHIRPOOL','AV. SAN MARTIN','+58 212 4234567','info@whirpool.com'),(5,'SAMSUNG','AV. BOL?VAR','+58 212 5234567','info@samsung.com'),(6,'PANASONIC','AV. SUCRE','+58 212 6234567','info@panasonic.com'),(7,'SONY','AV. LIBERTADOR','+58 212 7234567','info@sony.com');
 /*!40000 ALTER TABLE `proveedores1` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -343,34 +371,6 @@ INSERT INTO `proveedores2` VALUES (4,'WHIRPOOL','AV. SAN MARTIN','+58 212 423456
 UNLOCK TABLES;
 
 --
--- Temporary table structure for view `view_estudiantes_materias`
---
-
-DROP TABLE IF EXISTS `view_estudiantes_materias`;
-/*!50001 DROP VIEW IF EXISTS `view_estudiantes_materias`*/;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
-/*!50001 CREATE VIEW `view_estudiantes_materias` AS SELECT
- 1 AS `nombre`,
-  1 AS `apellido`,
-  1 AS `materia` */;
-SET character_set_client = @saved_cs_client;
-
---
--- Temporary table structure for view `view_innerjoin_estudiantes_materias`
---
-
-DROP TABLE IF EXISTS `view_innerjoin_estudiantes_materias`;
-/*!50001 DROP VIEW IF EXISTS `view_innerjoin_estudiantes_materias`*/;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
-/*!50001 CREATE VIEW `view_innerjoin_estudiantes_materias` AS SELECT
- 1 AS `nombre`,
-  1 AS `apellido`,
-  1 AS `materia` */;
-SET character_set_client = @saved_cs_client;
-
---
 -- Temporary table structure for view `vista_agrupada_productos`
 --
 
@@ -381,9 +381,9 @@ SET character_set_client = utf8;
 /*!50001 CREATE VIEW `vista_agrupada_productos` AS SELECT
  1 AS `producto`,
   1 AS `total_cantidad`,
-  1 AS `minimo_precio`,
-  1 AS `maximo_precio`,
-  1 AS `promedio_precio` */;
+  1 AS `promedio_precio`,
+  1 AS `precio_minimo`,
+  1 AS `precio_maximo` */;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -397,41 +397,25 @@ SET character_set_client = utf8;
 /*!50001 CREATE VIEW `vista_agrupada_proveedores` AS SELECT
  1 AS `proveedor`,
   1 AS `total_cantidad`,
-  1 AS `minimo_precio`,
-  1 AS `maximo_precio`,
-  1 AS `promedio_precio` */;
+  1 AS `promedio_precio`,
+  1 AS `precio_minimo`,
+  1 AS `precio_maximo` */;
 SET character_set_client = @saved_cs_client;
 
 --
--- Temporary table structure for view `vista_full_agrupada_proveedores`
+-- Temporary table structure for view `vista_agrupada_proveedores1`
 --
 
-DROP TABLE IF EXISTS `vista_full_agrupada_proveedores`;
-/*!50001 DROP VIEW IF EXISTS `vista_full_agrupada_proveedores`*/;
+DROP TABLE IF EXISTS `vista_agrupada_proveedores1`;
+/*!50001 DROP VIEW IF EXISTS `vista_agrupada_proveedores1`*/;
 SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = utf8;
-/*!50001 CREATE VIEW `vista_full_agrupada_proveedores` AS SELECT
+/*!50001 CREATE VIEW `vista_agrupada_proveedores1` AS SELECT
  1 AS `proveedor`,
   1 AS `total_cantidad`,
-  1 AS `minimo_precio`,
-  1 AS `maximo_precio`,
-  1 AS `promedio_precio` */;
-SET character_set_client = @saved_cs_client;
-
---
--- Temporary table structure for view `vista_full_agrupada_proveedores1`
---
-
-DROP TABLE IF EXISTS `vista_full_agrupada_proveedores1`;
-/*!50001 DROP VIEW IF EXISTS `vista_full_agrupada_proveedores1`*/;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
-/*!50001 CREATE VIEW `vista_full_agrupada_proveedores1` AS SELECT
- 1 AS `proveedor`,
-  1 AS `total_cantidad`,
-  1 AS `minimo_precio`,
-  1 AS `maximo_precio`,
-  1 AS `promedio_precio` */;
+  1 AS `promedio_precio`,
+  1 AS `precio_minimo`,
+  1 AS `precio_maximo` */;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -497,7 +481,7 @@ DROP TABLE IF EXISTS `vista_proveedores_productos`;
 SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = utf8;
 /*!50001 CREATE VIEW `vista_proveedores_productos` AS SELECT
- 1 AS `proveedor`,
+ 1 AS `proovedor`,
   1 AS `direccion`,
   1 AS `telefono`,
   1 AS `correo_electronico`,
@@ -525,10 +509,10 @@ SET character_set_client = utf8;
 SET character_set_client = @saved_cs_client;
 
 --
--- Final view structure for view `view_estudiantes_materias`
+-- Final view structure for view `estudiantes_materias_view`
 --
 
-/*!50001 DROP VIEW IF EXISTS `view_estudiantes_materias`*/;
+/*!50001 DROP VIEW IF EXISTS `estudiantes_materias_view`*/;
 /*!50001 SET @saved_cs_client          = @@character_set_client */;
 /*!50001 SET @saved_cs_results         = @@character_set_results */;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
@@ -537,16 +521,16 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `view_estudiantes_materias` AS select `a`.`nombre` AS `nombre`,`a`.`apellido` AS `apellido`,`b`.`nombre` AS `materia` from ((`estudiantes` `a` join `materias` `b`) join `estudiantes_materias` `c`) where `a`.`id` = `c`.`estudiante_id` and `b`.`id` = `c`.`materia_id` */;
+/*!50001 VIEW `estudiantes_materias_view` AS select `estudiantes`.`nombre` AS `Nombre`,`estudiantes`.`apellido` AS `Apellido`,`materias`.`nombre` AS `Materias` from ((`estudiantes` join `materias`) join `estudiantes_materias`) where `estudiantes`.`id` = `estudiantes_materias`.`estudiante_id` and `materias`.`id` = `estudiantes_materias`.`materia_id` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
--- Final view structure for view `view_innerjoin_estudiantes_materias`
+-- Final view structure for view `estudiantes_materias_view_innerjoin`
 --
 
-/*!50001 DROP VIEW IF EXISTS `view_innerjoin_estudiantes_materias`*/;
+/*!50001 DROP VIEW IF EXISTS `estudiantes_materias_view_innerjoin`*/;
 /*!50001 SET @saved_cs_client          = @@character_set_client */;
 /*!50001 SET @saved_cs_results         = @@character_set_results */;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
@@ -555,7 +539,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `view_innerjoin_estudiantes_materias` AS select `a`.`nombre` AS `nombre`,`a`.`apellido` AS `apellido`,`b`.`nombre` AS `materia` from ((`estudiantes` `a` join `estudiantes_materias` `c` on(`a`.`id` = `c`.`estudiante_id`)) join `materias` `b` on(`b`.`id` = `c`.`materia_id`)) */;
+/*!50001 VIEW `estudiantes_materias_view_innerjoin` AS select `estudiantes`.`nombre` AS `Nombre`,`estudiantes`.`apellido` AS `Apellido`,`materias`.`nombre` AS `Materias` from ((`estudiantes` join `estudiantes_materias` on(`estudiantes`.`id` = `estudiantes_materias`.`estudiante_id`)) join `materias` on(`materias`.`id` = `estudiantes_materias`.`materia_id`)) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -573,7 +557,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `vista_agrupada_productos` AS select distinct `vista_innerjoin_proveedores1_productos1`.`producto` AS `producto`,sum(`vista_innerjoin_proveedores1_productos1`.`cantidad`) AS `total_cantidad`,min(`vista_innerjoin_proveedores1_productos1`.`precio`) AS `minimo_precio`,max(`vista_innerjoin_proveedores1_productos1`.`precio`) AS `maximo_precio`,round(avg(`vista_innerjoin_proveedores1_productos1`.`precio`),2) AS `promedio_precio` from `vista_innerjoin_proveedores1_productos1` group by `vista_innerjoin_proveedores1_productos1`.`producto` */;
+/*!50001 VIEW `vista_agrupada_productos` AS select distinct `vista_innerjoin_proveedores1_productos1`.`producto` AS `producto`,sum(`vista_innerjoin_proveedores1_productos1`.`cantidad`) AS `total_cantidad`,round(avg(`vista_innerjoin_proveedores1_productos1`.`precio`),2) AS `promedio_precio`,min(`vista_innerjoin_proveedores1_productos1`.`precio`) AS `precio_minimo`,max(`vista_innerjoin_proveedores1_productos1`.`precio`) AS `precio_maximo` from `vista_innerjoin_proveedores1_productos1` group by `vista_innerjoin_proveedores1_productos1`.`producto` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -591,16 +575,16 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `vista_agrupada_proveedores` AS select distinct `vista_leftjoin_proveedores1_productos1`.`proveedor` AS `proveedor`,sum(`vista_leftjoin_proveedores1_productos1`.`cantidad`) AS `total_cantidad`,min(`vista_leftjoin_proveedores1_productos1`.`precio`) AS `minimo_precio`,max(`vista_leftjoin_proveedores1_productos1`.`precio`) AS `maximo_precio`,round(avg(`vista_leftjoin_proveedores1_productos1`.`precio`),2) AS `promedio_precio` from `vista_leftjoin_proveedores1_productos1` group by `vista_leftjoin_proveedores1_productos1`.`proveedor` */;
+/*!50001 VIEW `vista_agrupada_proveedores` AS select distinct `vista_leftjoin_proveedores1_productos1`.`proveedor` AS `proveedor`,sum(`vista_leftjoin_proveedores1_productos1`.`cantidad`) AS `total_cantidad`,round(avg(`vista_leftjoin_proveedores1_productos1`.`precio`),2) AS `promedio_precio`,min(`vista_leftjoin_proveedores1_productos1`.`precio`) AS `precio_minimo`,max(`vista_leftjoin_proveedores1_productos1`.`precio`) AS `precio_maximo` from `vista_leftjoin_proveedores1_productos1` group by `vista_leftjoin_proveedores1_productos1`.`proveedor` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
--- Final view structure for view `vista_full_agrupada_proveedores`
+-- Final view structure for view `vista_agrupada_proveedores1`
 --
 
-/*!50001 DROP VIEW IF EXISTS `vista_full_agrupada_proveedores`*/;
+/*!50001 DROP VIEW IF EXISTS `vista_agrupada_proveedores1`*/;
 /*!50001 SET @saved_cs_client          = @@character_set_client */;
 /*!50001 SET @saved_cs_results         = @@character_set_results */;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
@@ -609,25 +593,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `vista_full_agrupada_proveedores` AS select distinct `vista_fulljoin_proveedores1_productos1`.`proveedor` AS `proveedor`,sum(`vista_fulljoin_proveedores1_productos1`.`cantidad`) AS `total_cantidad`,min(`vista_fulljoin_proveedores1_productos1`.`precio`) AS `minimo_precio`,max(`vista_fulljoin_proveedores1_productos1`.`precio`) AS `maximo_precio`,round(avg(`vista_fulljoin_proveedores1_productos1`.`precio`),2) AS `promedio_precio` from `vista_fulljoin_proveedores1_productos1` group by `vista_fulljoin_proveedores1_productos1`.`proveedor` */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
--- Final view structure for view `vista_full_agrupada_proveedores1`
---
-
-/*!50001 DROP VIEW IF EXISTS `vista_full_agrupada_proveedores1`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_general_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `vista_full_agrupada_proveedores1` AS select distinct ifnull(`vista_fulljoin_proveedores1_productos1`.`proveedor`,'SIN PROVEEDOR') AS `proveedor`,ifnull(sum(`vista_fulljoin_proveedores1_productos1`.`cantidad`),0) AS `total_cantidad`,ifnull(min(`vista_fulljoin_proveedores1_productos1`.`precio`),0) AS `minimo_precio`,ifnull(max(`vista_fulljoin_proveedores1_productos1`.`precio`),0) AS `maximo_precio`,ifnull(round(avg(`vista_fulljoin_proveedores1_productos1`.`precio`),2),0) AS `promedio_precio` from `vista_fulljoin_proveedores1_productos1` group by `vista_fulljoin_proveedores1_productos1`.`proveedor` */;
+/*!50001 VIEW `vista_agrupada_proveedores1` AS select distinct ifnull(`vista_fulljoin_proveedores1_productos1`.`proveedor`,'Producto sin proveedor') AS `proveedor`,ifnull(sum(`vista_fulljoin_proveedores1_productos1`.`cantidad`),0) AS `total_cantidad`,ifnull(round(avg(`vista_fulljoin_proveedores1_productos1`.`precio`),2),0) AS `promedio_precio`,ifnull(min(`vista_fulljoin_proveedores1_productos1`.`precio`),0) AS `precio_minimo`,ifnull(max(`vista_fulljoin_proveedores1_productos1`.`precio`),0) AS `precio_maximo` from `vista_fulljoin_proveedores1_productos1` group by `vista_fulljoin_proveedores1_productos1`.`proveedor` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -699,7 +665,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `vista_proveedores_productos` AS select `a`.`nombre` AS `proveedor`,`a`.`direccion` AS `direccion`,`a`.`telefono` AS `telefono`,`a`.`correo_electronico` AS `correo_electronico`,`b`.`nombre` AS `producto`,`b`.`precio` AS `precio`,`b`.`cantidad` AS `cantidad` from (`proveedores` `a` join `productos` `b`) where `a`.`id` = `b`.`proveedor_id` */;
+/*!50001 VIEW `vista_proveedores_productos` AS select `a`.`nombre` AS `proovedor`,`a`.`direccion` AS `direccion`,`a`.`telefono` AS `telefono`,`a`.`correo_electronico` AS `correo_electronico`,`b`.`nombre` AS `producto`,`b`.`precio` AS `precio`,`b`.`cantidad` AS `cantidad` from (`proveedores` `a` join `productos` `b`) where `a`.`id` = `b`.`proveedor_id` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -731,4 +697,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-08-21  8:32:43
+-- Dump completed on 2025-08-21  8:31:00

@@ -157,6 +157,33 @@ INSERT INTO `productos` VALUES (1,1,'SMARTPHONE XYZ','Smartphone de ?ltima gener
 UNLOCK TABLES;
 
 --
+-- Table structure for table `productos_etiquetas`
+--
+
+DROP TABLE IF EXISTS `productos_etiquetas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `productos_etiquetas` (
+  `producto_id` int(11) NOT NULL,
+  `etiqueta_id` int(11) NOT NULL,
+  PRIMARY KEY (`producto_id`,`etiqueta_id`),
+  KEY `etiqueta_id` (`etiqueta_id`),
+  CONSTRAINT `productos_etiquetas_ibfk_1` FOREIGN KEY (`producto_id`) REFERENCES `productos` (`id`),
+  CONSTRAINT `productos_etiquetas_ibfk_2` FOREIGN KEY (`etiqueta_id`) REFERENCES `etiquetas` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `productos_etiquetas`
+--
+
+LOCK TABLES `productos_etiquetas` WRITE;
+/*!40000 ALTER TABLE `productos_etiquetas` DISABLE KEYS */;
+INSERT INTO `productos_etiquetas` VALUES (1,1),(1,2),(2,1),(3,3),(4,4),(5,1),(6,2),(7,3),(8,4);
+/*!40000 ALTER TABLE `productos_etiquetas` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `roles`
 --
 
@@ -222,4 +249,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-08-21  8:32:43
+-- Dump completed on 2025-08-21  9:27:20

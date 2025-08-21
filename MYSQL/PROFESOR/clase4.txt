@@ -1,0 +1,76 @@
+Acceder 
+C:\.PROFESORES\HENRY_DUQUE\DIPLOMADO_DE_PROGRAMACION_2025-07-21>cd mysql
+
+C:\.PROFESORES\HENRY_DUQUE\DIPLOMADO_DE_PROGRAMACION_2025-07-21\mysql>cd PROFESOR 
+
+C:\.PROFESORES\HENRY_DUQUE\DIPLOMADO_DE_PROGRAMACION_2025-07-21\mysql\PROFESOR>dir
+
+C:\.PROFESORES\HENRY_DUQUE\DIPLOMADO_DE_PROGRAMACION_2025-07-21\mysql\PROFESOR>backup
+
+Es muy útil ver la imagen del panel de control de XAMPP. El hecho de que Apache y MySQL estén en verde y con el estado **"running"** es un buen indicio de que los servicios están funcionando correctamente. El problema que estás experimentando, donde **phpMyAdmin no levanta** a pesar de que los servicios están activos, sugiere un problema con la configuración o con la instalación misma de phpMyAdmin dentro de XAMPP.
+
+-----
+
+### Diagnóstico y Solución
+
+Aquí tienes los pasos para resolver el problema, asumiendo que el servidor web y el de base de datos están activos.
+
+#### 1\. Verificar la URL
+
+Asegúrate de estar utilizando la URL correcta. En la mayoría de las instalaciones de XAMPP, la URL para acceder a phpMyAdmin es:
+
+`http://localhost/phpmyadmin`
+
+Si estás usando un puerto diferente, como el 8080 para Apache, la URL sería:
+
+`http://localhost:8080/phpmyadmin`
+
+Verifica que en la URL no haya errores de escritura.
+
+#### 2\. Revisar el Archivo de Configuración de Apache
+
+Es posible que la **directiva `Alias`** para `phpmyadmin` en la configuración de Apache esté mal configurada o haya sido eliminada. El archivo de configuración principal de Apache dentro de XAMPP se encuentra en `C:\xampp\apache\conf\httpd.conf` o, en algunos casos, las directivas de alias para phpMyAdmin están en un archivo separado como `C:\xampp\apache\conf\extra\httpd-xampp.conf`.
+
+  * Abre el archivo de configuración de Apache.
+  * Busca la línea que define el alias para phpMyAdmin, que debería verse así:
+    ```apache
+    Alias /phpmyadmin "C:/xampp/phpMyAdmin/"
+    ```
+  * Asegúrate de que la ruta (`C:/xampp/phpMyAdmin/`) sea la correcta. Si moviste la carpeta de XAMPP o phpMyAdmin, la ruta podría estar apuntando a una ubicación incorrecta.
+
+#### 3\. Revisar el Archivo de Configuración de PhpMyAdmin
+
+El archivo de configuración de phpMyAdmin (`config.inc.php`) se encuentra en la carpeta `C:\xampp\phpMyAdmin`. Si hubo una actualización o una instalación fallida, es posible que el archivo esté corrupto. Una forma rápida de verificarlo es buscar un respaldo del mismo o comparar su contenido con una instalación nueva y funcional de XAMPP.
+
+  * Abre el archivo **`C:\xampp\phpMyAdmin\config.inc.php`**.
+  * Asegúrate de que la configuración del servidor sea la correcta:
+    ```php
+    $cfg['Servers'][$i]['host'] = 'localhost';
+    $cfg['Servers'][$i]['port'] = 3306; // O el puerto que use tu MySQL
+    ```
+  * Si ves algún error evidente en este archivo, puedes reemplazarlo con una copia de una instalación de XAMPP que funcione.
+
+#### 4\. Verificar Permisos
+
+A veces, los problemas de acceso pueden ser causados por permisos de archivos o carpetas incorrectos. Asegúrate de que la carpeta de phpMyAdmin (`C:\xampp\phpMyAdmin`) tenga permisos de lectura y ejecución para el usuario que está ejecutando Apache.
+
+#### 5\. Reiniciar los Servicios y el Equipo
+
+Si ya realizaste los pasos anteriores y el problema persiste, es recomendable que reinicies ambos servicios desde el panel de control de XAMPP. Primero **detén Apache y MySQL** y luego **inícialos de nuevo**. Si eso no funciona, un **reinicio completo del equipo** puede ayudar a liberar cualquier puerto o proceso que esté causando conflictos.
+
+-----
+
+### Resumen de Soluciones
+
+| Problema | Solución |
+| :--- | :--- |
+| **URL incorrecta** | Verifica la URL en el navegador: `http://localhost/phpmyadmin` o `http://localhost:8080/phpmyadmin`. |
+| **Configuración de Apache** | Revisa `httpd.conf` para el `Alias` de `phpmyadmin` y asegúrate de que la ruta sea correcta. |
+| **Configuración de phpMyAdmin** | Comprueba que `config.inc.php` en la carpeta `phpMyAdmin` no esté corrupto y tenga los datos de host correctos. |
+| **Permisos de Archivos** | Asegúrate de que los permisos de la carpeta `C:\xampp\phpMyAdmin` no impidan el acceso a Apache. |
+| **Procesos en Conflicto** | Detén y vuelve a iniciar los servicios de Apache y MySQL. Si es necesario, reinicia el equipo. |
+
+
+LEVANTAR PHPMYADMIN
+
+http://localhost:8080/phpmyadmin/

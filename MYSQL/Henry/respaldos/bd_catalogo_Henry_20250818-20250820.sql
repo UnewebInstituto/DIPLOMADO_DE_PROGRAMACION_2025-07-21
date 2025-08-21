@@ -1,6 +1,6 @@
 -- MariaDB dump 10.19  Distrib 10.4.28-MariaDB, for Win64 (AMD64)
 --
--- Host: localhost    Database: bd_catalogo_profesor_20250818
+-- Host: localhost    Database: bd_catalogo_Henry_20250818
 -- ------------------------------------------------------
 -- Server version	10.4.28-MariaDB
 
@@ -43,7 +43,7 @@ CREATE TABLE `calificaciones` (
 
 LOCK TABLES `calificaciones` WRITE;
 /*!40000 ALTER TABLE `calificaciones` DISABLE KEYS */;
-INSERT INTO `calificaciones` VALUES (1,1,1,5,'Excelente smartphone, muy r?pido y con una c?mara incre?ble.','2025-08-20 10:49:10'),(2,1,2,4,'La laptop es ligera y potente, ideal para trabajar.','2025-08-20 10:49:10'),(3,1,3,3,'La licuadora funciona bien pero es un poco ruidosa.','2025-08-20 10:49:10'),(4,1,4,5,'Aspiradora muy eficiente, limpia muy bien.','2025-08-20 10:49:10'),(5,1,5,4,'Zapatillas c?modas para correr largas distancias.','2025-08-20 10:49:10'),(6,1,6,5,'Chaqueta de cuero de excelente calidad y dise?o elegante.','2025-08-20 10:49:10'),(7,1,7,4,'Pelota de f?tbol de buena calidad para entrenar.','2025-08-20 10:49:10'),(8,1,8,5,'Raqueta de tenis ligera y f?cil de manejar.','2025-08-20 10:49:10');
+INSERT INTO `calificaciones` VALUES (1,1,1,5,'Excelente smartphone, muy r?pido y con una c?mara incre?ble.','2025-08-20 10:49:55'),(2,1,2,4,'La laptop es ligera y potente, ideal para trabajar.','2025-08-20 10:49:55'),(3,1,3,3,'La licuadora funciona bien pero es un poco ruidosa.','2025-08-20 10:49:55'),(4,1,4,5,'Aspiradora muy eficiente, limpia muy bien.','2025-08-20 10:49:55'),(5,1,5,4,'Zapatillas c?modas para correr largas distancias.','2025-08-20 10:49:55'),(6,1,6,5,'Chaqueta de cuero de excelente calidad y dise?o elegante.','2025-08-20 10:49:55'),(7,1,7,4,'Pelota de f?tbol de buena calidad para entrenar.','2025-08-20 10:49:55'),(8,1,8,5,'Raqueta de tenis ligera y f?cil de manejar.','2025-08-20 10:49:55');
 /*!40000 ALTER TABLE `calificaciones` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -113,7 +113,7 @@ CREATE TABLE `imagenes` (
   PRIMARY KEY (`id`),
   KEY `producto_id` (`producto_id`),
   CONSTRAINT `imagenes_ibfk_1` FOREIGN KEY (`producto_id`) REFERENCES `productos` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -122,7 +122,6 @@ CREATE TABLE `imagenes` (
 
 LOCK TABLES `imagenes` WRITE;
 /*!40000 ALTER TABLE `imagenes` DISABLE KEYS */;
-INSERT INTO `imagenes` VALUES (1,1,'smartphone_xyz.jpg'),(2,2,'laptop_abc.jpg'),(3,3,'licuadora_123.jpg'),(4,4,'aspiradora_456.jpg'),(5,5,'zapatillas_deportivas.jpg'),(6,6,'chaqueta_cuero.jpg'),(7,7,'pelota_futbol.jpg'),(8,8,'raqueta_tenis.jpg');
 /*!40000 ALTER TABLE `imagenes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -222,4 +221,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-08-21  8:32:43
+-- Dump completed on 2025-08-21  8:31:06

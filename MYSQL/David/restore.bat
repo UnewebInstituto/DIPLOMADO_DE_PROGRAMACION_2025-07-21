@@ -1,0 +1,1 @@
+c:\xampp\mysql\bin\mysql -u root -p bd1_Catalogo_David_20250818 < "respaldos/bd_Catalogo_David_20250818-20250820.sql"

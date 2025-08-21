@@ -1,6 +1,6 @@
 -- MariaDB dump 10.19  Distrib 10.4.28-MariaDB, for Win64 (AMD64)
 --
--- Host: localhost    Database: bd_catalogo_profesor_20250818
+-- Host: localhost    Database: bd_Catalogo_David_20250818
 -- ------------------------------------------------------
 -- Server version	10.4.28-MariaDB
 
@@ -43,7 +43,7 @@ CREATE TABLE `calificaciones` (
 
 LOCK TABLES `calificaciones` WRITE;
 /*!40000 ALTER TABLE `calificaciones` DISABLE KEYS */;
-INSERT INTO `calificaciones` VALUES (1,1,1,5,'Excelente smartphone, muy r?pido y con una c?mara incre?ble.','2025-08-20 10:49:10'),(2,1,2,4,'La laptop es ligera y potente, ideal para trabajar.','2025-08-20 10:49:10'),(3,1,3,3,'La licuadora funciona bien pero es un poco ruidosa.','2025-08-20 10:49:10'),(4,1,4,5,'Aspiradora muy eficiente, limpia muy bien.','2025-08-20 10:49:10'),(5,1,5,4,'Zapatillas c?modas para correr largas distancias.','2025-08-20 10:49:10'),(6,1,6,5,'Chaqueta de cuero de excelente calidad y dise?o elegante.','2025-08-20 10:49:10'),(7,1,7,4,'Pelota de f?tbol de buena calidad para entrenar.','2025-08-20 10:49:10'),(8,1,8,5,'Raqueta de tenis ligera y f?cil de manejar.','2025-08-20 10:49:10');
+INSERT INTO `calificaciones` VALUES (1,1,1,5,'Excelente smartphone, muy r?pido y con una c?mara incre?ble.','2025-08-20 10:49:25'),(2,1,2,4,'La laptop es ligera y potente, ideal para trabajar.','2025-08-20 10:49:25'),(3,1,3,3,'La licuadora funciona bien pero es un poco ruidosa.','2025-08-20 10:49:25'),(4,1,4,5,'Aspiradora muy eficiente, limpia muy bien.','2025-08-20 10:49:25'),(5,1,5,4,'Zapatillas c?modas para correr largas distancias.','2025-08-20 10:49:25'),(6,1,6,5,'Chaqueta de cuero de excelente calidad y dise?o elegante.','2025-08-20 10:49:25'),(7,1,7,4,'Pelota de f?tbol de buena calidad para entrenar.','2025-08-20 10:49:25'),(8,1,8,5,'Raqueta de tenis ligera y f?cil de manejar.','2025-08-20 10:49:25');
 /*!40000 ALTER TABLE `calificaciones` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -157,6 +157,33 @@ INSERT INTO `productos` VALUES (1,1,'SMARTPHONE XYZ','Smartphone de ?ltima gener
 UNLOCK TABLES;
 
 --
+-- Table structure for table `productos_etiquetas`
+--
+
+DROP TABLE IF EXISTS `productos_etiquetas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `productos_etiquetas` (
+  `producto_id` int(11) NOT NULL,
+  `etiqueta_id` int(11) NOT NULL,
+  PRIMARY KEY (`producto_id`,`etiqueta_id`),
+  KEY `etiqueta_id` (`etiqueta_id`),
+  CONSTRAINT `productos_etiquetas_ibfk_1` FOREIGN KEY (`producto_id`) REFERENCES `productos` (`id`),
+  CONSTRAINT `productos_etiquetas_ibfk_2` FOREIGN KEY (`etiqueta_id`) REFERENCES `etiquetas` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `productos_etiquetas`
+--
+
+LOCK TABLES `productos_etiquetas` WRITE;
+/*!40000 ALTER TABLE `productos_etiquetas` DISABLE KEYS */;
+INSERT INTO `productos_etiquetas` VALUES (1,1),(1,2),(2,1),(3,3),(4,4),(5,1),(6,2),(7,3),(8,4);
+/*!40000 ALTER TABLE `productos_etiquetas` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `roles`
 --
 
@@ -222,4 +249,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-08-21  8:32:43
+-- Dump completed on 2025-08-21  9:27:50
