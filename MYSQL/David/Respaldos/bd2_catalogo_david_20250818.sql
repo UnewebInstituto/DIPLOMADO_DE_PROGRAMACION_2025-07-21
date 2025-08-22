@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-08-2025 a las 14:31:19
+-- Tiempo de generación: 22-08-2025 a las 14:32:19
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `bd2_catalogo_profesor_20250818`
+-- Base de datos: `bd2_catalogo_david_20250818`
 --
 
 -- --------------------------------------------------------
@@ -41,14 +41,14 @@ CREATE TABLE `calificaciones` (
 --
 
 INSERT INTO `calificaciones` (`id`, `usuario_id`, `producto_id`, `calificacion`, `comentario`, `fecha_calificacion`) VALUES
-(1, 1, 1, 5, 'Excelente smartphone, muy rápido y con una cámara increíble.', '2025-08-22 08:20:23'),
-(2, 1, 2, 4, 'La laptop es ligera y potente, ideal para trabajar.', '2025-08-22 08:20:23'),
-(3, 1, 3, 3, 'La licuadora funciona bien pero es un poco ruidosa.', '2025-08-22 08:20:23'),
-(4, 1, 4, 5, 'Aspiradora muy eficiente, limpia muy bien.', '2025-08-22 08:20:23'),
-(5, 1, 5, 4, 'Zapatillas cómodas para correr largas distancias.', '2025-08-22 08:20:23'),
-(6, 1, 6, 5, 'Chaqueta de cuero de excelente calidad y diseño elegante.', '2025-08-22 08:20:23'),
-(7, 1, 7, 4, 'Pelota de fútbol de buena calidad para entrenar.', '2025-08-22 08:20:23'),
-(8, 1, 8, 5, 'Raqueta de tenis ligera y fácil de manejar.', '2025-08-22 08:20:23');
+(1, 1, 1, 5, 'Excelente smartphone, muy rápido y con una cámara increíble.', '2025-08-22 08:20:41'),
+(2, 1, 2, 4, 'La laptop es ligera y potente, ideal para trabajar.', '2025-08-22 08:20:41'),
+(3, 1, 3, 3, 'La licuadora funciona bien pero es un poco ruidosa.', '2025-08-22 08:20:41'),
+(4, 1, 4, 5, 'Aspiradora muy eficiente, limpia muy bien.', '2025-08-22 08:20:41'),
+(5, 1, 5, 4, 'Zapatillas cómodas para correr largas distancias.', '2025-08-22 08:20:41'),
+(6, 1, 6, 5, 'Chaqueta de cuero de excelente calidad y diseño elegante.', '2025-08-22 08:20:41'),
+(7, 1, 7, 4, 'Pelota de fútbol de buena calidad para entrenar.', '2025-08-22 08:20:41'),
+(8, 1, 8, 5, 'Raqueta de tenis ligera y fácil de manejar.', '2025-08-22 08:20:41');
 
 -- --------------------------------------------------------
 
@@ -128,9 +128,9 @@ INSERT INTO `imagenes` (`id`, `producto_id`, `archivo`) VALUES
 
 CREATE TABLE `productos` (
   `id` int(11) NOT NULL,
-  `categoria_id` int(11) NOT NULL,
   `nombre` varchar(100) NOT NULL,
   `descripcion` text NOT NULL,
+  `categoria_id` int(11) NOT NULL,
   `precio` decimal(10,2) NOT NULL,
   `cantidad` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -139,15 +139,15 @@ CREATE TABLE `productos` (
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`id`, `categoria_id`, `nombre`, `descripcion`, `precio`, `cantidad`) VALUES
-(1, 1, 'SMARTPHONE ABC', 'Smartphone de última generación con pantalla OLED y cámara de 48MP', 699.99, 50),
-(2, 1, 'LAPTOP ABC', 'Laptop ultraligera con procesador Intel i7 y 16GB de RAM', 1199.99, 30),
-(3, 2, 'LICUADORA 123', 'Licuadora potente con múltiples velocidades y vaso de vidrio', 89.99, 100),
-(4, 2, 'ASPIRADORA 456', 'Aspiradora sin bolsa con tecnología ciclónica y filtro HEPA', 149.99, 40),
-(5, 3, 'ZAPATILLAS DEPORTIVAS', 'Zapatillas cómodas y ligeras para correr y entrenar', 79.99, 200),
-(6, 3, 'CHAQUETA DE CUERO', 'Chaqueta de cuero auténtico para un estilo elegante y moderno', 199.99, 25),
-(7, 4, 'PELOTA DE FÚTBOL', 'Pelota oficial de fútbol para entrenamientos y partidos', 29.99, 150),
-(8, 4, 'RAQUETA DE TENIS', 'Raqueta ligera con marco de grafito para mayor potencia y control', 89.99, 60);
+INSERT INTO `productos` (`id`, `nombre`, `descripcion`, `categoria_id`, `precio`, `cantidad`) VALUES
+(1, 'SMARTPHONE XYZ', 'Smartphone de última generación con pantalla OLED y cámara de 48MP', 1, 699.99, 50),
+(2, 'LAPTOP ABC', 'Laptop ultraligera con procesador Intel i7 y 16GB de RAM', 1, 1199.99, 30),
+(3, 'LICUADORA 123', 'Licuadora potente con múltiples velocidades y vaso de vidrio', 2, 89.99, 100),
+(4, 'ASPIRADORA 456', 'Aspiradora sin bolsa con tecnología ciclónica y filtro HEPA', 2, 149.99, 40),
+(5, 'ZAPATILLAS DEPORTIVAS', 'Zapatillas cómodas y ligeras para correr y entrenar', 3, 79.99, 200),
+(6, 'CHAQUETA DE CUERO', 'Chaqueta de cuero auténtico para un estilo elegante y moderno', 3, 199.99, 25),
+(7, 'PELOTA DE FÚTBOL', 'Pelota oficial de fútbol para entrenamientos y partidos', 4, 29.99, 150),
+(8, 'RAQUETA DE TENIS', 'Raqueta ligera con marco de grafito para mayor potencia y control', 4, 89.99, 60);
 
 -- --------------------------------------------------------
 

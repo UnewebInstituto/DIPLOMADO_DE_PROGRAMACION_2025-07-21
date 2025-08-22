@@ -279,6 +279,7 @@ insert into categorias(nombre, descripcion) values
 -- CARGA DE DATOS PARA USUARIOS
 insert into usuarios(rol_id, nombre, apellido, correo_electronico,
     clave_secreta) values (1,'ANA','VASQUEZ','AV@GMAIL.COM',md5('Admin-1234'));
+INSERT INTO `usuarios` (`id`, `rol_id`, `nombre`, `apellido`, `correo_electronico`, `clave_secreta`) VALUES (NULL, '3', 'YOLANDA', 'TORTOZA', 'YT@GMAIL.COM', MD5('Ventas-1234'));
 
 -- CARGA DE DATOS PARA PRODUCTOS
 insert into productos(categoria_id, nombre, descripcion, precio, cantidad) values

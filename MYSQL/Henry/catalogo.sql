@@ -111,7 +111,15 @@ insert into calificaciones(usuario_id, producto_id, calificacion, comentario) va
 (1, 7, 4, 'Pelota de fútbol de buena calidad para entrenar.'),
 (1, 8, 5, 'Raqueta de tenis ligera y fácil de manejar.');
 
-
+insert into imagenes(producto_id, archivo) values
+(1, 'smartphone_xyz.jpg'),
+(2, 'laptop_abc.jpg'),
+(3, 'licuadora_123.jpg'),
+(4, 'aspiradora_456.jpg'),
+(5, 'zapatillas_deportivas.jpg'),
+(6, 'chaqueta_cuero.jpg'),
+(7, 'pelota_futbol.jpg'),
+(8, 'raqueta_tenis.jpg');
 
 
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-08-2025 a las 14:31:19
+-- Tiempo de generación: 22-08-2025 a las 16:27:31
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -18,8 +18,24 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `bd2_catalogo_profesor_20250818`
+-- Base de datos: `bd_copia_profesor`
 --
+
+DELIMITER $$
+--
+-- Procedimientos
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `consultar_catergoria` (IN `categoria` INT)   select nombre as producto,
+descripcion, 
+precio, 
+cantidad from productos where categoria_id = categoria$$
+
+--
+-- Funciones
+--
+CREATE DEFINER=`root`@`localhost` FUNCTION `cuadrado` (`numero` INT) RETURNS INT(11)  RETURN numero*numero$$
+
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -199,6 +215,28 @@ INSERT INTO `roles` (`id`, `nombre`, `descripcion`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `seguimiento_triggers`
+--
+
+CREATE TABLE `seguimiento_triggers` (
+  `id` int(11) NOT NULL,
+  `accion` varchar(50) DEFAULT NULL,
+  `tabla` varchar(50) DEFAULT NULL,
+  `fecha` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `seguimiento_triggers`
+--
+
+INSERT INTO `seguimiento_triggers` (`id`, `accion`, `tabla`, `fecha`) VALUES
+(1, 'SE HA CREADO UN NUEVO USUARIO', 'usuarios', '2025-08-22 09:53:10'),
+(2, 'SE HA ACTUALIZADO UN USUARIO', 'usuarios', '2025-08-22 10:06:17'),
+(3, 'SE HA BORRADO UN USUARIO', 'usuarios', '2025-08-22 10:11:32');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `usuarios`
 --
 
@@ -217,6 +255,47 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id`, `rol_id`, `nombre`, `apellido`, `correo_electronico`, `clave_secreta`) VALUES
 (1, 1, 'ANA', 'VASQUEZ', 'AV@GMAIL.COM', '58073af4306fa0d9827904ce8237a500');
+
+--
+-- Disparadores `usuarios`
+--
+DELIMITER $$
+CREATE TRIGGER `auditar_usuario` BEFORE INSERT ON `usuarios` FOR EACH ROW insert INTO seguimiento_triggers(accion,tabla) values('SE HA CREADO UN NUEVO USUARIO','usuarios')
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `auditar_usuario_del` BEFORE DELETE ON `usuarios` FOR EACH ROW INSERT INTO seguimiento_triggers(accion,tabla) values('SE HA BORRADO UN USUARIO','usuarios')
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `auditar_usuario_upd` BEFORE UPDATE ON `usuarios` FOR EACH ROW INSERT INTO seguimiento_triggers(accion,tabla) values('SE HA ACTUALIZADO UN USUARIO','usuarios')
+$$
+DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura Stand-in para la vista `vista_productos`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `vista_productos` (
+`producto` varchar(100)
+,`descripcion` text
+,`precio` decimal(10,2)
+,`cantidad` int(11)
+,`categoria` varchar(50)
+,`imagen` text
+,`etiqueta` varchar(50)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `vista_productos`
+--
+DROP TABLE IF EXISTS `vista_productos`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vista_productos`  AS SELECT `productos`.`nombre` AS `producto`, `productos`.`descripcion` AS `descripcion`, `productos`.`precio` AS `precio`, `productos`.`cantidad` AS `cantidad`, `categorias`.`nombre` AS `categoria`, `imagenes`.`archivo` AS `imagen`, `etiquetas`.`nombre` AS `etiqueta` FROM ((((`productos` join `categorias`) join `imagenes`) join `etiquetas`) join `productos_etiquetas`) WHERE `productos`.`categoria_id` = `categorias`.`id` AND `productos`.`id` = `imagenes`.`producto_id` AND `productos`.`id` = `productos_etiquetas`.`producto_id` AND `etiquetas`.`id` = `productos_etiquetas`.`etiqueta_id` ;
 
 --
 -- Índices para tablas volcadas
@@ -270,6 +349,12 @@ ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `seguimiento_triggers`
+--
+ALTER TABLE `seguimiento_triggers`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -317,10 +402,16 @@ ALTER TABLE `roles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT de la tabla `seguimiento_triggers`
+--
+ALTER TABLE `seguimiento_triggers`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas

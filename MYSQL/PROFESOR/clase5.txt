@@ -1,0 +1,26 @@
+MD5 (Message-Digest Algorithm 5) es un algoritmo de **hashing criptográfico** que produce una cadena de 128 bits (16 bytes) conocida como **hash** o **resumen** a partir de cualquier dato de entrada. Su función principal es verificar la integridad de los datos, garantizando que un archivo no ha sido alterado. 
+ 
+ ### ¿Cómo funciona MD5? 
+ 
+ El proceso de MD5 se divide en varios pasos: 
+ 
+ 1.  **Padding (Relleno):** El algoritmo asegura que la longitud del mensaje de entrada sea un múltiplo de 512 bits. Esto se logra añadiendo un '1' y luego tantos '0' como sean necesarios, seguido de la longitud original del mensaje en bits. 
+ 2.  **Inicialización de un búfer (Inicialización del estado):** Se inicializan cuatro variables (A, B, C, D) de 32 bits con valores hexadecimales fijos, que actúan como el estado inicial del proceso. 
+ 3.  **Procesamiento por bloques:** El mensaje se procesa en bloques de 512 bits. El algoritmo utiliza una serie de rondas de procesamiento, cada una con operaciones lógicas (AND, OR, XOR, NOT) y sumas modulares. Cada ronda manipula el estado de las variables A, B, C y D. 
+ 4.  **Generación del hash:** Al final de todo el proceso, los valores finales de las cuatro variables A, B, C y D se concatenan para producir el resumen de 128 bits. 
+ 
+  
+ 
+ --- 
+ 
+ ## Ventajas y Desventajas de MD5 
+ 
+ | Pros (Ventajas) | Contras (Desventajas) | 
+ | :--- | :--- | 
+ | **Velocidad:** Es muy rápido, lo que lo hace útil para verificar la integridad de archivos grandes sin consumir muchos recursos. | **Vulnerabilidad a colisiones:** Se han encontrado **colisiones** (dos entradas diferentes que producen el mismo hash), lo que lo hace inseguro para aplicaciones que requieren alta seguridad. | 
+ | **Compatibilidad:** Es ampliamente utilizado y compatible con la mayoría de los sistemas y lenguajes de programación. | **No es seguro para contraseñas:** Debido a su velocidad y a la falta de **salting** (añadir datos aleatorios al hash), es vulnerable a ataques de fuerza bruta y de tablas arcoíris. | 
+ | **Genera un hash de tamaño fijo:** El hash de 128 bits es una representación concisa del dato original, fácil de almacenar y comparar. | **No es reversible:** Es una función de una sola dirección. No se puede recuperar el mensaje original a partir del hash, aunque esto no siempre es una desventaja. | 
+ 
+ En resumen, aunque MD5 es útil para la **verificación de la integridad** de archivos no críticos, no debe utilizarse para la protección de datos sensibles, como contraseñas o firmas digitales, debido a sus debilidades criptográficas.
+
+

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-08-2025 a las 14:31:19
+-- Tiempo de generación: 22-08-2025 a las 16:28:08
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -18,8 +18,24 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `bd2_catalogo_profesor_20250818`
+-- Base de datos: `bd_copia_david`
 --
+
+DELIMITER $$
+--
+-- Procedimientos
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `consultar_categoria` (IN `categoria` INT)   select nombre as producto,
+descripcion,
+precio,
+cantidad from productos where categoria_id = categoria$$
+
+--
+-- Funciones
+--
+CREATE DEFINER=`root`@`localhost` FUNCTION `cuadrado` (`numero` INT) RETURNS INT(11)  RETURN numero*numero$$
+
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -41,14 +57,14 @@ CREATE TABLE `calificaciones` (
 --
 
 INSERT INTO `calificaciones` (`id`, `usuario_id`, `producto_id`, `calificacion`, `comentario`, `fecha_calificacion`) VALUES
-(1, 1, 1, 5, 'Excelente smartphone, muy rápido y con una cámara increíble.', '2025-08-22 08:20:23'),
-(2, 1, 2, 4, 'La laptop es ligera y potente, ideal para trabajar.', '2025-08-22 08:20:23'),
-(3, 1, 3, 3, 'La licuadora funciona bien pero es un poco ruidosa.', '2025-08-22 08:20:23'),
-(4, 1, 4, 5, 'Aspiradora muy eficiente, limpia muy bien.', '2025-08-22 08:20:23'),
-(5, 1, 5, 4, 'Zapatillas cómodas para correr largas distancias.', '2025-08-22 08:20:23'),
-(6, 1, 6, 5, 'Chaqueta de cuero de excelente calidad y diseño elegante.', '2025-08-22 08:20:23'),
-(7, 1, 7, 4, 'Pelota de fútbol de buena calidad para entrenar.', '2025-08-22 08:20:23'),
-(8, 1, 8, 5, 'Raqueta de tenis ligera y fácil de manejar.', '2025-08-22 08:20:23');
+(1, 1, 1, 5, 'Excelente smartphone, muy rápido y con una cámara increíble.', '2025-08-22 08:20:41'),
+(2, 1, 2, 4, 'La laptop es ligera y potente, ideal para trabajar.', '2025-08-22 08:20:41'),
+(3, 1, 3, 3, 'La licuadora funciona bien pero es un poco ruidosa.', '2025-08-22 08:20:41'),
+(4, 1, 4, 5, 'Aspiradora muy eficiente, limpia muy bien.', '2025-08-22 08:20:41'),
+(5, 1, 5, 4, 'Zapatillas cómodas para correr largas distancias.', '2025-08-22 08:20:41'),
+(6, 1, 6, 5, 'Chaqueta de cuero de excelente calidad y diseño elegante.', '2025-08-22 08:20:41'),
+(7, 1, 7, 4, 'Pelota de fútbol de buena calidad para entrenar.', '2025-08-22 08:20:41'),
+(8, 1, 8, 5, 'Raqueta de tenis ligera y fácil de manejar.', '2025-08-22 08:20:41');
 
 -- --------------------------------------------------------
 
@@ -128,9 +144,9 @@ INSERT INTO `imagenes` (`id`, `producto_id`, `archivo`) VALUES
 
 CREATE TABLE `productos` (
   `id` int(11) NOT NULL,
-  `categoria_id` int(11) NOT NULL,
   `nombre` varchar(100) NOT NULL,
   `descripcion` text NOT NULL,
+  `categoria_id` int(11) NOT NULL,
   `precio` decimal(10,2) NOT NULL,
   `cantidad` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -139,15 +155,15 @@ CREATE TABLE `productos` (
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`id`, `categoria_id`, `nombre`, `descripcion`, `precio`, `cantidad`) VALUES
-(1, 1, 'SMARTPHONE ABC', 'Smartphone de última generación con pantalla OLED y cámara de 48MP', 699.99, 50),
-(2, 1, 'LAPTOP ABC', 'Laptop ultraligera con procesador Intel i7 y 16GB de RAM', 1199.99, 30),
-(3, 2, 'LICUADORA 123', 'Licuadora potente con múltiples velocidades y vaso de vidrio', 89.99, 100),
-(4, 2, 'ASPIRADORA 456', 'Aspiradora sin bolsa con tecnología ciclónica y filtro HEPA', 149.99, 40),
-(5, 3, 'ZAPATILLAS DEPORTIVAS', 'Zapatillas cómodas y ligeras para correr y entrenar', 79.99, 200),
-(6, 3, 'CHAQUETA DE CUERO', 'Chaqueta de cuero auténtico para un estilo elegante y moderno', 199.99, 25),
-(7, 4, 'PELOTA DE FÚTBOL', 'Pelota oficial de fútbol para entrenamientos y partidos', 29.99, 150),
-(8, 4, 'RAQUETA DE TENIS', 'Raqueta ligera con marco de grafito para mayor potencia y control', 89.99, 60);
+INSERT INTO `productos` (`id`, `nombre`, `descripcion`, `categoria_id`, `precio`, `cantidad`) VALUES
+(1, 'SMARTPHONE XYZ', 'Smartphone de última generación con pantalla OLED y cámara de 48MP', 1, 699.99, 50),
+(2, 'LAPTOP ABC', 'Laptop ultraligera con procesador Intel i7 y 16GB de RAM', 1, 1199.99, 30),
+(3, 'LICUADORA 123', 'Licuadora potente con múltiples velocidades y vaso de vidrio', 2, 89.99, 100),
+(4, 'ASPIRADORA 456', 'Aspiradora sin bolsa con tecnología ciclónica y filtro HEPA', 2, 149.99, 40),
+(5, 'ZAPATILLAS DEPORTIVAS', 'Zapatillas cómodas y ligeras para correr y entrenar', 3, 79.99, 200),
+(6, 'CHAQUETA DE CUERO', 'Chaqueta de cuero auténtico para un estilo elegante y moderno', 3, 199.99, 25),
+(7, 'PELOTA DE FÚTBOL', 'Pelota oficial de fútbol para entrenamientos y partidos', 4, 29.99, 150),
+(8, 'RAQUETA DE TENIS', 'Raqueta ligera con marco de grafito para mayor potencia y control', 4, 89.99, 60);
 
 -- --------------------------------------------------------
 
@@ -199,6 +215,28 @@ INSERT INTO `roles` (`id`, `nombre`, `descripcion`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `seguimiento_triggers`
+--
+
+CREATE TABLE `seguimiento_triggers` (
+  `id` int(11) NOT NULL,
+  `accion` varchar(50) DEFAULT NULL,
+  `tabla` varchar(50) DEFAULT NULL,
+  `fecha` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `seguimiento_triggers`
+--
+
+INSERT INTO `seguimiento_triggers` (`id`, `accion`, `tabla`, `fecha`) VALUES
+(1, 'Se ha creado un Nuevo Usuario', 'usuarios', '2025-08-22 09:53:35'),
+(2, 'Se ha Actualizado un Usuario', 'usuarios', '2025-08-22 10:06:42'),
+(3, 'Se ha Eliminado un Usuario', 'usuarios', '2025-08-22 10:11:33');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `usuarios`
 --
 
@@ -217,6 +255,47 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id`, `rol_id`, `nombre`, `apellido`, `correo_electronico`, `clave_secreta`) VALUES
 (1, 1, 'ANA', 'VASQUEZ', 'AV@GMAIL.COM', '58073af4306fa0d9827904ce8237a500');
+
+--
+-- Disparadores `usuarios`
+--
+DELIMITER $$
+CREATE TRIGGER `auditar_usuario` BEFORE INSERT ON `usuarios` FOR EACH ROW insert into seguimiento_triggers(accion,tabla) values ('Se ha creado un Nuevo Usuario','usuarios')
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `auditar_usuario_del` BEFORE DELETE ON `usuarios` FOR EACH ROW insert into seguimiento_triggers(accion,tabla) VALUES ('Se ha Eliminado un Usuario','usuarios')
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `auditar_usuario_upd` BEFORE UPDATE ON `usuarios` FOR EACH ROW insert into seguimiento_triggers(accion,tabla) VALUES ('Se ha Actualizado un Usuario','usuarios')
+$$
+DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura Stand-in para la vista `vista_productos`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `vista_productos` (
+`producto` varchar(100)
+,`descripcion` text
+,`precio` decimal(10,2)
+,`cantidad` int(11)
+,`categoria` varchar(50)
+,`imagen` text
+,`etiqueta` varchar(50)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `vista_productos`
+--
+DROP TABLE IF EXISTS `vista_productos`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vista_productos`  AS SELECT `productos`.`nombre` AS `producto`, `productos`.`descripcion` AS `descripcion`, `productos`.`precio` AS `precio`, `productos`.`cantidad` AS `cantidad`, `categorias`.`nombre` AS `categoria`, `imagenes`.`archivo` AS `imagen`, `etiquetas`.`nombre` AS `etiqueta` FROM ((((`productos` join `categorias`) join `imagenes`) join `etiquetas`) join `productos_etiquetas`) WHERE `productos`.`categoria_id` = `categorias`.`id` AND `productos`.`id` = `imagenes`.`producto_id` AND `productos`.`id` = `productos_etiquetas`.`producto_id` AND `etiquetas`.`id` = `productos_etiquetas`.`etiqueta_id` ;
 
 --
 -- Índices para tablas volcadas
@@ -270,6 +349,12 @@ ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `seguimiento_triggers`
+--
+ALTER TABLE `seguimiento_triggers`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -317,10 +402,16 @@ ALTER TABLE `roles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT de la tabla `seguimiento_triggers`
+--
+ALTER TABLE `seguimiento_triggers`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas

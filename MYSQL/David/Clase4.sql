@@ -26,6 +26,7 @@ imagenes
 etiquetas
 productos_etiquetas
 
+create view view_productos as
 SELECT productos.nombre as producto,
        productos.descripcion,
        productos.precio,
