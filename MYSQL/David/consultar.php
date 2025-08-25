@@ -22,7 +22,7 @@
         } else {
           // No se obtuvieron resultados
           echo "No se encontraron productos.";
-        }
+        }  
   } catch (\Throwable $th) {
     // Si la conexion falla, mostrar error
     echo "ERROR:" . $th->getMessage();

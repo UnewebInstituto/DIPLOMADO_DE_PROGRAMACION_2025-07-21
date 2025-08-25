@@ -1,0 +1,17 @@
+Descarga y documentación
+https://www.postgresql.org/
+
+NOTA: En el proceso de instalación se solicitará la clave
+de la base de datos. Corresponde a la del usuario de mayor
+nivel, en este caso se llama postgresql. Importante tomar
+nota de esta clave.
+
+Acceso a nivel de consola.
+>psql 
+
+
+Acceso a nivel de interface gráfica.
+pgadmin
+
+
+
