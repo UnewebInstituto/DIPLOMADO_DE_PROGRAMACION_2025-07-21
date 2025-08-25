@@ -13,5 +13,764 @@ Acceso a nivel de consola.
 Acceso a nivel de interface gráfica.
 pgadmin
 
+Server [localhost]:
+Database [postgres]:
+Port [5432]:
+Username [postgres]:
+Contraseña para usuario postgres:
+psql (17rc1)
+ADVERTENCIA: El código de página de la consola (850) difiere del código
+            de página de Windows (1252).
+            Los caracteres de 8 bits pueden funcionar incorrectamente.
+            Vea la página de referencia de psql «Notes for Windows users»
+            para obtener más detalles.
+Digite «help» para obtener ayuda.
 
+postgres=# help
+Está usando psql, la interfaz de línea de órdenes de PostgreSQL.
+Digite:  \copyright para ver los términos de distribución
+       \h para ayuda de órdenes SQL
+       \? para ayuda de órdenes psql
+       \g o punto y coma («;») para ejecutar la consulta
+       \q para salir
+postgres=# \h
+Ayuda disponible:
+  ABORT                            CREATE USER MAPPING
+  ALTER AGGREGATE                  CREATE VIEW
+  ALTER COLLATION                  DEALLOCATE
+  ALTER CONVERSION                 DECLARE
+  ALTER DATABASE                   DELETE
+  ALTER DEFAULT PRIVILEGES         DISCARD
+  ALTER DOMAIN                     DO
+  ALTER EVENT TRIGGER              DROP ACCESS METHOD
+  ALTER EXTENSION                  DROP AGGREGATE
+  ALTER FOREIGN DATA WRAPPER       DROP CAST
+  ALTER FOREIGN TABLE              DROP COLLATION
+  ALTER FUNCTION                   DROP CONVERSION
+  ALTER GROUP                      DROP DATABASE
+  ALTER INDEX                      DROP DOMAIN
+  ALTER LANGUAGE                   DROP EVENT TRIGGER
+  ALTER LARGE OBJECT               DROP EXTENSION
+  ALTER MATERIALIZED VIEW          DROP FOREIGN DATA WRAPPER
+  ALTER OPERATOR                   DROP FOREIGN TABLE
+  ALTER OPERATOR CLASS             DROP FUNCTION
+  ALTER OPERATOR FAMILY            DROP GROUP
+  ALTER POLICY                     DROP INDEX
+  ALTER PROCEDURE                  DROP LANGUAGE
+  ALTER PUBLICATION                DROP MATERIALIZED VIEW
+  ALTER ROLE                       DROP OPERATOR
+  ALTER ROUTINE                    DROP OPERATOR CLASS
+  ALTER RULE                       DROP OPERATOR FAMILY
+  ALTER SCHEMA                     DROP OWNED
+  ALTER SEQUENCE                   DROP POLICY
+  ALTER SERVER                     DROP PROCEDURE
+  ALTER STATISTICS                 DROP PUBLICATION
+  ALTER SUBSCRIPTION               DROP ROLE
+  ALTER SYSTEM                     DROP ROUTINE
+  ALTER TABLE                      DROP RULE
+  ALTER TABLESPACE                 DROP SCHEMA
+  ALTER TEXT SEARCH CONFIGURATION  DROP SEQUENCE
+  ALTER TEXT SEARCH DICTIONARY     DROP SERVER
+  ALTER TEXT SEARCH PARSER         DROP STATISTICS
+  ALTER TEXT SEARCH TEMPLATE       DROP SUBSCRIPTION
+  ALTER TRIGGER                    DROP TABLE
+  ALTER TYPE                       DROP TABLESPACE
+  ALTER USER                       DROP TEXT SEARCH CONFIGURATION
+  ALTER USER MAPPING               DROP TEXT SEARCH DICTIONARY
+^Cpostgres=#
+postgres=#
+postgres=# \h create database
+Orden:       CREATE DATABASE
+Descripci¾n: crea una nueva base de datos
+Sintaxis:
+CREATE DATABASE nombre
+    [ WITH ] [ OWNER [=] nombre_de_usuario ]
+           [ TEMPLATE [=] plantilla ]
+           [ ENCODING [=] codificaci¾n ]
+           [ STRATEGY [=] estrategia ]
+           [ LOCALE [=] configuraci¾n regional ]
+           [ LC_COLLATE [=] lc_collate ]
+           [ LC_CTYPE [=] lc_ctype ]
+           [ BUILTIN_LOCALE [=] locale_builtin ]
+           [ ICU_LOCALE [=] locale_icu ]
+           [ ICU_RULES [=] reglas_icu ]
+           [ LOCALE_PROVIDER [=] proveedor_locale ]
+           [ COLLATION_VERSION = versi¾n_ordenamiento ]
+           [ TABLESPACE [=] nombre_de_tablespace ]
+           [ ALLOW_CONNECTIONS [=] allowconn ]
+           [ CONNECTION LIMIT [=] lÝmite_conexiones ]
+           [ IS_TEMPLATE [=] esplantilla ]
+           [ OID [=] oid ]
+
+URL: https://www.postgresql.org/docs/17/sql-createdatabase.html
+
+
+postgres=# \?
+General
+  \bind [PARAM]...
+                  definir parßmetros de consulta
+  \copyright      mostrar tÚrminos de uso y distribuci¾n de PostgreSQL
+  \crosstabview [COLUMNAS]
+                  ejecutar la consulta y desplegar en ½crosstab╗
+  \errverbose     mostrar error mßs reciente en mßxima verbosidad
+  \g [(OPTIONS)] [FILE]
+                  ejecuta la consulta (y envÝa el resultado a un fichero o |pipe);
+                  \g sin argumentos es equivalente a un punto y coma
+  \gdesc          describir resultado de la consulta, sin ejecutarla
+  \gexec          ejecutar la consulta, luego ejecuta cada valor del resultado
+  \gset [PREFIJO] ejecutar la consulta y almacenar el resultado en variables
+                  de psql
+  \gx [(OPTIONS)] [FILE]
+                  como \g, pero fuerza el modo de salida expandido
+  \q              salir de psql
+  \watch [[i=]SEG] [c=N] [m=MIN]
+                  ejecutar consulta cada SEG segundos, hasta N veces,
+                  deteniÚndose si menos de MIN registros son devueltos
+
+Ayuda
+  \? [commands]   desplegar ayuda sobre las ¾rdenes backslash
+  \? options      desplegar ayuda sobre opciones de lÝnea de ¾rdenes
+  \? variables    desplegar ayuda sobre variables especiales
+  \h [NOMBRE]     mostrar ayuda de sintaxis de ¾rdenes SQL;
+                  use ½*╗ para todas las ¾rdenes
+
+B·fer de consulta
+  \e [ARCHIVO] [L═NEA]
+                  editar el b·fer de consulta (o archivo) con editor externo
+  \ef [NOMBRE-FUNCIËN [L═NEA]]
+                  editar una funci¾n con editor externo
+  \ev [NOMBRE-VISTA [L═NEA]]
+                  editar definici¾n de una vista con editor externo
+  \p              mostrar el contenido del b·fer de consulta
+  \r              reiniciar (limpiar) el b·fer de consulta
+  \w ARCHIVO      escribir b·fer de consulta a archivo
+
+Entrada/Salida
+        (con -n, donde existe, se omite el salto de lÝnea final)
+  \copy ...            ejecutar orden SQL COPY con flujo de datos al cliente
+  \echo [-n] [STRING]  escribe la cadena en la salida estßndar
+  \i ARCHIVO           ejecutar ¾rdenes desde archivo
+  \ir ARCHIVO          como \i, pero relativo a la ubicaci¾n del script actual
+  \o [ARCHIVO]         enviar resultados de consultas a archivo u |orden
+  \qecho [-n] [STRING] escribe la cadena hacia flujo de salida \o
+  \warn [-n] [STRING]  escribe la cadena a la salida de error estßndar
+
+Condicional
+  \if EXPRESIËN   inicia bloque condicional
+  \elif EXPR      alternativa dentro del bloque condicional actual
+  \else           alternativa final dentro del bloque condicional actual
+  \endif          termina el bloque condicional
+
+Informativo
+   (opciones: S = desplegar objetos de sistema, + = agregar mßs detalle)
+  \d[S+]            listar tablas, vistas y secuencias
+  \d[S+]  NOMBRE    describir tabla, Ýndice, secuencia o vista
+  \da[S]  [PATRËN]  listar funciones de agregaci¾n
+  \dA[+]  [PATRËN]  listar mÚtodos de acceso
+  \dAc[+] [AMPTRN [TYPEPTRN]]  listar las clases de operadores
+  \dAf[+] [AMPTRN [TYPEPTRN]]  listar las familias de operadores
+  \dAo[+] [AMPTRN [OPFPTRN]]   listar los operadores de la familia de operadores
+  \dAp[+] [AMPTRN [OPFPTRN]]   enumera las funciones de la familia de operadores
+  \db[+]  [PATRËN]  listar tablespaces
+  \dc[S+] [PATRËN]  listar conversiones
+  \dconfig[+] [PATRËN]  listar parßmetros de configuraci¾n
+  \dC[+]  [PATRËN]  listar conversiones de tipo (casts)
+  \dd[S]  [PATRËN]  listar comentarios de objetos que no aparecen en otra parte
+  \dD[S+] [PATRËN]  listar dominios
+  \ddp    [PATRËN]  listar privilegios por omisi¾n
+  \dE[S+] [PATRËN]  listar tablas forßneas
+  \des[+] [PATRËN]  listar servidores forßneos
+  \det[+] [PATRËN]  listar tablas forßneas
+  \deu[+] [PATRËN]  listar mapeos de usuario
+  \dew[+] [PATRËN]  listar conectores de datos externos
+  \df[anptw][S+] [FUNCPTRN [TYPEPTRN ...]]
+                    listar funciones [s¾lo ag./normal/proc./trigger/ventana]
+  \dF[+]  [PATRËN]  listar configuraciones de b·squeda en texto
+  \dFd[+] [PATRËN]  listar diccionarios de b·squeda en texto
+  \dFp[+] [PATRËN]  listar analizadores (parsers) de b·sq. en texto
+  \dFt[+] [PATRËN]  listar plantillas de b·squeda en texto
+  \dg[S+] [PATRËN]  listar roles
+  \di[S+] [PATRËN]  listar Ýndices
+  \dl[+]            listar objetos grandes, lo mismo que \lo_list
+  \dL[S+] [PATRËN]  listar lenguajes procedurales
+  \dm[S+] [PATRËN]  listar vistas materializadas
+  \dn[S+] [PATRËN]  listar esquemas
+  \do[S+] [OPPTRN [TYPEPTRN [TYPEPTRN]]]
+                    listar operadores
+  \dO[S]  [PATRËN]  listar ordenamientos (collations)
+  \dp[S]  [PATRËN]  listar privilegios de acceso a tablas, vistas y secuencias
+  \dP[tin+] [PATRËN] listar relaciones particionadas (s¾lo tablas/Ýndices) [n=anidadas]
+  \drds [PATRËN_ROL [PATRËN_BASE]]
+                    listar parßmetros de rol por base de datos
+  \drg[S] [PATRËN]  listar roles
+  \dRp[+] [PATRËN]  listar publicaciones de replicaci¾n
+  \dRs[+] [PATRËN]  listar suscripciones de replicaci¾n
+  \ds[S+] [PATRËN]  listar secuencias
+  \dt[S+] [PATRËN]  listar tablas
+  \dT[S+] [PATRËN]  listar tipos de dato
+  \du[S+] [PATRËN]  listar roles
+  \dv[S+] [PATRËN]  listar vistas
+  \dx[+]  [PATRËN]  listar extensiones
+  \dX     [PATRËN]  listar estadÝsticas extendidas
+  \dy[+]  [PATRËN]  listar disparadores por eventos
+  \l[+]   [PATRËN]  listar bases de datos
+  \sf[+]  FUNCIËN   mostrar la definici¾n de una funci¾n
+  \sv[+]  VISTA     mostrar la definici¾n de una vista
+  \z[S]   [PATRËN]  lo mismo que \dp
+
+Objetos Grandes
+  \lo_export LOBOID ARCHIVO escribir objeto grande a archivo
+  \lo_import ARCHIVO [COMENTARIO]
+                    leer objeto grande desde archivo
+  \lo_list[+]       listar objetos grandes
+  \lo_unlink LOBOID borrar un objeto grande
+
+Formato
+  \a              cambiar entre modo de salida alineado y sin alinear
+  \C [CADENA]     definir tÝtulo de tabla, o indefinir si es vacÝo
+  \f [CADENA]     mostrar o definir separador de campos para
+                  modo de salida sin alinear
+  \H              cambiar modo de salida HTML (actualmente desactivado)
+  \pset [NOMBRE [VALOR]]  define opci¾n de tabla de salida
+                  (border|columns|csv_fieldsep|expanded|fieldsep|fieldsep_zero|
+                   footer|format|linestyle|null|numericlocale|pager|
+                   pager_min_lines|recordsep|recordsep_zero|tableattr|title|
+                   tuples_only|unicode_border_linestyle|unicode_column_linestyle|
+                   unicode_header_linestyle)
+  \t [on|off]      mostrar s¾lo filas (actualmente desactivado)
+  \T [CADENA]      definir atributos HTML de <table>, o indefinir si es vacÝo
+  \x [on|off|auto] cambiar modo expandido (actualmente desactivado)
+
+Conexiones
+  \c[onnect] [BASE-DE-DATOS|- USUARIO|- ANFITRIËN|- PUERTO|- | conninfo]
+                  conectar a una nueva base de datos (actual: ½postgres╗)
+  \conninfo       despliega la informaci¾n sobre la conexi¾n actual
+  \encoding [CODIFICACIËN]
+                  mostrar o definir codificaci¾n del cliente
+  \password [USUARIO]
+                  cambiar la contrase±a para un usuario en forma segura
+
+Sistema Operativo
+  \cd [DIR]        cambiar el directorio de trabajo actual
+  \getenv PSQLVAR ENVVAR obtener variable de ambiente
+  \setenv NOMBRE [VALOR]
+                   definir o indefinir variable de ambiente
+  \timing [on|off] mostrar tiempo de ejecuci¾n de ¾rdenes
+                   (actualmente desactivado)
+  \! [ORDEN]       ejecutar orden en intÚrprete de ¾rdenes (shell),
+                   o iniciar intÚrprete interactivo
+
+Variables
+  \prompt [TEXTO] NOMBRE  preguntar al usuario el valor de la variable
+  \set [NOMBRE [VALOR]]   definir variables internas,
+                          listar todas si no se dan parßmetros
+  \unset NOMBRE           indefinir (eliminar) variable interna
+
+postgres=#
+postgres=#
+postgres=#
+postgres=# create database bd_profesor_20250825;
+CREATE DATABASE
+postgres=# \c bd_profesor_20250825;
+Ahora está conectado a la base de datos «bd_profesor_20250825» con el usuario «postgres».
+bd_profesor_20250825=# create table espacios_tipos(
+bd_profesor_20250825(#     id serial primary key,
+bd_profesor_20250825(#     nombre varchar(50) not null,
+bd_profesor_20250825(#     descripcion text
+bd_profesor_20250825(# );
+CREATE TABLE
+bd_profesor_20250825=# \d
+                 Listado de relaciones
+ Esquema |        Nombre         |   Tipo    |  Due±o
+---------+-----------------------+-----------+----------
+ public  | espacios_tipos        | tabla     | postgres
+ public  | espacios_tipos_id_seq | secuencia | postgres
+(2 filas)
+
+
+bd_profesor_20250825=# \ds
+                 Listado de relaciones
+ Esquema |        Nombre         |   Tipo    |  Due±o
+---------+-----------------------+-----------+----------
+ public  | espacios_tipos_id_seq | secuencia | postgres
+(1 fila)
+
+
+bd_profesor_20250825=# \dt
+            Listado de relaciones
+ Esquema |     Nombre     | Tipo  |  Due±o
+---------+----------------+-------+----------
+ public  | espacios_tipos | tabla | postgres
+(1 fila)
+
+
+bd_profesor_20250825=# insert into espacios_tipos(
+bd_profesor_20250825(#     nombre, descripcion)
+bd_profesor_20250825-#     values
+bd_profesor_20250825-#     ('Aula especializada', 'Aulas equipadas con tecnología avanzada para materias específicas como laboratorios de ciencias, aulas de informática, etc.'),
+bd_profesor_20250825-#     ('Auditorio','Espacios grandes diseñados para eventos, conferencias y presentaciones.'),
+bd_profesor_20250825-#     ('Laboratorio', 'Espacios equipados para experimentos y prácticas científicas.'),
+bd_profesor_20250825-#     ('Biblioteca', 'Espacios dedicados al estudio y la consulta de materiales bibliográficos.'),
+bd_profesor_20250825-#     ('Cancha','Áreas al aire libre o cubiertas para actividades deportivas.'),
+bd_profesor_20250825-#     ('Sala de reuniones', 'Espacios destinados a reuniones y discusiones en grupo.');
+INSERT 0 6
+bd_profesor_20250825=# select * from espacios_tipos;
+ id |       nombre       |                                                         descripcion
+----+--------------------+-----------------------------------------------------------------------------------------------------------------------------
+  1 | Aula especializada | Aulas equipadas con tecnología avanzada para materias específicas como laboratorios de ciencias, aulas de informática, etc.
+  2 | Auditorio          | Espacios grandes diseñados para eventos, conferencias y presentaciones.
+  3 | Laboratorio        | Espacios equipados para experimentos y prácticas científicas.
+  4 | Biblioteca         | Espacios dedicados al estudio y la consulta de materiales bibliográficos.
+  5 | Cancha             | Áreas al aire libre o cubiertas para actividades deportivas.
+  6 | Sala de reuniones  | Espacios destinados a reuniones y discusiones en grupo.
+(6 filas)
+
+
+bd_profesor_20250825=# select id, nombre from espacios_tipos;
+ id |       nombre
+----+--------------------
+  1 | Aula especializada
+  2 | Auditorio
+  3 | Laboratorio
+  4 | Biblioteca
+  5 | Cancha
+  6 | Sala de reuniones
+(6 filas)
+
+
+bd_profesor_20250825=# \d
+                 Listado de relaciones
+ Esquema |        Nombre         |   Tipo    |  Due±o
+---------+-----------------------+-----------+----------
+ public  | espacios_tipos        | tabla     | postgres
+ public  | espacios_tipos_id_seq | secuencia | postgres
+(2 filas)
+
+
+bd_profesor_20250825=# select * from espacios_tipos_id_seq;
+ last_value | log_cnt | is_called
+------------+---------+-----------
+          6 |      27 | t
+(1 fila)
+
+
+bd_profesor_20250825=# \d espacios_tipos
+                                       Tabla ½public.espacios_tipos╗
+   Columna   |         Tipo          | Ordenamiento | Nulable  |                Por omisi¾n
+-------------+-----------------------+--------------+----------+--------------------------------------------
+ id          | integer               |              | not null | nextval('espacios_tipos_id_seq'::regclass)
+ nombre      | character varying(50) |              | not null |
+ descripcion | text                  |              |          |
+═ndices:
+    "espacios_tipos_pkey" PRIMARY KEY, btree (id)
+
+
+bd_profesor_20250825=# \d espacios_tipos_id_seq;
+               Secuencia ½public.espacios_tipos_id_seq╗
+  Tipo   | Inicio | MÝnimo |   Mßximo   | Incremento | ┐Cicla? | Cache
+---------+--------+--------+------------+------------+---------+-------
+ integer |      1 |      1 | 2147483647 |          1 | no      |     1
+Asociada a: public.espacios_tipos.id
+
+
+bd_profesor_20250825=# insert into estatus(
+bd_profesor_20250825(#     nombre, descripcion)
+bd_profesor_20250825-#     values
+bd_profesor_20250825-#     ('Disponible', 'El espacio está libre y puede ser reservado.'),
+bd_profesor_20250825-#     ('En reparacion', 'El espacio está cerrado temporalmente para reparaciones o mejoras.'),
+bd_profesor_20250825-#     ('Ocupado','El espacio está actualmente en uso y no puede ser reservado.');
+ERROR:  no existe la relación «estatus»
+LÍNEA 1: insert into estatus(
+                     ^
+bd_profesor_20250825=# create table estatus(
+bd_profesor_20250825(#     id serial primary key,
+bd_profesor_20250825(#     nombre varchar(50) not null,
+bd_profesor_20250825(#     descripcion text
+bd_profesor_20250825(# );
+CREATE TABLE
+bd_profesor_20250825=# insert into estatus(
+bd_profesor_20250825(#     nombre, descripcion)
+bd_profesor_20250825-#     values
+bd_profesor_20250825-#     ('Disponible', 'El espacio está libre y puede ser reservado.'),
+bd_profesor_20250825-#     ('En reparacion', 'El espacio está cerrado temporalmente para reparaciones o mejoras.'),
+bd_profesor_20250825-#     ('Ocupado','El espacio está actualmente en uso y no puede ser reservado.');
+INSERT 0 3
+bd_profesor_20250825=# drop table estatus;
+DROP TABLE
+bd_profesor_20250825=# create table estatus(
+bd_profesor_20250825(#     id serial primary key,
+bd_profesor_20250825(#     nombre varchar(50) not null,
+bd_profesor_20250825(#     descripcion text
+bd_profesor_20250825(# );
+CREATE TABLE
+bd_profesor_20250825=# insert into estatus(
+bd_profesor_20250825(#     nombre, descripcion)
+bd_profesor_20250825-#     values
+bd_profesor_20250825-#     ('Disponible', 'El espacio está libre y puede ser reservado.'),
+bd_profesor_20250825-#     ('En reparación', 'El espacio está cerrado temporalmente para reparaciones o mejoras.'),
+bd_profesor_20250825-#     ('Ocupado','El espacio está actualmente en uso y no puede ser reservado.');
+INSERT 0 3
+bd_profesor_20250825=# select * from estatus;
+ id |    nombre     |                            descripcion                             ----+---------------+--------------------------------------------------------------------  1 | Disponible    | El espacio está libre y puede ser reservado.
+  2 | En reparación | El espacio está cerrado temporalmente para reparaciones o mejoras.
+  3 | Ocupado       | El espacio está actualmente en uso y no puede ser reservado.
+(3 filas)
+
+
+bd_profesor_20250825=#
+bd_profesor_20250825=# create table roles(
+bd_profesor_20250825(#     id serial primary key,
+bd_profesor_20250825(#     nombre varchar(50) not null,
+bd_profesor_20250825(#     descripcion text
+bd_profesor_20250825(# );
+CREATE TABLE
+bd_profesor_20250825=#
+bd_profesor_20250825=# insert into roles(
+bd_profesor_20250825(#     nombre, descripcion)
+bd_profesor_20250825-#     values
+bd_profesor_20250825-#     ('Profesor', 'Usuario con permisos para impartir clases y gestionar materiales educativos.'),
+bd_profesor_20250825-#     ('Personal administrativo', 'Usuario encargado de la gestión administrativa y operativa de la institución.');
+INSERT 0 2
+bd_profesor_20250825=#
+bd_profesor_20250825=# \d
+                 Listado de relaciones
+ Esquema |        Nombre         |   Tipo    |  Due±o
+---------+-----------------------+-----------+----------
+ public  | espacios_tipos        | tabla     | postgres
+ public  | espacios_tipos_id_seq | secuencia | postgres
+ public  | estatus               | tabla     | postgres
+ public  | estatus_id_seq        | secuencia | postgres
+ public  | roles                 | tabla     | postgres
+ public  | roles_id_seq          | secuencia | postgres
+(6 filas)
+
+
+bd_profesor_20250825=# create table reserva_estatus(
+bd_profesor_20250825(#     id serial primary key,
+bd_profesor_20250825(#     nombre varchar(50) not null,
+bd_profesor_20250825(#     descripcion text
+bd_profesor_20250825(# );
+CREATE TABLE
+bd_profesor_20250825=# insert into reserva_estatus(
+bd_profesor_20250825(#     nombre, descripcion)
+bd_profesor_20250825-#     values
+bd_profesor_20250825-#     ('Abierta', 'La reserva está activa y puede ser modificada o cancelada.'),
+bd_profesor_20250825-#     ('Cerrada', 'La reserva ha sido completada y ya no puede ser modificada.'),
+bd_profesor_20250825-#     ('Cancelada','La reserva ha sido anulada y el espacio queda disponible para otros usuarios.');
+INSERT 0 3
+bd_profesor_20250825=# \d
+                  Listado de relaciones
+ Esquema |         Nombre         |   Tipo    |  Due±o
+---------+------------------------+-----------+----------
+ public  | espacios_tipos         | tabla     | postgres
+ public  | espacios_tipos_id_seq  | secuencia | postgres
+ public  | estatus                | tabla     | postgres
+ public  | estatus_id_seq         | secuencia | postgres
+ public  | reserva_estatus        | tabla     | postgres
+ public  | reserva_estatus_id_seq | secuencia | postgres
+ public  | roles                  | tabla     | postgres
+ public  | roles_id_seq           | secuencia | postgres
+(8 filas)
+
+
+bd_profesor_20250825=# insert into espacios(
+bd_profesor_20250825(#     espacio_tipo_id, estatus_id, ubicacion)
+bd_profesor_20250825-#     values
+bd_profesor_20250825-#     (1, 1, 'Edificio A, Aula 101'),
+bd_profesor_20250825-#     (2, 1, 'Edificio B, Auditorio Principal'),
+bd_profesor_20250825-#     (3, 2, 'Edificio C, Laboratorio de Ciencias'),
+bd_profesor_20250825-#     (4, 1, 'Edificio D, Biblioteca Central'),
+bd_profesor_20250825-#     (5, 1, 'Cancha Deportiva al aire libre'),
+bd_profesor_20250825-#     (6, 1, 'Edificio E, Sala de Reuniones 201');
+ERROR:  no existe la relación «espacios»
+LÍNEA 1: insert into espacios(
+                     ^
+bd_profesor_20250825=# create table espacios(
+bd_profesor_20250825(#     id serial primary key,
+bd_profesor_20250825(#     espacio_tipo_id integer,
+bd_profesor_20250825(#     estatus_id integer,
+bd_profesor_20250825(#     ubicacion text,
+bd_profesor_20250825(#     foreign key (espacio_tipo_id) references espacios_tipos(id) on update cascade,
+bd_profesor_20250825(#     foreign key (estatus_id) references estatus(id) on update cascade
+bd_profesor_20250825(# );
+CREATE TABLE
+bd_profesor_20250825=# insert into espacios(
+bd_profesor_20250825(#     espacio_tipo_id, estatus_id, ubicacion)
+bd_profesor_20250825-#     values
+bd_profesor_20250825-#     (1, 1, 'Edificio A, Aula 101'),
+bd_profesor_20250825-#     (2, 1, 'Edificio B, Auditorio Principal'),
+bd_profesor_20250825-#     (3, 2, 'Edificio C, Laboratorio de Ciencias'),
+bd_profesor_20250825-#     (4, 1, 'Edificio D, Biblioteca Central'),
+bd_profesor_20250825-#     (5, 1, 'Cancha Deportiva al aire libre'),
+bd_profesor_20250825-#     (6, 1, 'Edificio E, Sala de Reuniones 201');
+INSERT 0 6
+bd_profesor_20250825=# insert into usuarios(rol_id,cedula,nombre,apellido,correo_electronico,telefono,clave) values
+bd_profesor_20250825-# (1,'V1234','Ana','Vasquez','av@gmail.com','+58 414 1234567',md5('V1234')),
+bd_profesor_20250825-# (1,'V5678','Libia','Cols','lc@gmail.com','+58 414 2234567',md5('V5678')),
+bd_profesor_20250825-# (2,'V9012','Nelly','Contreras','nc@gmail.com','+58 414 3234567',md5('V9012')),
+bd_profesor_20250825-# (2,'V3456','Hedrina','Monasterios','hm@hotmail.com','+58 414 4234567',md5('V3456'));
+ERROR:  no existe la relación «usuarios»
+LÍNEA 1: insert into usuarios(rol_id,cedula,nombre,apellido,correo_el...
+                     ^
+bd_profesor_20250825=# \d
+                  Listado de relaciones
+ Esquema |         Nombre         |   Tipo    |  Due±o
+---------+------------------------+-----------+----------
+ public  | espacios               | tabla     | postgres
+ public  | espacios_id_seq        | secuencia | postgres
+ public  | espacios_tipos         | tabla     | postgres
+ public  | espacios_tipos_id_seq  | secuencia | postgres
+ public  | estatus                | tabla     | postgres
+ public  | estatus_id_seq         | secuencia | postgres
+ public  | reserva_estatus        | tabla     | postgres
+ public  | reserva_estatus_id_seq | secuencia | postgres
+ public  | roles                  | tabla     | postgres
+ public  | roles_id_seq           | secuencia | postgres
+(10 filas)
+
+
+bd_profesor_20250825=# create table usuarios(
+bd_profesor_20250825(#     id serial primary key,
+bd_profesor_20250825(#     rol_id integer,
+bd_profesor_20250825(#     cedula varchar(20) not null unique,
+bd_profesor_20250825(#     nombre varchar(100) not null,
+bd_profesor_20250825(#     apellido varchar(100) not null,
+bd_profesor_20250825(#     correo_electronico varchar(100) not null unique,
+bd_profesor_20250825(#     telefono varchar(20),
+bd_profesor_20250825(#     clave varchar(100) not null,
+bd_profesor_20250825(#     foreign key (rol_id) references roles(id) on update cascade
+bd_profesor_20250825(# );
+CREATE TABLE
+bd_profesor_20250825=# insert into usuarios(rol_id,cedula,nombre,apellido,correo_electronico,telefono,clave) values
+bd_profesor_20250825-# (1,'V1234','Ana','Vasquez','av@gmail.com','+58 414 1234567',md5('V1234')),
+bd_profesor_20250825-# (1,'V5678','Libia','Cols','lc@gmail.com','+58 414 2234567',md5('V5678')),
+bd_profesor_20250825-# (2,'V9012','Nelly','Contreras','nc@gmail.com','+58 414 3234567',md5('V9012')),
+bd_profesor_20250825-# (2,'V3456','Hedrina','Monasterios','hm@hotmail.com','+58 414 4234567',md5('V3456'));
+INSERT 0 4
+bd_profesor_20250825=# \d
+                  Listado de relaciones
+ Esquema |         Nombre         |   Tipo    |  Due±o
+---------+------------------------+-----------+----------
+ public  | espacios               | tabla     | postgres
+ public  | espacios_id_seq        | secuencia | postgres
+ public  | espacios_tipos         | tabla     | postgres
+ public  | espacios_tipos_id_seq  | secuencia | postgres
+ public  | estatus                | tabla     | postgres
+ public  | estatus_id_seq         | secuencia | postgres
+ public  | reserva_estatus        | tabla     | postgres
+ public  | reserva_estatus_id_seq | secuencia | postgres
+ public  | roles                  | tabla     | postgres
+ public  | roles_id_seq           | secuencia | postgres
+ public  | usuarios               | tabla     | postgres
+ public  | usuarios_id_seq        | secuencia | postgres
+(12 filas)
+
+
+bd_profesor_20250825=# insert into reservas_usuarios_espacios(
+bd_profesor_20250825(#     usuario_id, espacio_id, reserva_estatus_id, fecha_hora, tiempo_reserva)
+bd_profesor_20250825-#     values
+bd_profesor_20250825-#     (1, 1, 1, '2023-09-01 10:00:00', 2),
+bd_profesor_20250825-#     (2, 2, 1, '2023-09-01 14:00:00', 3),
+bd_profesor_20250825-#     (1, 3, 2, '2023-09-02 09:00:00', 1),
+bd_profesor_20250825-#     (2, 4, 1, '2023-09-02 11:00:00', 2),
+bd_profesor_20250825-#     (1, 5, 3, '2023-09-03 15:00:00', 4),
+bd_profesor_20250825-#     (2, 6, 1, '2023-09-03 08:00:00', 2);
+ERROR:  no existe la relación «reservas_usuarios_espacios»
+LÍNEA 1: insert into reservas_usuarios_espacios(
+                     ^
+bd_profesor_20250825=# create tables reservas_usuarios_espacios(
+bd_profesor_20250825(#     id serial primary key,
+bd_profesor_20250825(#     usuario_id integer,
+bd_profesor_20250825(#     espacio_id integer,
+bd_profesor_20250825(#     reserva_estatus_id integer,
+bd_profesor_20250825(#     fecha_hora datetime not null,
+bd_profesor_20250825(#     tiempo_reserva integer not null,
+bd_profesor_20250825(#     foreign key (usuario_id) references usuarios(id) on update cascade,
+bd_profesor_20250825(#     foreign key (espacio_id) references espacios(id) on update cascade,
+bd_profesor_20250825(#     foreign key (reserva_estatus_id) references reserva_estatus(id) on update cascade
+bd_profesor_20250825(# );
+ERROR:  error de sintaxis en o cerca de «tables»
+LÍNEA 1: create tables reservas_usuarios_espacios(
+                ^
+bd_profesor_20250825=# create table reservas_usuarios_espacios(
+bd_profesor_20250825(#     id serial primary key,
+bd_profesor_20250825(#     usuario_id integer,
+bd_profesor_20250825(#     espacio_id integer,
+bd_profesor_20250825(#     reserva_estatus_id integer,
+bd_profesor_20250825(#     fecha_hora datetime not null,
+bd_profesor_20250825(#     tiempo_reserva integer not null,
+bd_profesor_20250825(#     foreign key (usuario_id) references usuarios(id) on update cascade,
+bd_profesor_20250825(#     foreign key (espacio_id) references espacios(id) on update cascade,
+bd_profesor_20250825(#     foreign key (reserva_estatus_id) references reserva_estatus(id) on update cascade
+bd_profesor_20250825(# );
+ERROR:  no existe el tipo «datetime»
+LÍNEA 6:     fecha_hora datetime not null,
+                        ^
+bd_profesor_20250825=# drop table reservas_usuarios_espacios;
+ERROR:  no existe la tabla «reservas_usuarios_espacios»
+bd_profesor_20250825=# create table reservas_usuarios_espacios(
+bd_profesor_20250825(#     id serial primary key,
+bd_profesor_20250825(#     usuario_id integer,
+bd_profesor_20250825(#     espacio_id integer,
+bd_profesor_20250825(#     reserva_estatus_id integer,
+bd_profesor_20250825(#     fecha_hora TIMESTAMP WITHOUT TIME ZONE. not null,
+bd_profesor_20250825(#     tiempo_reserva integer not null,
+bd_profesor_20250825(#     foreign key (usuario_id) references usuarios(id) on update cascade,
+bd_profesor_20250825(#     foreign key (espacio_id) references espacios(id) on update cascade,
+bd_profesor_20250825(#     foreign key (reserva_estatus_id) references reserva_estatus(id) on update cascade
+bd_profesor_20250825(# );
+ERROR:  error de sintaxis en o cerca de «.»
+LÍNEA 6:     fecha_hora TIMESTAMP WITHOUT TIME ZONE. not null,
+                                                   ^
+bd_profesor_20250825=# create table reservas_usuarios_espacios(
+bd_profesor_20250825(#     id serial primary key,
+bd_profesor_20250825(#     usuario_id integer,
+bd_profesor_20250825(#     espacio_id integer,
+bd_profesor_20250825(#     reserva_estatus_id integer,
+bd_profesor_20250825(#     fecha_hora TIMESTAMP WITHOUT TIME ZONE not null,
+bd_profesor_20250825(#     tiempo_reserva integer not null,
+bd_profesor_20250825(#     foreign key (usuario_id) references usuarios(id) on update cascade,
+bd_profesor_20250825(#     foreign key (espacio_id) references espacios(id) on update cascade,
+bd_profesor_20250825(#     foreign key (reserva_estatus_id) references reserva_estatus(id) on update cascade
+bd_profesor_20250825(# );
+CREATE TABLE
+bd_profesor_20250825=# insert into reservas_usuarios_espacios(
+bd_profesor_20250825(#     usuario_id, espacio_id, reserva_estatus_id, fecha_hora, tiempo_reserva)
+bd_profesor_20250825-#     values
+bd_profesor_20250825-#     (1, 1, 1, '2023-09-01 10:00:00', 2),
+bd_profesor_20250825-#     (2, 2, 1, '2023-09-01 14:00:00', 3),
+bd_profesor_20250825-#     (1, 3, 2, '2023-09-02 09:00:00', 1),
+bd_profesor_20250825-#     (2, 4, 1, '2023-09-02 11:00:00', 2),
+bd_profesor_20250825-#     (1, 5, 3, '2023-09-03 15:00:00', 4),
+bd_profesor_20250825-#     (2, 6, 1, '2023-09-03 08:00:00', 2);
+INSERT 0 6
+bd_profesor_20250825=# select * from reservas_usuarios_espacios;
+ id | usuario_id | espacio_id | reserva_estatus_id |     fecha_hora      | tiempo_reserva
+----+------------+------------+--------------------+---------------------+----------------
+  1 |          1 |          1 |                  1 | 2023-09-01 10:00:00 |              2  2 |          2 |          2 |                  1 | 2023-09-01 14:00:00 |              3  3 |          1 |          3 |                  2 | 2023-09-02 09:00:00 |              1  4 |          2 |          4 |                  1 | 2023-09-02 11:00:00 |              2  5 |          1 |          5 |                  3 | 2023-09-03 15:00:00 |              4  6 |          2 |          6 |                  1 | 2023-09-03 08:00:00 |              2(6 filas)
+
+
+bd_profesor_20250825=# \d espacios;
+                                  Tabla ½public.espacios╗
+     Columna     |  Tipo   | Ordenamiento | Nulable  |             Por omisi¾n           
+-----------------+---------+--------------+----------+--------------------------------------
+ id              | integer |              | not null | nextval('espacios_id_seq'::regclass)
+ espacio_tipo_id | integer |              |          |
+ estatus_id      | integer |              |          |
+ ubicacion       | text    |              |          |
+═ndices:
+    "espacios_pkey" PRIMARY KEY, btree (id)
+Restricciones de llave forßnea:
+    "espacios_espacio_tipo_id_fkey" FOREIGN KEY (espacio_tipo_id) REFERENCES espacios_tipos(id) ON UPDATE CASCADE
+    "espacios_estatus_id_fkey" FOREIGN KEY (estatus_id) REFERENCES estatus(id) ON UPDATE CASCADE
+Referenciada por:
+    TABLE "reservas_usuarios_espacios" CONSTRAINT "reservas_usuarios_espacios_espacio_id_fkey" FOREIGN KEY (espacio_id) REFERENCES espacios(id) ON UPDATE CASCADE
+
+
+bd_profesor_20250825=#
+bd_profesor_20250825=#
+bd_profesor_20250825=#
+bd_profesor_20250825=#
+bd_profesor_20250825=# select * from estatus;
+ id |    nombre     |                            descripcion                             ----+---------------+--------------------------------------------------------------------  1 | Disponible    | El espacio está libre y puede ser reservado.
+  2 | En reparación | El espacio está cerrado temporalmente para reparaciones o mejoras.
+  3 | Ocupado       | El espacio está actualmente en uso y no puede ser reservado.
+(3 filas)
+
+
+bd_profesor_20250825=# select * from reserva_estatus;
+ id |  nombre   |                                  descripcion                           
+----+-----------+-------------------------------------------------------------------------------
+  1 | Abierta   | La reserva está activa y puede ser modificada o cancelada.
+  2 | Cerrada   | La reserva ha sido completada y ya no puede ser modificada.
+  3 | Cancelada | La reserva ha sido anulada y el espacio queda disponible para otros usuarios.
+(3 filas)
+
+
+bd_profesor_20250825=# select usuarios.nombre as nombre_usuario,
+bd_profesor_20250825-#        usuarios.apellido as apellido_usuario,
+bd_profesor_20250825-#        usuarios.correo_electronico,
+bd_profesor_20250825-#        espacios.ubicacion as ubicacion_espacio,
+bd_profesor_20250825-#        reservas_estatus.nombre as estatus_reserva,
+bd_profesor_20250825-#        reservas_usuarios_espacios.fecha_hora,
+bd_profesor_20250825-#        reservas_usuarios_espacios.tiempo_reserva,
+bd_profesor_20250825-#        from reservas_usuarios_espacios, reservas_estatus, usuarios, espacios
+bd_profesor_20250825-#          where reservas_usuarios_espacios.usuario_id = usuarios.id
+bd_profesor_20250825-#             and reservas_usuarios_espacios.espacio_id = espacios.id
+bd_profesor_20250825-#             and reservas_usuarios_espacios.reserva_estatus_id = reservas_estatus.id;
+ERROR:  error de sintaxis en o cerca de «from»
+LÍNEA 8:        from reservas_usuarios_espacios, reservas_estatus, us...
+                ^
+bd_profesor_20250825=# select usuarios.nombre as nombre_usuario,
+bd_profesor_20250825-#        usuarios.apellido as apellido_usuario,
+bd_profesor_20250825-#        usuarios.correo_electronico,
+bd_profesor_20250825-#        espacios.ubicacion as ubicacion_espacio,
+bd_profesor_20250825-#        reservas_estatus.nombre as estatus_reserva,
+bd_profesor_20250825-#        reservas_usuarios_espacios.fecha_hora,
+bd_profesor_20250825-#        reservas_usuarios_espacios.tiempo_reserva
+bd_profesor_20250825-#        from reservas_usuarios_espacios, reservas_estatus, usuarios, espacios
+bd_profesor_20250825-#          where reservas_usuarios_espacios.usuario_id = usuarios.id
+bd_profesor_20250825-#             and reservas_usuarios_espacios.espacio_id = espacios.id
+bd_profesor_20250825-#             and reservas_usuarios_espacios.reserva_estatus_id = reservas_estatus.id;
+ERROR:  no existe la relación «reservas_estatus»
+LÍNEA 8:        from reservas_usuarios_espacios, reservas_estatus, us...
+                                                 ^
+bd_profesor_20250825=# \d
+                       Listado de relaciones
+ Esquema |              Nombre               |   Tipo    |  Due±o
+---------+-----------------------------------+-----------+----------
+ public  | espacios                          | tabla     | postgres
+ public  | espacios_id_seq                   | secuencia | postgres
+ public  | espacios_tipos                    | tabla     | postgres
+ public  | espacios_tipos_id_seq             | secuencia | postgres
+ public  | estatus                           | tabla     | postgres
+ public  | estatus_id_seq                    | secuencia | postgres
+ public  | reserva_estatus                   | tabla     | postgres
+ public  | reserva_estatus_id_seq            | secuencia | postgres
+ public  | reservas_usuarios_espacios        | tabla     | postgres
+ public  | reservas_usuarios_espacios_id_seq | secuencia | postgres
+ public  | roles                             | tabla     | postgres
+ public  | roles_id_seq                      | secuencia | postgres
+ public  | usuarios                          | tabla     | postgres
+ public  | usuarios_id_seq                   | secuencia | postgres
+(14 filas)
+
+
+bd_profesor_20250825=# select usuarios.nombre as nombre_usuario,
+bd_profesor_20250825-#        usuarios.apellido as apellido_usuario,
+bd_profesor_20250825-#        usuarios.correo_electronico,
+bd_profesor_20250825-#        espacios.ubicacion as ubicacion_espacio,
+bd_profesor_20250825-#        reserva_estatus.nombre as estatus_reserva,
+bd_profesor_20250825-#        reservas_usuarios_espacios.fecha_hora,
+bd_profesor_20250825-#        reservas_usuarios_espacios.tiempo_reserva
+bd_profesor_20250825-#        from reservas_usuarios_espacios, reservas_estatus, usuarios, espacios
+bd_profesor_20250825-#          where reservas_usuarios_espacios.usuario_id = usuarios.id
+bd_profesor_20250825-#             and reservas_usuarios_espacios.espacio_id = espacios.id
+bd_profesor_20250825-#             and reservas_usuarios_espacios.reserva_estatus_id = reserva_estatus.id;
+ERROR:  no existe la relación «reservas_estatus»
+LÍNEA 8:        from reservas_usuarios_espacios, reservas_estatus, us...
+                                                 ^
+bd_profesor_20250825=# select usuarios.nombre as nombre_usuario,
+bd_profesor_20250825-#        usuarios.apellido as apellido_usuario,
+bd_profesor_20250825-#        usuarios.correo_electronico,
+bd_profesor_20250825-#        espacios.ubicacion as ubicacion_espacio,
+bd_profesor_20250825-#        reserva_estatus.nombre as estatus_reserva,
+bd_profesor_20250825-#        reservas_usuarios_espacios.fecha_hora,
+bd_profesor_20250825-#        reservas_usuarios_espacios.tiempo_reserva
+bd_profesor_20250825-#        from reservas_usuarios_espacios, reserva_estatus, usuarios, espacios
+bd_profesor_20250825-#          where reservas_usuarios_espacios.usuario_id = usuarios.id
+bd_profesor_20250825-#             and reservas_usuarios_espacios.espacio_id = espacios.id
+bd_profesor_20250825-#             and reservas_usuarios_espacios.reserva_estatus_id = reserva_estatus.id;
+ nombre_usuario | apellido_usuario | correo_electronico |          ubicacion_espacio          | estatus_reserva |     fecha_hora      | tiempo_reserva
+----------------+------------------+--------------------+-------------------------------------+-----------------+---------------------+----------------
+ Ana            | Vasquez          | av@gmail.com       | Edificio A, Aula 101                | Abierta         | 2023-09-01 10:00:00 |              2
+ Libia          | Cols             | lc@gmail.com       | Edificio B, Auditorio Principal     | Abierta         | 2023-09-01 14:00:00 |              3
+ Ana            | Vasquez          | av@gmail.com       | Edificio C, Laboratorio de Ciencias | Cerrada         | 2023-09-02 09:00:00 |              1
+ Libia          | Cols             | lc@gmail.com       | Edificio D, Biblioteca Central      | Abierta         | 2023-09-02 11:00:00 |              2
+ Ana            | Vasquez          | av@gmail.com       | Cancha Deportiva al aire libre      | Cancelada       | 2023-09-03 15:00:00 |              4
+ Libia          | Cols             | lc@gmail.com       | Edificio E, Sala de Reuniones 201   | Abierta         | 2023-09-03 08:00:00 |              2
+(6 filas)
+
+
+bd_profesor_20250825=#
 
