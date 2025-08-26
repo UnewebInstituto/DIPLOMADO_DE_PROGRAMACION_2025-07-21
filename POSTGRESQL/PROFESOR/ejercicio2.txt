@@ -1,0 +1,7 @@
+Sistema de Gestión de Transporte Público. Se requiere gestionar:
+-	Autobuses. Marca, modelo, año, color.
+-	Datos del chofer del autobús: nombre, edad, número de cédula, número de licencia.
+-	Un autobús opera en varias rutas, y una ruta puede ser recorrida por distintos autobuses.
+-	Una parada puede pertenecer a varias rutas.
+-	Un conductor puede manejar distintos autobuses en diferentes turnos.
+-	Un turno tiene un nombre, hora de inicio y hora de finalización

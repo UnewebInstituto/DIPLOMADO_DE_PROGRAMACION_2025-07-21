@@ -1,0 +1,6 @@
+a.	 Red Social para Profesionales. Se requiere gestionar:
+-	Información de usuario personal, de contacto y para la identificación y acceso a la red social
+-	Habilidades de los profesionales, un usuario puede tener múltiples habilidades
+-	Experiencia laboral: tomar en cuenta nombre de la empresa, cargo desempeñado y fechas de inicio y fin de la relación laboral. El profesional puede tener mucha o ninguna experiencia laboral.
+-	Un usuario puede tener múltiples habilidades y experiencias en diferentes empresas.
+-	Contactos, un usuario puede tener múltiples contactos, los contactos son usuarios de la red social

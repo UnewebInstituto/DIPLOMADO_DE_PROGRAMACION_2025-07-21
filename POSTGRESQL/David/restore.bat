@@ -1,0 +1,1 @@
+"C:\Program Files\PostgreSQL\17\bin\psql" -h localhost -U postgres -d bd1_david_20250825 -W -f "Respaldos/backup_bd_David_20250825.sql"

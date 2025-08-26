@@ -156,3 +156,6 @@ select usuarios.nombre as nombre_usuario,
          where reservas_usuarios_espacios.usuario_id = usuarios.id  
             and reservas_usuarios_espacios.espacio_id = espacios.id
             and reservas_usuarios_espacios.reserva_estatus_id = reserva_estatus.id;
+
+
+
