@@ -1,0 +1,84 @@
+ESTRUCTURAS DE DATOS A DEFINIRSE EN POSTGRESQL
+
+Tipos de dato que incluyen arreglos
+
+
+Para crear un tipo de dato propio en PostgreSQL, usas el comando `CREATE TYPE`. Esta funcionalidad te permite definir un nuevo tipo de dato basándote en otros tipos existentes.
+
+-----
+
+## Tipos de datos personalizados en PostgreSQL
+
+PostgreSQL te ofrece dos formas principales de crear tipos de datos personalizados:
+
+1.  **Tipos compuestos (`COMPOSITE TYPE`)**: Estos son los más comunes y sencillos de crear. Un tipo compuesto es esencialmente una estructura o un **registro** que agrupa varios campos, cada uno con su propio tipo de dato. Es similar a una **`struct`** en C o a una **clase** simple en lenguajes de programación orientados a objetos. Son útiles para representar objetos del mundo real como una dirección, un punto geográfico, o un producto.
+
+2.  **Tipos base (`BASE TYPE`)**: Estos son mucho más complejos y requieren conocimientos avanzados de programación en lenguajes como C. Un tipo base define un nuevo tipo primitivo desde cero. Necesitas crear funciones de entrada y salida para convertir los datos del formato de texto al formato binario interno de PostgreSQL, y opcionalmente, funciones para operaciones como la comparación, el ordenamiento y los operadores.
+
+-----
+
+## Creación de un tipo compuesto
+
+La sintaxis para crear un tipo compuesto es muy clara y directa:
+
+```sql
+CREATE TYPE nombre_tipo AS (
+    campo1 tipo_dato1,
+    campo2 tipo_dato2,
+    ...
+);
+```
+
+### Ejemplo
+
+Imagina que quieres almacenar información de **direcciones** de manera estructurada en tu base de datos. En lugar de tener múltiples columnas (`calle`, `ciudad`, `codigo_postal`) en varias tablas, puedes crear un único tipo de dato `direccion`.
+
+1.  **Crea el tipo de dato `direccion`**:
+
+    ```sql
+    CREATE TYPE direccion AS (
+        calle VARCHAR(100),
+        ciudad VARCHAR(50),
+        codigo_postal VARCHAR(10)
+    );
+    ```
+
+2.  **Usa el nuevo tipo de dato en una tabla**:
+    Ahora, puedes crear una tabla de **usuarios** y usar el tipo `direccion` para la columna `domicilio`.
+
+    ```sql
+    CREATE TABLE usuarios (
+        id SERIAL PRIMARY KEY,
+        nombre VARCHAR(100),
+        domicilio direccion
+    );
+    ```
+
+3.  **Inserta datos en la tabla**:
+    Para insertar un valor en el campo `domicilio`, necesitas usar la sintaxis de **fila** o **registro** de PostgreSQL, que se especifica entre paréntesis `()`.
+
+    ```sql
+    INSERT INTO usuarios (nombre, domicilio)
+    VALUES ('Juan Pérez', ROW('Calle Falsa 123', 'Springfield', '12345'));
+    ```
+
+    También puedes usar el constructor de tipos `(campo1, campo2, ...)` que te permite ingresar los valores sin la necesidad de la palabra clave `ROW`.
+
+    ```sql
+    INSERT INTO usuarios (nombre, domicilio)
+    VALUES ('Ana Gómez', ('Avenida Siempreviva 742', 'Springfield', '54321'));
+    ```
+
+4.  **Consulta los datos**:
+    Puedes seleccionar el campo completo o acceder a un campo específico dentro del tipo de dato `direccion` usando la notación de punto (`.`):
+
+    ```sql
+    -- Selecciona el campo completo
+    SELECT domicilio FROM usuarios WHERE nombre = 'Juan Pérez';
+    -- Selecciona solo la calle
+    SELECT (domicilio).calle FROM usuarios WHERE nombre = 'Juan Pérez';
+    ```
+
+Este método es muy eficiente para agrupar datos relacionados y mantener tu esquema de base de datos más limpio y organizado.
+
+
