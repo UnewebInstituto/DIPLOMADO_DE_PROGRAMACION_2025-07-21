@@ -1,0 +1,94 @@
+-- Table: empleos.usuarios
+
+DROP TABLE IF EXISTS empleos.usuarios;
+
+create sequence empleos.usuarios_usuario_id_seq;
+
+CREATE TABLE IF NOT EXISTS empleos.usuarios
+(
+    usuario_id integer NOT NULL DEFAULT nextval('empleos.usuarios_usuario_id_seq'::regclass),
+    nombre character varying(100) COLLATE pg_catalog."default" NOT NULL,
+    apellido character varying(100) COLLATE pg_catalog."default" NOT NULL,
+    correo_electronico character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    password_hash character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    fecha_registro timestamp with time zone DEFAULT CURRENT_TIMESTAMP,
+    telefono character varying(50) COLLATE pg_catalog."default",
+    direccion text COLLATE pg_catalog."default",
+    CONSTRAINT usuarios_pkey PRIMARY KEY (usuario_id),
+    CONSTRAINT uk_correo_electronico UNIQUE (correo_electronico)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS empleos.usuarios
+    OWNER to postgres;
+
+
+-- Table: empleos.experiencia_laboral
+
+create sequence empleos.experiencia_laboral_experiencia_id_seq;
+
+DROP TABLE IF EXISTS empleos.experiencia_laboral;
+
+CREATE TABLE IF NOT EXISTS empleos.experiencia_laboral
+(
+    experiencia_id integer NOT NULL DEFAULT nextval('empleos.experiencia_laboral_experiencia_id_seq'::regclass),
+    usuario_id integer NOT NULL,
+    nombre_empresa character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    cargo character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    fecha_inicio date NOT NULL,
+    fecha_fin date,
+    descripcion text COLLATE pg_catalog."default",
+    CONSTRAINT experiencia_laboral_pkey PRIMARY KEY (experiencia_id),
+    CONSTRAINT fk_usuario_id FOREIGN KEY (usuario_id)
+        REFERENCES empleos.usuarios (usuario_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE CASCADE
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS empleos.experiencia_laboral
+    OWNER to postgres;
+
+COMMENT ON CONSTRAINT fk_usuario_id ON empleos.experiencia_laboral
+    IS 'Asociación entre Usuarios y Experiencia laboral';
+
+
+
+--- DATOS DE PRUEBA ---
+
+-- Datos de usuarios
+INSERT INTO usuarios (usuario_id, nombre, apellido, correo_electronico, password_hash) VALUES
+(1, 'Ana', 'García', 'ana.garcia@email.com', 'hash123'),
+(2, 'Juan', 'Pérez', 'juan.perez@email.com', 'hash456'),
+(3, 'María', 'López', 'maria.lopez@email.com', 'hash789');
+
+-- Datos de habilidades
+INSERT INTO habilidades (habilidad_id, nombre_habilidad) VALUES
+(1, 'PostgreSQL'),
+(2, 'Python'),
+(3, 'Data Analysis'),
+(4, 'Project Management');
+
+-- Datos de unión de usuarios y habilidades
+INSERT INTO usuario_habilidades (usuario_id, habilidad_id) VALUES
+(1, 1),
+(1, 3),
+(2, 2),
+(2, 3),
+(3, 4);
+
+-- Datos de experiencia laboral
+INSERT INTO experiencia_laboral (usuario_id, nombre_empresa, cargo, fecha_inicio, fecha_fin) VALUES
+(1, 'Tech Solutions', 'Database Administrator', '2020-01-15', '2023-05-30'),
+(1, 'Data Corp', 'Data Analyst', '2023-06-01', NULL), -- Experiencia actual
+(2, 'Dev Innova', 'Software Developer', '2018-03-10', '2022-12-20'),
+(3, 'Global Projects', 'Project Manager', '2019-07-01', NULL);
+
+-- Datos de contactos
+INSERT INTO contactos (usuario_principal_id, usuario_contacto_id) VALUES
+(1, 2),
+(1, 3),
+(2, 1);
+
