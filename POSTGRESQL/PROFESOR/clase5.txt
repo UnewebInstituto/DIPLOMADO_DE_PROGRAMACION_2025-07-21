@@ -1,0 +1,37 @@
+ SELECT distinct proveedor AS proveedor,
+    min(a.precio) as "Precio mínimo",
+	max(a.precio) as "Precio máximo",
+	avg(a.precio) as "Precio promedio",
+    sum(a.cantidad) as "Cantidad total"
+   FROM electrodomesticos.vista_proveedores_productos as a
+   group by proveedor;
+
+    SELECT distinct producto AS producto,
+    min(a.precio) as "Precio mínimo",
+	max(a.precio) as "Precio máximo",
+	avg(a.precio) as "Precio promedio",
+    sum(a.cantidad) as "Cantidad total"
+   FROM electrodomesticos.vista_proveedores_productos as a
+   group by producto;
+
+   
+1- Instalar Python https://www.python.org/
+
+2- Instalar entorno virtual
+2.1) Versión de Python superior a la 3.3
+    python --version 
+
+                  +--- nombre del entorno virtual
+                  |
+                  v
+2.2) py -m venv .venv
+
+2.3) Activar el entorno virtual:
+.venv\scripts\activate #Activar
+.venv\scripts\deactivate #Desactivar
+
+3-) Instalar dependencia para acceder a Postgresql
+Desde el entorno virtual se accede al pip (python install package)
+pip install psycopg2
+
+

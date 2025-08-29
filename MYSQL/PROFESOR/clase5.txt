@@ -24,3 +24,4 @@ MD5 (Message-Digest Algorithm 5) es un algoritmo de **hashing criptográfico** q
  En resumen, aunque MD5 es útil para la **verificación de la integridad** de archivos no críticos, no debe utilizarse para la protección de datos sensibles, como contraseñas o firmas digitales, debido a sus debilidades criptográficas.
 
 
+
